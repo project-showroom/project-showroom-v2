@@ -16,6 +16,16 @@ npm run dev
 yarn dev
 ```
 
+### **Packages used:**
+
+**Next.js:** https://nextjs.org/docs/basic-features/typescript
+**MUI:** https://mui.com/material-ui/getting-started/installation/
+**Material Design Icons:** https://docs.iconify.design/icons/json.html || https://icones.js.org/collection/mdi
+
+**Formik:** https://formik.org/docs/overview => `Formik is a small library that helps you with the 3 most annoying parts: Getting values in and out of form state Validation and error messages Handling form submission By colocating all of the above in one place, Formik will keep things organized--making testing, refactoring, and reasoning about your forms a breeze`
+**Axios:** https://axios-http.com/docs/intro => `Axios is a promise-based HTTP Client for node.js and the browser. It is isomorphic (= it can run in the browser and nodejs with the same codebase). On the server-side it uses the native node.js http module, while on the client (browser) it uses XMLHttpRequests.`
+**SWR:** https://swr.vercel.app/docs/data-fetching => `The name “SWR” is derived from stale-while-revalidate, a HTTP cache invalidation strategy popularized by HTTP RFC 5861. SWR is a strategy to first return the data from cache (stale), then send the fetch request (revalidate), and finally come with the up-to-date data.`
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
