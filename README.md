@@ -19,7 +19,9 @@ yarn dev
 ### **Packages used:**
 
 **Next.js:** https://nextjs.org/docs/basic-features/typescript
+
 **MUI:** https://mui.com/material-ui/getting-started/installation/
+
 **Material Design Icons:** https://docs.iconify.design/icons/json.html || https://icones.js.org/collection/mdi
 
 **Formik:** https://formik.org/docs/overview => `Formik is a small library that helps you with the 3 most annoying parts: Getting values in and out of form state Validation and error messages Handling form submission By colocating all of the above in one place, Formik will keep things organized--making testing, refactoring, and reasoning about your forms a breeze`
