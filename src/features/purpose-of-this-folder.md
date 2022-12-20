@@ -9,4 +9,4 @@ This folder is used for feature specific components, hooks, contexts, etc.
   - hooks
   - contexts
   - utils
-  - index.ts
+  - index.ts // export all of the above
