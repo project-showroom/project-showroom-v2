@@ -1,6 +1,18 @@
 import Head from "next/head";
+import { useDispatch, useSelector } from "react-redux";
+import { Copyright } from "../features/footer-feature";
+import { iconAction } from "../store/icon-slice";
 
 export default function Home() {
+  const dispatcher = useDispatch();
+
+  let icon = useSelector((state: { icon: { icon: string } }) => state.icon);
+
+  const onChangeTheme = () => {
+    if (icon.icon === "moon") dispatcher(iconAction.iconSun());
+    else dispatcher(iconAction.iconMoon());
+  };
+
   return (
     <>
       <Head>
@@ -9,9 +21,15 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="bg-red-300 text-3xl font-bold underline">
+      <main className="bg-blue-300 text-3xl font-bold underline h-screen flex">
         Hello Tailwind
-      </div>
+        <button onClick={onChangeTheme}>Change Theme</button>
+        <b>You selected: </b>
+        <i>{icon.icon}</i>
+      </main>
+      <footer>
+        <Copyright />
+      </footer>
     </>
   );
 }
