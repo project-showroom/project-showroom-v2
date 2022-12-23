@@ -30,6 +30,10 @@ yarn dev
 
 **SWR:** https://swr.vercel.app/docs/data-fetching => `The name “SWR” is derived from stale-while-revalidate, a HTTP cache invalidation strategy popularized by HTTP RFC 5861. SWR is a strategy to first return the data from cache (stale), then send the fetch request (revalidate), and finally come with the up-to-date data.`
 
+**TailwindCSS:** https://tailwindcss.com/docs/guides/nextjs => `Tailwind CSS is a utility-first CSS framework for rapidly building custom user interfaces. It’s completely customizable, but the default configuration is designed to provide a good starting point for most projects.`
+
+**ClassNames:** https://www.npmjs.com/package/classnames => `A simple JavaScript utility for conditionally joining classNames together.`
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.

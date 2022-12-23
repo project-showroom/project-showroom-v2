@@ -1,13 +1,14 @@
 import { useId } from "react";
+import classNames from "classnames";
 
 const COMPONENT_NAME = "Copyright";
-const Copyright = (props: {}) => {
+const Copyright = (props: { className?: string }) => {
   const id = useId() + "-" + COMPONENT_NAME;
 
-  const { ...rest } = props;
+  const { className, ...rest } = props;
 
   return (
-    <div id={id} {...rest}>
+    <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
       {COMPONENT_NAME}
     </div>
   );
