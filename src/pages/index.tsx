@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useDispatch, useSelector } from "react-redux";
 import { Copyright } from "../features/footer-feature";
 import { iconAction } from "../store/icon-slice";
+import classNames from "classnames";
 
 export default function Home() {
   const dispatcher = useDispatch();
@@ -21,10 +22,20 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="bg-blue-300 text-3xl font-bold underline h-screen flex">
+      <main
+        className={classNames(
+          "justify-center text-3xl font-bold underline h-screen flex",
+          {
+            "bg-blue-500 text-slate-50": icon.icon === "moon",
+          },
+          {
+            "bg-slate-50 text-blue-500": icon.icon === "sun",
+          }
+        )}
+      >
         Hello Tailwind
         <button onClick={onChangeTheme}>Change Theme</button>
-        <b>You selected: </b>
+        <b>You selected (Redux-Toolkit): </b>
         <i>{icon.icon}</i>
       </main>
       <footer>
