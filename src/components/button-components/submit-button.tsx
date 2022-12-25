@@ -13,7 +13,11 @@ const SubmitButton = (props: BaseButtonType) => {
     <SubmitTypeButton
       id={id}
       {...rest}
-      className={classNames(className, COMPONENT_NAME)}
+      className={classNames(
+        className,
+        "bg-green", // All submit buttons will have this class
+        COMPONENT_NAME
+      )}
     >
       Submit
     </SubmitTypeButton>
