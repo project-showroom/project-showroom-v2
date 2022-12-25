@@ -7,6 +7,6 @@ This folder is used for feature specific components, hooks, contexts, etc.
 - fantastic-feature
   - components
   - hooks
-  - contexts
   - utils
+  - types
   - index.ts // export all of the above
