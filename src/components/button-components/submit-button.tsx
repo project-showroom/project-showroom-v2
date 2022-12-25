@@ -1,10 +1,10 @@
 import { useId } from "react";
 import classNames from "classnames";
 import { SubmitTypeButton } from "../button-elements";
-import { SubmitButtonType } from "../../types/element-types/button-elements-types";
+import { ISubmitButtonType } from "../../types/element-types/button-elements-types";
 
 const COMPONENT_NAME = "SubmitButton";
-const SubmitButton = (props: SubmitButtonType) => {
+const SubmitButton = (props: ISubmitButtonType) => {
   const id = useId() + "-" + COMPONENT_NAME;
 
   const { className, ...rest } = props;

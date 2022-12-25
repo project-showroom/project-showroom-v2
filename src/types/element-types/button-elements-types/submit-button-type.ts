@@ -1,5 +1,5 @@
-import { BaseButtonType } from "./index";
+import { IBaseButtonType } from "./index";
 
-export interface SubmitButtonType extends BaseButtonType {
+export interface ISubmitButtonType extends IBaseButtonType {
   submitCounter?: number;
 }

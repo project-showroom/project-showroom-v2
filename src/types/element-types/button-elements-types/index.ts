@@ -1,4 +1,4 @@
-import { BaseButtonType } from "./base-button-type";
-import { SubmitButtonType } from "./submit-button-type";
+import { IBaseButtonType } from "./base-button-type";
+import { ISubmitButtonType } from "./submit-button-type";
 
-export type { BaseButtonType, SubmitButtonType };
+export type { IBaseButtonType, ISubmitButtonType };
