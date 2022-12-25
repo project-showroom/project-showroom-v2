@@ -1,9 +1,11 @@
 import { useId } from "react";
 import classNames from "classnames";
 import { Button } from "@mui/material";
+import { BaseButtonType } from "../../types/element-types/button-elements-types";
 
 const COMPONENT_NAME = "BaseButton";
-const BaseButton = (props: { className?: string }) => {
+
+const BaseButton = (props: BaseButtonType) => {
   const id = useId() + "-" + COMPONENT_NAME;
 
   const { className, ...rest } = props;
