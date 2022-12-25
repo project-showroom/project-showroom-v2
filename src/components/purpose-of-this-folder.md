@@ -1,6 +1,6 @@
 # Components Folder
 
-This folder is used for storing components that are used in the app. This includes images, fonts, and other files.
+This folder is used for storing components that are used in the app.
 
 ## Example Usage
 
