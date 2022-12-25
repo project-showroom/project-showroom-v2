@@ -15,4 +15,4 @@ This folder is used for storing components that are used in the app.
   - base-button.tsx
   - submit-type-button.tsx
 
-### ElementName-elements folder is used for storing customized components (ex. Effects every ElementName component in the app, font-size, background-color, etc.) that are used in the app.
+### ElementName-elements folder is used for storing customized components (ex. Effects every ElementName component in the app, font-size, background-color, etc.) that are used in the app. They are based components!
