@@ -1,9 +1,10 @@
-import Head from "next/head";
-import { useDispatch, useSelector } from "react-redux";
-import { Copyright } from "../features/footer-feature";
-import { iconAction } from "../store/icon-slice";
-import classNames from "classnames";
-import { SubmitButton } from "../components/button-components";
+import classNames from 'classnames';
+import Head from 'next/head';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { SubmitButton } from '../components/button-components';
+import { Copyright } from '../features/footer-feature';
+import { iconAction } from '../store/icon-slice';
 
 export default function Home() {
   const dispatcher = useDispatch();
@@ -11,16 +12,16 @@ export default function Home() {
   let icon = useSelector((state: { icon: { icon: string } }) => state.icon);
 
   const onChangeTheme = () => {
-    if (icon.icon === "moon") dispatcher(iconAction.iconSun());
+    if (icon.icon === 'moon') dispatcher(iconAction.iconSun());
     else dispatcher(iconAction.iconMoon());
   };
 
   const moonClassNames = {
-    "bg-gray-800 text-slate-50": icon.icon === "moon",
+    'bg-gray-800 text-slate-50': icon.icon === 'moon',
   };
 
   const sunClassNames = {
-    "bg-slate-50 text-gray-800": icon.icon === "sun",
+    'bg-slate-50 text-gray-800': icon.icon === 'sun',
   };
 
   return (
@@ -33,9 +34,9 @@ export default function Home() {
       </Head>
       <main
         className={classNames(
-          "justify-center text-3xl font-bold underline h-screen flex",
+          'justify-center text-3xl font-bold underline h-screen flex',
           moonClassNames,
-          sunClassNames
+          sunClassNames,
         )}
       >
         Hello Tailwind
