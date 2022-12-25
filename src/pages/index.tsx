@@ -1,28 +1,23 @@
 import classNames from 'classnames';
 import Head from 'next/head';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import { SubmitButton } from '../components/button-components';
-import { Copyright } from '../features/footer-feature';
-import { iconAction } from '../store/icon-slice';
-
+import { FooterFeature } from '../features/footer-feature/footer-feature';
+import { MainFeature } from '../features/main-feature/main-feature';
 export default function Home() {
-  const dispatcher = useDispatch();
-
   let icon = useSelector((state: { icon: { icon: string } }) => state.icon);
-
-  const onChangeTheme = () => {
-    if (icon.icon === 'moon') dispatcher(iconAction.iconSun());
-    else dispatcher(iconAction.iconMoon());
-  };
 
   const moonClassNames = {
     'bg-gray-800 text-slate-50': icon.icon === 'moon',
   };
-
   const sunClassNames = {
     'bg-slate-50 text-gray-800': icon.icon === 'sun',
   };
+  const mainClassNames = classNames(
+    'justify-center text-3xl font-bold underline h-screen flex',
+    moonClassNames,
+    sunClassNames,
+  );
 
   return (
     <>
@@ -32,24 +27,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main
-        className={classNames(
-          'justify-center text-3xl font-bold underline h-screen flex',
-          moonClassNames,
-          sunClassNames,
-        )}
-      >
-        Hello Tailwind
-        <button onClick={onChangeTheme}>Change Theme</button>
-        <b>You selected (Redux-Toolkit): </b>
-        <i>{icon.icon}</i>
-        <div id="button-test">
-          <SubmitButton />
-          <SubmitButton submitCounter={47} />
-        </div>
+      <main className={mainClassNames}>
+        <MainFeature />
       </main>
-      <footer>
-        <Copyright />
+      <footer className="flex justify-center">
+        <FooterFeature />
       </footer>
     </>
   );

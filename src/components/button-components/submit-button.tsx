@@ -1,13 +1,15 @@
-import { useId } from "react";
-import classNames from "classnames";
-import { SubmitTypeButton } from "../button-elements";
-import { ISubmitButtonType } from "../../types/element-types/button-elements-types";
+import { useId } from 'react';
 
-const COMPONENT_NAME = "SubmitButton";
+import classNames from 'classnames';
+
+import { ISubmitButtonType } from '../../types/element-types/button-elements-types';
+import { SubmitTypeButton } from '../button-elements';
+
+const COMPONENT_NAME = 'SubmitButton';
 const SubmitButton = (props: ISubmitButtonType) => {
-  const id = useId() + "-" + COMPONENT_NAME;
+  const id = useId() + '-' + COMPONENT_NAME;
 
-  const { className, ...rest } = props;
+  const { className, submitCounter, ...rest } = props;
 
   return (
     <SubmitTypeButton
@@ -15,11 +17,11 @@ const SubmitButton = (props: ISubmitButtonType) => {
       {...rest}
       className={classNames(
         className,
-        "bg-green", // All submit buttons will have this class
-        COMPONENT_NAME
+        'bg-green', // All submit buttons will have this class
+        COMPONENT_NAME,
       )}
     >
-      Submit {props.submitCounter ? `+ ${props.submitCounter}` : ""}
+      Submit {submitCounter ? `+ ${submitCounter}` : ''}
     </SubmitTypeButton>
   );
 };
