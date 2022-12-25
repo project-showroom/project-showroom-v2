@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Copyright } from "../features/footer-feature";
 import { iconAction } from "../store/icon-slice";
 import classNames from "classnames";
+import { SubmitButton } from "../components/button-components";
 
 export default function Home() {
   const dispatcher = useDispatch();
@@ -26,10 +27,10 @@ export default function Home() {
         className={classNames(
           "justify-center text-3xl font-bold underline h-screen flex",
           {
-            "bg-blue-500 text-slate-50": icon.icon === "moon",
+            "bg-gray-800 text-slate-50": icon.icon === "moon",
           },
           {
-            "bg-slate-50 text-blue-500": icon.icon === "sun",
+            "bg-slate-50 text-gray-800": icon.icon === "sun",
           }
         )}
       >
@@ -37,6 +38,10 @@ export default function Home() {
         <button onClick={onChangeTheme}>Change Theme</button>
         <b>You selected (Redux-Toolkit): </b>
         <i>{icon.icon}</i>
+        <div id="button-test">
+          <SubmitButton />
+          <SubmitButton submitCounter={47} />
+        </div>
       </main>
       <footer>
         <Copyright />

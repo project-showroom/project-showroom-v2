@@ -19,7 +19,7 @@ const SubmitButton = (props: SubmitButtonType) => {
         COMPONENT_NAME
       )}
     >
-      Submit {props.submitCounter ?? `+ ${props.submitCounter}`}
+      Submit {props.submitCounter ? `+ ${props.submitCounter}` : ""}
     </SubmitTypeButton>
   );
 };
