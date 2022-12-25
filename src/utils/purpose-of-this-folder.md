@@ -1,6 +1,6 @@
 # Utils Folder
 
-This folder is used for storing utility functions that are used in the app. They are usually pure javascript functions that are used in the app.
+This folder is used for storing utility functions that are used in the app. They are usually pure typescript functions that are used in the app.
 
 ## Example Usage
 
