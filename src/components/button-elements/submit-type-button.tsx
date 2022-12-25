@@ -1,11 +1,13 @@
-import { useId } from "react";
-import classNames from "classnames";
-import { BaseButton } from "./base-button";
-import { IBaseButtonType } from "../../types/element-types/button-elements-types";
+import { useId } from 'react';
 
-const COMPONENT_NAME = "SubmitTypeButton";
+import classNames from 'classnames';
+
+import { IBaseButtonType } from '../../types/element-types/button-elements-types';
+import { BaseButton } from './base-button';
+
+const COMPONENT_NAME = 'SubmitTypeButton';
 const SubmitTypeButton = (props: IBaseButtonType) => {
-  const id = useId() + "-" + COMPONENT_NAME;
+  const id = useId() + '-' + COMPONENT_NAME;
 
   const { className, ...rest } = props;
 

@@ -1,9 +1,10 @@
-import { useId } from "react";
-import classNames from "classnames";
+import { useId } from 'react';
 
-const COMPONENT_NAME = "Copyright";
+import classNames from 'classnames';
+
+const COMPONENT_NAME = 'Copyright';
 const Copyright = (props: { className?: string }) => {
-  const id = useId() + "-" + COMPONENT_NAME;
+  const id = useId() + '-' + COMPONENT_NAME;
 
   const { className, ...rest } = props;
 
