@@ -14,6 +14,7 @@ const BaseButton = (props: BaseButtonType) => {
     <Button
       id={id}
       {...rest}
+      // aria-label={id + " " + rest["aria-label"]}
       className={classNames(className, COMPONENT_NAME)}
     ></Button>
   );
