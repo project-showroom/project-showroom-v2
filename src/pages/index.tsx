@@ -15,6 +15,14 @@ export default function Home() {
     else dispatcher(iconAction.iconMoon());
   };
 
+  const moonClassNames = {
+    "bg-gray-800 text-slate-50": icon.icon === "moon",
+  };
+
+  const sunClassNames = {
+    "bg-slate-50 text-gray-800": icon.icon === "sun",
+  };
+
   return (
     <>
       <Head>
@@ -26,12 +34,8 @@ export default function Home() {
       <main
         className={classNames(
           "justify-center text-3xl font-bold underline h-screen flex",
-          {
-            "bg-gray-800 text-slate-50": icon.icon === "moon",
-          },
-          {
-            "bg-slate-50 text-gray-800": icon.icon === "sun",
-          }
+          moonClassNames,
+          sunClassNames
         )}
       >
         Hello Tailwind
