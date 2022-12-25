@@ -9,6 +9,8 @@ const SubmitTypeButton = (props: BaseButtonType) => {
 
   const { className, ...rest } = props;
 
+  // Server'a istek atmadan önce formun validasyonunu yapmak için
+
   return (
     <BaseButton
       id={id}
