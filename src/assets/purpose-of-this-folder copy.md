@@ -5,4 +5,6 @@ This folder is used for storing assets that are used in the app. This includes i
 ## Example Usage
 
 - images
-  - logo.svg
+  - logo.png
+- svgs
+  - user-icon.svg
