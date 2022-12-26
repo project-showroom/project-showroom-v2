@@ -1,22 +1,13 @@
 import classNames from 'classnames';
 import Head from 'next/head';
-import { useSelector } from 'react-redux';
 
 import { FooterFeature } from '../features/footer-feature/footer-feature';
+import { HeaderFeature } from '../features/header-feature/header-feature';
 import { MainFeature } from '../features/main-feature/main-feature';
 export default function Home() {
-  let icon = useSelector((state: { icon: { icon: string } }) => state.icon);
-
-  const moonClassNames = {
-    'bg-gray-800 text-slate-50': icon.icon === 'moon',
-  };
-  const sunClassNames = {
-    'bg-slate-50 text-gray-800': icon.icon === 'sun',
-  };
-  const mainClassNames = classNames(
-    'justify-center text-3xl font-bold underline h-screen flex',
-    moonClassNames,
-    sunClassNames,
+  const themeClassNames = classNames('dark:bg-gray-500 dark:text-white');
+  const headerClassNames = classNames(
+    'flex justify-between p-3 text-3xl font-bold underline bg-blue-600 text-white',
   );
 
   return (
@@ -27,9 +18,13 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={mainClassNames}>
+      <header className={headerClassNames}>
+        <HeaderFeature />
+      </header>
+      <main className={themeClassNames}>
         <MainFeature />
       </main>
+
       <footer className="flex justify-center">
         <FooterFeature />
       </footer>
