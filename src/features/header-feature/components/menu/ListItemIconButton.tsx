@@ -7,8 +7,8 @@ import LinkNext from 'next/link';
 
 interface ListItemIconButtonProps {
   className?: string;
-  url?: string;
-  onClick: () => void;
+  url: string;
+  onClick?: () => void;
   text: string;
   ListIcon: React.FC;
 }
@@ -18,8 +18,8 @@ const ListItemIconButton = (props: ListItemIconButtonProps) => {
   const id = useId() + '-' + COMPONENT_NAME;
   const { className, url, text, onClick, ListIcon, ...rest } = props;
 
-  if (url) {
-    return (
+  return (
+    <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
       <LinkNext href={url} passHref>
         <ListItem button onClick={onClick}>
           <ListItemIcon>
@@ -28,17 +28,6 @@ const ListItemIconButton = (props: ListItemIconButtonProps) => {
           {text}
         </ListItem>
       </LinkNext>
-    );
-  }
-
-  return (
-    <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
-      <ListItem onClick={onClick}>
-        <ListItemIcon>
-          <ListIcon />
-        </ListItemIcon>
-        {text}
-      </ListItem>
     </div>
   );
 };

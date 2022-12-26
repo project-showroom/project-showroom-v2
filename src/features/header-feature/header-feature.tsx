@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import {
   ThemeSwitch,
   HeaderTitle,
@@ -7,12 +9,17 @@ import {
 
 const COMPONENT_NAME = 'HeaderFeature';
 const HeaderFeature = () => {
+  const headerFeaturesClassNames = classNames(
+    'flex flex-auto justify-end w-6/12',
+  );
   return (
     <>
       <AppBarMenu />
       <HeaderTitle />
-      <LoginRegisterButton />
-      <ThemeSwitch />
+      <div className={headerFeaturesClassNames}>
+        <LoginRegisterButton />
+        <ThemeSwitch />
+      </div>
     </>
   );
 };

@@ -7,7 +7,7 @@ import { MainFeature } from '../features/main-feature/main-feature';
 export default function Home() {
   const themeClassNames = classNames('dark:bg-gray-500 dark:text-white');
   const headerClassNames = classNames(
-    'flex justify-between p-3 text-3xl font-bold underline bg-blue-600 text-white',
+    'flex p-3 text-3xl font-bold underline bg-blue-600 text-white',
   );
 
   return (

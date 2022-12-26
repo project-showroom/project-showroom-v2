@@ -9,8 +9,10 @@ const HeaderTitle = (props: { className?: string }) => {
 
   const { className, ...rest } = props;
 
+  const headerTitleClassNames = classNames('flex flex-auto justify-end w-7/12');
+
   return (
-    <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
+    <div id={id} {...rest} className={headerTitleClassNames}>
       <Link href="/">{COMPONENT_NAME}</Link>
     </div>
   );

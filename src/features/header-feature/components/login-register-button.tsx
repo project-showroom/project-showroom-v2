@@ -11,20 +11,17 @@ const COMPONENT_NAME = 'LoginRegisterButton';
 const LoginRegisterButton = (props: { className?: string }) => {
   const id = useId() + '-' + COMPONENT_NAME;
 
-  const { className, ...rest } = props;
+  const { ...rest } = props;
+
+  const headerLoginClassNames = classNames('mr-6');
 
   return (
-    <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
+    <div id={id} {...rest} className={headerLoginClassNames}>
       <Button href="/api/google" variant="contained">
         <LoginIcon />
         <Box />
         <Typography>Login / Register</Typography>
       </Button>
-      {/* <Button variant="contained">
-        <LogoutIcon />
-        <Box sx={{ margin: '0 4px' }} />
-        <Typography>Logout</Typography>
-      </Button> */}
     </div>
   );
 };
