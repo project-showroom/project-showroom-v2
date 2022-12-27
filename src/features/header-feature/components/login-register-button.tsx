@@ -13,14 +13,16 @@ const LoginRegisterButton = (props: { className?: string }) => {
 
   const { ...rest } = props;
 
-  const headerLoginClassNames = classNames('mr-6');
-
+  const headerLoginClassNames = classNames('flex text-sm mr-1');
+  const headerLoginTextClassNames = classNames('flex h-6 text-sm leading-3');
   return (
     <div id={id} {...rest} className={headerLoginClassNames}>
       <Button href="/api/google" variant="contained">
         <LoginIcon />
         <Box />
-        <Typography>Login / Register</Typography>
+        <Typography className={headerLoginTextClassNames}>
+          Login/Register
+        </Typography>
       </Button>
     </div>
   );

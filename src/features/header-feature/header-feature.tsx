@@ -9,14 +9,21 @@ import {
 
 const COMPONENT_NAME = 'HeaderFeature';
 const HeaderFeature = () => {
-  const headerFeaturesClassNames = classNames(
-    'flex flex-auto justify-end w-6/12',
+  const headerTitleMenuClassNames = classNames(
+    'flex items-center justify-center',
+  );
+  const headerRegisterThemeClassNames = classNames(
+    'flex items-center justify-end',
   );
   return (
+    // When user signIn, show MenuBar.
+    // When user signOut, show Login/Register button.
     <>
-      <AppBarMenu />
-      <HeaderTitle />
-      <div className={headerFeaturesClassNames}>
+      <div className={headerTitleMenuClassNames}>{/* <AppBarMenu /> */}</div>
+      <div className={headerTitleMenuClassNames}>
+        <HeaderTitle />
+      </div>
+      <div className={headerRegisterThemeClassNames}>
         <LoginRegisterButton />
         <ThemeSwitch />
       </div>

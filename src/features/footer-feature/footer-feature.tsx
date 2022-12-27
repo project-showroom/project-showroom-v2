@@ -1,10 +1,11 @@
-import { Copyright } from './index';
+import { Copyright, CopyrightExplanation } from './index';
 
 const COMPONENT_NAME = 'FooterFeature';
 const FooterFeature = () => {
   return (
     <>
       <Copyright />
+      <CopyrightExplanation />
     </>
   );
 };

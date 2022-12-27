@@ -7,7 +7,7 @@ import { MainFeature } from '../features/main-feature/main-feature';
 export default function Home() {
   const themeClassNames = classNames('dark:bg-gray-500 dark:text-white');
   const headerClassNames = classNames(
-    'flex p-3 text-3xl font-bold underline bg-blue-600 text-white',
+    'flex justify-between p-1 py-4 font-bold bg-blue-600 text-white',
   );
 
   return (
@@ -25,7 +25,7 @@ export default function Home() {
         <MainFeature />
       </main>
 
-      <footer className="flex justify-center">
+      <footer>
         <FooterFeature />
       </footer>
     </>

@@ -6,14 +6,21 @@ import Link from 'next/link';
 const COMPONENT_NAME = 'HeaderTitle';
 const HeaderTitle = (props: { className?: string }) => {
   const id = useId() + '-' + COMPONENT_NAME;
-
   const { className, ...rest } = props;
 
-  const headerTitleClassNames = classNames('flex flex-auto justify-end w-7/12');
+  const title = 'PROJECT GALLERY';
 
+  const headerTitleClassNames = classNames('flex');
+  const headerTitleLinkClassNames = classNames('text-sm no-underline');
   return (
+    // If user is not signed in, do not show the user name.
     <div id={id} {...rest} className={headerTitleClassNames}>
-      <Link href="/">{COMPONENT_NAME}</Link>
+      <Link href="/">
+        <h1 className={headerTitleLinkClassNames}>PROJECT GALLERY &nbsp;</h1>
+      </Link>
+      {/* <Link href="/">
+        <h1 className={headerTitleLinkClassNames}>| User Name</h1>
+      </Link> */}
     </div>
   );
 };
