@@ -17,6 +17,7 @@ const MainFeature = () => {
   return (
     <>
       Hello Tailwind
+      <p>deneme</p>
       <button onClick={onChangeTheme}>Change Theme</button>
       <b>You selected (Redux-Toolkit): </b>
       <i>{icon.icon}</i>

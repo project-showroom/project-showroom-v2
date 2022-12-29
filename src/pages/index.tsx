@@ -2,14 +2,10 @@ import classNames from 'classnames';
 import Head from 'next/head';
 
 import { FooterFeature } from '../features/footer-feature/footer-feature';
-import { HeaderFeature } from '../features/header-feature/header-feature';
 import { MainFeature } from '../features/main-feature/main-feature';
 export default function Home() {
-  const themeClassNames = classNames('dark:bg-gray-500 dark:text-white');
-  const headerClassNames = classNames(
-    'flex justify-between p-1 py-4 font-bold bg-blue-600 text-white',
-  );
-
+  const mainClassNames = classNames('dark:bg-gray-500');
+  const footerClassNames = classNames('dark:bg-gray-500');
   return (
     <>
       <Head>
@@ -18,14 +14,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className={headerClassNames}>
-        <HeaderFeature />
-      </header>
-      <main className={themeClassNames}>
+      <main className={mainClassNames}>
         <MainFeature />
       </main>
-
-      <footer>
+      <footer className={footerClassNames}>
         <FooterFeature />
       </footer>
     </>

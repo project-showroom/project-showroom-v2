@@ -6,7 +6,7 @@ import Link from 'next/link';
 const COMPONENT_NAME = 'HeaderTitle';
 const HeaderTitle = (props: { className?: string }) => {
   const id = useId() + '-' + COMPONENT_NAME;
-  const { className, ...rest } = props;
+  const { ...rest } = props;
 
   const title = 'PROJECT GALLERY';
 
@@ -16,7 +16,7 @@ const HeaderTitle = (props: { className?: string }) => {
     // If user is not signed in, do not show the user name.
     <div id={id} {...rest} className={headerTitleClassNames}>
       <Link href="/">
-        <h1 className={headerTitleLinkClassNames}>PROJECT GALLERY &nbsp;</h1>
+        <h1 className={headerTitleLinkClassNames}>{title} &nbsp;</h1>
       </Link>
       {/* <Link href="/">
         <h1 className={headerTitleLinkClassNames}>| User Name</h1>

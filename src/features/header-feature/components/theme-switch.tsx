@@ -14,10 +14,9 @@ const ThemeSwitch = (props: { className?: string }) => {
   const { className, ...rest } = props;
   const { theme, setTheme } = useTheme();
 
-  const themeSwitchClassnames = classNames('flex justify-end flex-auto');
   return (
     <>
-      <div id={id} {...rest} className={className}>
+      <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
         <Box>
           <IconButton
             sx={{ ml: 1 }}

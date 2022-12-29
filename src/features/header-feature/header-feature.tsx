@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import {
   ThemeSwitch,
   HeaderTitle,
-  LoginRegisterButton,
+  // LoginRegisterButton,
   AppBarMenu,
 } from './index';
 
@@ -19,12 +19,14 @@ const HeaderFeature = () => {
     // When user signIn, show MenuBar.
     // When user signOut, show Login/Register button.
     <>
-      <div className={headerTitleMenuClassNames}>{/* <AppBarMenu /> */}</div>
+      <div className={headerTitleMenuClassNames}>
+        <AppBarMenu />
+      </div>
       <div className={headerTitleMenuClassNames}>
         <HeaderTitle />
       </div>
       <div className={headerRegisterThemeClassNames}>
-        <LoginRegisterButton />
+        {/* <LoginRegisterButton /> */}
         <ThemeSwitch />
       </div>
     </>

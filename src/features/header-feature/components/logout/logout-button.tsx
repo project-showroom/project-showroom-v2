@@ -1,27 +1,26 @@
 import { useId } from 'react';
 
-import ListItem from '@material-ui/core/ListItem';
-import Typography from '@material-ui/core/Typography';
 import LogoutIcon from '@mui/icons-material/Logout';
 import classNames from 'classnames';
-import LinkNext from 'next/link';
 
-import { ListItemIconButton } from '../menu/ListItemIconButton';
+import { ListItemIconButton } from '../../index';
 
 const COMPONENT_NAME = 'LogoutButton';
 const LogoutButton = (props: { className?: string }) => {
   const id = useId() + '-' + COMPONENT_NAME;
-
   const { className, ...rest } = props;
 
-  const logoutClassNames = classNames('');
+  const onClickLogout = () => {
+    console.log('clicked to signout');
+  };
 
   return (
     <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
       <ListItemIconButton
-        url={'/logout'}
+        url={'/'}
         text={'Logout'}
         ListIcon={LogoutIcon}
+        onClickLogout={onClickLogout}
       />
     </div>
   );

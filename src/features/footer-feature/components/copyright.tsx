@@ -17,23 +17,13 @@ const Copyright = (props: { className?: string }) => {
     <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
       <Divider />
       <div>
-        <Typography
-          variant="h6"
-          align="center"
-          color="textPrimary"
-          gutterBottom
-        >
+        <Typography variant="h6" align="center" gutterBottom>
           <Link href="https://project-showroom.vercel.app/">
             PROJECT GALLERY | {copyrightWhoHas}
           </Link>
         </Typography>
         <div />
-        <Typography
-          variant="h5"
-          align="center"
-          color="textSecondary"
-          component="p"
-        >
+        <Typography variant="h5" align="center" component="p">
           Made with <FavoriteIcon fontSize={'small'} htmlColor="red" /> in
           Turkey
         </Typography>

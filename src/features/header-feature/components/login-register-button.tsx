@@ -21,7 +21,7 @@ const LoginRegisterButton = (props: { className?: string }) => {
         <LoginIcon />
         <Box />
         <Typography className={headerLoginTextClassNames}>
-          Login/Register
+          Sign In / Up
         </Typography>
       </Button>
     </div>

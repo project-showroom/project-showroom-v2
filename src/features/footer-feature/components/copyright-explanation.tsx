@@ -12,7 +12,7 @@ const CopyrightExplanation = (props: { className?: string }) => {
 
   return (
     <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
-      <Typography variant="h6" align="center" color="textPrimary" gutterBottom>
+      <Typography variant="h6" align="center" gutterBottom>
         <div>
           Copyright © by{' '}
           <Link
