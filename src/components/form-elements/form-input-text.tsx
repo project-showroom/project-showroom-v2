@@ -1,6 +1,6 @@
 import { useId } from 'react';
 
-import TextField from '@material-ui/core/TextField';
+import TextField from '@mui/material/TextField';
 import classNames from 'classnames';
 import { Field } from 'formik';
 
@@ -11,7 +11,7 @@ interface TextFieldProps {
   label?: string;
   placeholder?: string;
   required?: boolean;
-  variant?: string;
+  variant?: 'standard' | 'filled' | 'outlined';
   multiline?: boolean;
   defaultValue?: string;
   helperText?: string;
@@ -31,7 +31,7 @@ const FormInputText = (props: TextFieldProps) => {
       <Field name={name}>
         {({ field, meta }: any) => (
           <>
-            <TextField fullWidth {...field} {...rest} />
+            <TextField variant="standard" fullWidth {...field} {...rest} />
             {meta.touched && meta.error && (
               <div className="error">{meta.error}</div>
             )}

@@ -1,8 +1,9 @@
 import { useId, useState } from 'react';
 
-import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
-import Send from '@material-ui/icons/Send';
+import SendIcon from '@mui/icons-material/Send';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
 import classNames from 'classnames';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
@@ -44,9 +45,12 @@ const AddProjectForm = (props: { className?: string }) => {
     rightButtonUrl: yup.string().required('Required'),
   });
 
-  const buttonClassNames = classNames('flex justify-center md:justify-end');
+  const boxClassNames = classNames(
+    'flex items-center bg-blue-500 w-max rounded md:absolute md:right-4 ',
+  );
   const spaceClassNames = classNames('flex flex-col h-full p-4 mt-2');
   const leftRightButtonClassNames = classNames('gap-3 md:flex ');
+  const buttonClassNames = classNames('w-24 h-12');
   return (
     <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
       <Formik
@@ -129,12 +133,12 @@ const AddProjectForm = (props: { className?: string }) => {
           </div>
           <div className={spaceClassNames} />
 
-          <Box className={buttonClassNames}>
+          <Box className={boxClassNames}>
             <Button
-              variant="contained"
-              color="primary"
-              endIcon={<Send />}
+              className={buttonClassNames}
+              endIcon={<SendIcon />}
               type="submit"
+              variant="contained"
               size="large"
             >
               Send

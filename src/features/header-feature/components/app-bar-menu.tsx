@@ -1,8 +1,8 @@
 import { useId, useState } from 'react';
 
-import { IconButton } from '@material-ui/core';
-import Drawer from '@material-ui/core/Drawer';
-import MenuIcon from '@material-ui/icons/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
+import Drawer from '@mui/material/Drawer';
+import IconButton from '@mui/material/IconButton';
 import classNames from 'classnames';
 
 import { LeftMenuList } from '../index';

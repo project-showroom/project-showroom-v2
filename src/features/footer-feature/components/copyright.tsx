@@ -1,9 +1,9 @@
 import { useId } from 'react';
 
-import { Divider } from '@material-ui/core';
-import Link from '@material-ui/core/Link';
-import Typography from '@material-ui/core/Typography';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import Divider from '@mui/material/Divider';
+import Link from '@mui/material/Link';
+import Typography from '@mui/material/Typography';
 import classNames from 'classnames';
 
 const COMPONENT_NAME = 'Copyright';

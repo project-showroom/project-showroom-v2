@@ -1,6 +1,6 @@
 import { useId } from 'react';
 
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import classNames from 'classnames';
 
 const COMPONENT_NAME = 'FormTitle';
