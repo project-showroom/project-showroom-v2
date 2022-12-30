@@ -14,7 +14,7 @@ const CopyrightExplanation = (props: { className?: string }) => {
     <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
       <Typography variant="h6" align="center" gutterBottom>
         <div>
-          Copyright © by{' '}
+          Copyright © by
           <Link
             href="https://www.linkedin.com/in/emremutlu8/"
             target="_blank"
@@ -27,9 +27,9 @@ const CopyrightExplanation = (props: { className?: string }) => {
         <div>
           You are 100% allowed to use this webpage for both personal and
           commercial use, but NOT to claim it as your own app.
-        </div>{' '}
+        </div>
         <div>
-          A credit to the original author,{' '}
+          A credit to the original author,
           <Link
             href="https://project-showroom.vercel.app/"
             target="_blank"

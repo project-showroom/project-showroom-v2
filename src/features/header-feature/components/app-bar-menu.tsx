@@ -26,7 +26,7 @@ const AppBarMenu = (props: { className?: string }) => {
         <MenuIcon />
       </IconButton>
       <Drawer
-        anchor={'left'}
+        anchor="left"
         open={openMenu}
         onClose={closeMenu}
         className="relative mt-20"

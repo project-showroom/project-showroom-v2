@@ -24,8 +24,7 @@ const Copyright = (props: { className?: string }) => {
         </Typography>
         <div />
         <Typography variant="h5" align="center" component="p">
-          Made with <FavoriteIcon fontSize={'small'} htmlColor="red" /> in
-          Turkey
+          Made with <FavoriteIcon fontSize="small" htmlColor="red" /> in Turkey
         </Typography>
         <div />
       </div>

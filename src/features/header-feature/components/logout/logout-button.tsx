@@ -17,8 +17,8 @@ const LogoutButton = (props: { className?: string }) => {
   return (
     <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
       <ListItemIconButton
-        url={'/'}
-        text={'Logout'}
+        url="/"
+        text="Logout"
         ListIcon={LogoutIcon}
         onClickLogout={onClickLogout}
       />
