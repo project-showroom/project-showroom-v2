@@ -1,11 +1,9 @@
 import { useId } from 'react';
 
-import LoginIcon from '@mui/icons-material/Login';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-// import LogoutIcon from '@mui/icons-material/Logout';
 import classNames from 'classnames';
+
+import { SubmitButton } from '../../../components/button-components/index';
+import { LogInIconElement } from '../../../components/icons-elements';
 
 const COMPONENT_NAME = 'LoginRegisterButton';
 const LoginRegisterButton = (props: { className?: string }) => {
@@ -13,17 +11,18 @@ const LoginRegisterButton = (props: { className?: string }) => {
 
   const { ...rest } = props;
 
+  const headerLoginButtonClassNames = classNames('bg-gray-600');
   const headerLoginClassNames = classNames('flex text-sm mr-1');
-  const headerLoginTextClassNames = classNames('flex h-6 text-sm leading-3');
   return (
     <div id={id} {...rest} className={headerLoginClassNames}>
-      <Button href="/api/google" variant="contained">
-        <LoginIcon />
-        <Box />
-        <Typography className={headerLoginTextClassNames}>
-          Sign In / Up
-        </Typography>
-      </Button>
+      <SubmitButton
+        href="/api/google"
+        variant="contained"
+        className={headerLoginButtonClassNames}
+        Icon={<LogInIconElement />}
+      >
+        Sign In / Up
+      </SubmitButton>
     </div>
   );
 };

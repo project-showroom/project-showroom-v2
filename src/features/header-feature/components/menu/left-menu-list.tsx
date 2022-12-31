@@ -1,10 +1,10 @@
 import { useId } from 'react';
 
-import MoveToInboxIcon from '@mui/icons-material/MoveToInbox';
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
 import classNames from 'classnames';
 
+import { MoveToInBoxIconElement } from '../../../../components/icons-elements';
 import { LogoutButton, ListItemIconButton } from '../../index';
 
 interface ListItemIconButtonProps {
@@ -37,14 +37,14 @@ const LeftMenuList = (props: ListItemIconButtonProps) => {
           <ListItemIconButton
             url={firstItem.url}
             text={firstItem.text}
-            ListIcon={MoveToInboxIcon}
+            ListIcon={<MoveToInBoxIconElement />}
             onClick={closeMenu}
           />
           <Divider variant="middle" />
           <ListItemIconButton
             url={secondItem.url}
             text={secondItem.text}
-            ListIcon={MoveToInboxIcon}
+            ListIcon={<MoveToInBoxIconElement />}
             onClick={closeMenu}
           />
           <Divider />

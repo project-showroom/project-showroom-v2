@@ -1,7 +1,6 @@
 import { useId } from 'react';
 
 import { Button } from '@mui/material';
-import classNames from 'classnames';
 
 import { IBaseButtonType } from '../../types/element-types/button-elements-types';
 
@@ -9,17 +8,9 @@ const COMPONENT_NAME = 'BaseButton';
 
 const BaseButton = (props: IBaseButtonType) => {
   const id = useId() + '-' + COMPONENT_NAME;
+  const { Icon, ...rest } = props;
 
-  const { className, ...rest } = props;
-
-  return (
-    <Button
-      id={id}
-      {...rest}
-      // aria-label={id + " " + rest["aria-label"]}
-      className={classNames(className, COMPONENT_NAME)}
-    ></Button>
-  );
+  return <Button id={id} endIcon={Icon} {...rest} />;
 };
 
 BaseButton.displayName = COMPONENT_NAME;

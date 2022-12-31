@@ -12,7 +12,7 @@ interface ListItemIconButtonProps {
   url: string;
   onClick?: () => void;
   text: string;
-  ListIcon: React.FC;
+  ListIcon?: React.ReactNode;
   onClickLogout?: () => void;
 }
 
@@ -30,9 +30,7 @@ const ListItemIconButton = (props: ListItemIconButtonProps) => {
     <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
       <LinkNext href={newUrl} passHref>
         <ListItem button onClick={onListItemClick}>
-          <ListItemIcon>
-            <ListIcon />
-          </ListItemIcon>
+          <ListItemIcon>{ListIcon}</ListItemIcon>
           {text}
         </ListItem>
       </LinkNext>

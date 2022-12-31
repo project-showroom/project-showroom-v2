@@ -1,8 +1,8 @@
 import { useId } from 'react';
 
-import LogoutIcon from '@mui/icons-material/Logout';
 import classNames from 'classnames';
 
+import { LogOutIconElement } from '../../../../components/icons-elements';
 import { ListItemIconButton } from '../../index';
 
 const COMPONENT_NAME = 'LogoutButton';
@@ -19,7 +19,7 @@ const LogoutButton = (props: { className?: string }) => {
       <ListItemIconButton
         url="/"
         text="Logout"
-        ListIcon={LogoutIcon}
+        ListIcon={<LogOutIconElement />}
         onClickLogout={onClickLogout}
       />
     </div>

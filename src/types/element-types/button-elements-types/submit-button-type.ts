@@ -1,5 +1,8 @@
-import { IBaseButtonType } from "./index";
+import React from 'react';
+
+import { IBaseButtonType } from './index';
 
 export interface ISubmitButtonType extends IBaseButtonType {
-  submitCounter?: number;
+  children?: React.ReactNode;
+  Icon?: React.ReactNode;
 }
