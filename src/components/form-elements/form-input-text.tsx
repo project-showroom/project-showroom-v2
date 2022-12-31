@@ -24,9 +24,6 @@ const FormInputText = (props: TextFieldProps) => {
   const { className, name, ...rest } = props;
 
   return (
-    // <div id={id} className={classNames(className, COMPONENT_NAME)}>
-    //   <TextField fullWidth {...rest} />
-    // </div>
     <div id={id} className={classNames(className, COMPONENT_NAME)}>
       <Field name={name}>
         {({ field, meta }: any) => (

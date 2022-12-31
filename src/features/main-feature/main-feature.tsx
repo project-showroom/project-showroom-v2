@@ -23,7 +23,7 @@ const MainFeature = () => {
       <i>{icon.icon}</i>
       <div id="button-test">
         <SubmitButton />
-        <SubmitButton submitCounter={47} />
+        <SubmitButton />
       </div>
     </>
   );

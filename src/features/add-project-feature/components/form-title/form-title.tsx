@@ -1,7 +1,8 @@
 import { useId } from 'react';
 
-import Typography from '@mui/material/Typography';
 import classNames from 'classnames';
+
+import { BaseTypography } from '../../../../components/typography-elements/index';
 
 const COMPONENT_NAME = 'FormTitle';
 const FormTitle = (props: { className?: string }) => {
@@ -10,9 +11,14 @@ const FormTitle = (props: { className?: string }) => {
 
   return (
     <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
-      <Typography gutterBottom variant="h4" component="h4" color="textPrimary">
-        Add Project
-      </Typography>
+      <BaseTypography
+        gutterBottom
+        variant="h4"
+        component="h4"
+        color="textPrimary"
+      >
+        {'Add Project'}
+      </BaseTypography>
     </div>
   );
 };

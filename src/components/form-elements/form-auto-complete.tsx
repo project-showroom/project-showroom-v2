@@ -11,7 +11,7 @@ interface FormAutoCompleteProps {
   id?: string;
   name?: string;
   label?: string;
-  helpertext?: string;
+  helperText?: string;
   tags?: Array<string | number>;
   setTags?: any;
   variant?: string;
@@ -25,7 +25,7 @@ const FormAutoComplete = (props: FormAutoCompleteProps) => {
     name,
     id: formId,
     label,
-    helpertext,
+    helperText,
     tags,
     setTags,
   } = props;
@@ -64,7 +64,7 @@ const FormAutoComplete = (props: FormAutoCompleteProps) => {
                   variant="outlined"
                   label={label}
                   placeholder="Favorites"
-                  helperText={helpertext}
+                  helperText={helperText}
                 />
               )}
             />

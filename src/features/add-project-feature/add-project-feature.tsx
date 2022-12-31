@@ -2,8 +2,7 @@ import { useId } from 'react';
 
 import classNames from 'classnames';
 
-import { AddProjectForm } from '../../components/add-project-form/index';
-import { FormTitle } from './index';
+import { FormTitle, AddProjectForm } from './index';
 
 const COMPONENT_NAME = 'AddProjectFeature';
 const AddProjectFeature = (props: { className?: string }) => {

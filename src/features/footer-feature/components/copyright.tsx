@@ -3,8 +3,10 @@ import { useId } from 'react';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import Divider from '@mui/material/Divider';
 import Link from '@mui/material/Link';
-import Typography from '@mui/material/Typography';
 import classNames from 'classnames';
+
+import { BaseTypography } from '../../../components/typography-elements/index';
+import { CopyrightExplanation } from './copyright-explanation';
 
 const COMPONENT_NAME = 'Copyright';
 const copyrightWhoHas = 'Emre MUTLU & ERCAN AKALAR';
@@ -17,16 +19,19 @@ const Copyright = (props: { className?: string }) => {
     <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
       <Divider />
       <div>
-        <Typography variant="h6" align="center" gutterBottom>
+        <BaseTypography variant="h6" align="center" gutterBottom>
           <Link href="https://project-showroom.vercel.app/">
             PROJECT GALLERY | {copyrightWhoHas}
           </Link>
-        </Typography>
+        </BaseTypography>
         <div />
-        <Typography variant="h5" align="center" component="p">
+        <BaseTypography variant="h5" align="center" component="p">
           Made with <FavoriteIcon fontSize="small" htmlColor="red" /> in Turkey
-        </Typography>
+        </BaseTypography>
         <div />
+        <BaseTypography variant="h6" align="center" gutterBottom>
+          <CopyrightExplanation />
+        </BaseTypography>
       </div>
     </div>
   );
