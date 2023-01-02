@@ -6,32 +6,15 @@ import TextField from '@mui/material/TextField';
 import classNames from 'classnames';
 import { Field } from 'formik';
 
-interface FormAutoCompleteProps {
-  className?: string;
-  id?: string;
-  name?: string;
-  label?: string;
-  helperText?: string;
-  tags?: Array<string | number>;
-  setTags?: any;
-  variant?: string;
-}
+import { IFormAutoCompleteProps } from '../../types/element-types/form-elements-types';
 
 const COMPONENT_NAME = 'FormAutoComplete';
-const FormAutoComplete = (props: FormAutoCompleteProps) => {
+const FormAutoComplete = (props: IFormAutoCompleteProps) => {
   const id = useId() + '-' + COMPONENT_NAME;
-  const {
-    className,
-    name,
-    id: formId,
-    label,
-    helperText,
-    tags,
-    setTags,
-  } = props;
+  const { name, id: formId, label, helperText, tags, setTags } = props;
 
   return (
-    <div id={id} className={classNames(className, COMPONENT_NAME)}>
+    <div id={id} className={classNames(COMPONENT_NAME)}>
       <Field name={name}>
         {({ field, meta }: any) => (
           <>
