@@ -1,3 +1,4 @@
+import { ListItemIconElement } from './list-item-icon-element';
 import { LogInIconElement } from './log-in-icon-element';
 import { LogOutIconElement } from './log-out-icon-element';
 import { MoveToInBoxIconElement } from './move-to-in-box-icon-element';
@@ -8,4 +9,5 @@ export {
   LogOutIconElement,
   SendIconElement,
   MoveToInBoxIconElement,
+  ListItemIconElement,
 };

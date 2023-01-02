@@ -3,7 +3,7 @@ import { useId } from 'react';
 import classNames from 'classnames';
 
 import { LogOutIconElement } from '../../../../components/icons-elements';
-import { ListItemIconButton } from '../../index';
+import { ListButton } from '../../../../components/list-item-button-components/list-button';
 
 const COMPONENT_NAME = 'LogoutButton';
 const LogoutButton = (props: { className?: string }) => {
@@ -16,11 +16,11 @@ const LogoutButton = (props: { className?: string }) => {
 
   return (
     <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
-      <ListItemIconButton
-        url="/"
+      <ListButton
+        href="/"
+        onClick={onClickLogout}
+        icon={<LogOutIconElement />}
         text="Logout"
-        ListIcon={<LogOutIconElement />}
-        onClickLogout={onClickLogout}
       />
     </div>
   );
