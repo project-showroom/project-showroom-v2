@@ -1,4 +1,7 @@
+import React from 'react';
+
 export interface ITextFieldProps {
+  children?: React.ReactNode;
   className?: string;
   id?: string;
   name?: string;
@@ -10,4 +13,5 @@ export interface ITextFieldProps {
   defaultValue?: string;
   helperText?: string;
   disabled?: boolean;
+  type?: string;
 }

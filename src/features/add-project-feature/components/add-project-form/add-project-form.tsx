@@ -11,17 +11,7 @@ import {
   FormInputText,
 } from '../../../../components/form-elements';
 import { SendIconElement } from '../../../../components/icons-elements';
-
-interface MyFormValues {
-  projectTitle: string;
-  thumbnailUrl: string;
-  description: string;
-  skillTags: Array<string | number>;
-  leftButtonTitle?: string;
-  leftButtonUrl?: string;
-  rightButtonTitle?: string;
-  rightButtonUrl?: string;
-}
+import { IAddProjectFormValues } from '../../../../types/element-types/form-elements-types';
 
 const COMPONENT_NAME = 'AddProjectForm';
 const AddProjectForm = (props: { className?: string }) => {
@@ -30,7 +20,7 @@ const AddProjectForm = (props: { className?: string }) => {
 
   const [tags, setTags] = useState<string[]>([]);
 
-  const initialValues: MyFormValues = {
+  const initialValues: IAddProjectFormValues = {
     projectTitle: '',
     thumbnailUrl: '',
     description: '',
@@ -69,20 +59,26 @@ const AddProjectForm = (props: { className?: string }) => {
           <FormInputText
             id="projectTitle"
             name="projectTitle"
+            label="Project Title"
             placeholder="Project Title"
+            type="text"
           />
           <div className={spaceClassNames} />
           <FormInputText
             id="thumbnailUrl"
             name="thumbnailUrl"
+            label="Thumbnail Url"
             placeholder="Thumbnail Url"
+            type="url"
           />
           <div className={spaceClassNames} />
           <FormInputText
             id="description"
             name="description"
+            label="Description"
             placeholder="Description"
             variant="outlined"
+            type="text"
             multiline
           />
 
@@ -112,6 +108,7 @@ const AddProjectForm = (props: { className?: string }) => {
         leave it empty)"
               label="Left Button Url"
               className="w-full"
+              type="url"
             />
           </div>
           <div className={spaceClassNames} />
@@ -131,6 +128,7 @@ const AddProjectForm = (props: { className?: string }) => {
         leave it empty)"
               label="Right Button Url"
               className="w-full"
+              type="url"
             />
           </div>
           <div className={spaceClassNames} />
