@@ -1,3 +1,5 @@
+import { DeleteIconElement } from './delete-icon-element';
+import { EditIconElement } from './edit-icon-element';
 import { ListItemIconElement } from './list-item-icon-element';
 import { LogInIconElement } from './log-in-icon-element';
 import { LogOutIconElement } from './log-out-icon-element';
@@ -10,4 +12,6 @@ export {
   SendIconElement,
   MoveToInBoxIconElement,
   ListItemIconElement,
+  DeleteIconElement,
+  EditIconElement,
 };
