@@ -11,20 +11,25 @@ const FormInputText = (props: ITextFieldProps) => {
   const id = useId() + '-' + COMPONENT_NAME;
   const { className, name, type, ...rest } = props;
 
+  const errorClassNames = classNames('text-red-500 text-xs');
   return (
     <div id={id} className={classNames(className, COMPONENT_NAME)}>
       <Field type={type} name={name}>
         {({ field, meta }: any) => (
           <>
-            <TextField
-              id={id}
-              variant="standard"
-              fullWidth
-              {...field}
-              {...rest}
-            />
-            {meta.touched && meta.error && (
-              <div className="error">{meta.error}</div>
+            {meta.touched && meta.error ? (
+              <>
+                <TextField
+                  variant="standard"
+                  fullWidth
+                  error
+                  {...field}
+                  {...rest}
+                />
+                <div className={errorClassNames}>{meta.error}</div>
+              </>
+            ) : (
+              <TextField variant="standard" fullWidth {...field} {...rest} />
             )}
           </>
         )}
