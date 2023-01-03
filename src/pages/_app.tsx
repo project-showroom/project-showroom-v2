@@ -2,6 +2,7 @@ import '../styles/globals.css';
 import classNames from 'classnames';
 import { ThemeProvider } from 'next-themes';
 import type { AppProps } from 'next/app';
+import Head from 'next/head';
 import { Provider } from 'react-redux';
 
 import { FooterFeature } from '../features/footer-feature/footer-feature';
@@ -15,6 +16,9 @@ export default function App({ Component, pageProps }: AppProps) {
   const footerClassNames = classNames('dark:bg-gray-500');
   return (
     <>
+      <Head>
+        <title>PROJECT SHOWROOM - EMRE MUTLU & ERCAN AKALAR</title>
+      </Head>
       <ThemeProvider enableSystem={true} attribute="class">
         <Provider store={store}>
           <main>
