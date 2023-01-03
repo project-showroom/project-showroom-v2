@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import IconButton from '@mui/material/IconButton';
 
-import { CardHeaderMenu } from './card-header-menu';
+import { CardHeaderMenu } from './index';
 
 const COMPONENT_NAME = 'CardHeaderAction';
 const CardHeaderAction = () => {

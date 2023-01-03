@@ -1,9 +1,9 @@
 import { useId } from 'react';
 
-import Card from '@mui/material/Card';
+import Grid from '@mui/material/Grid';
 import classNames from 'classnames';
 
-import { CardGalleryHeader } from './components/card-gallery-header/index';
+import { CardSelf } from './components/index';
 
 const COMPONENT_NAME = 'CardFeature';
 const CardFeature = (props: { className?: string }) => {
@@ -13,9 +13,9 @@ const CardFeature = (props: { className?: string }) => {
 
   return (
     <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
-      <Card sx={{ maxWidth: 345 }}>
-        <CardGalleryHeader />
-      </Card>
+      <Grid>
+        <CardSelf />
+      </Grid>
     </div>
   );
 };
