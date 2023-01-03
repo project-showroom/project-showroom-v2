@@ -1,11 +1,9 @@
 import classNames from 'classnames';
 import Head from 'next/head';
 
-import { FooterFeature } from '../features/footer-feature/footer-feature';
 import { MainFeature } from '../features/main-feature/main-feature';
 export default function Home() {
   const mainClassNames = classNames('dark:bg-gray-500');
-  const footerClassNames = classNames('dark:bg-gray-500');
   return (
     <>
       <Head>
@@ -17,9 +15,6 @@ export default function Home() {
       <main className={mainClassNames}>
         <MainFeature />
       </main>
-      <footer className={footerClassNames}>
-        <FooterFeature />
-      </footer>
     </>
   );
 }

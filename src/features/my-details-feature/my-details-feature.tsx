@@ -2,6 +2,9 @@ import { useId } from 'react';
 
 import classNames from 'classnames';
 
+import { MyDetailsForm } from './components/my-details-form';
+import { MyDetailsFormTitle } from './components/my-details-form-title';
+
 const COMPONENT_NAME = 'MyDetailsFuture';
 const MyDetailsFeature = (props: { className?: string }) => {
   const id = useId() + '-' + COMPONENT_NAME;
@@ -10,7 +13,8 @@ const MyDetailsFeature = (props: { className?: string }) => {
 
   return (
     <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
-      {COMPONENT_NAME}
+      <MyDetailsFormTitle />
+      <MyDetailsForm />
     </div>
   );
 };
