@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { SubmitButton } from '../../components/button-components';
 import { iconAction } from '../../store/icon-slice';
+import { CardFeature } from '../card-feature';
 
 const COMPONENT_NAME = 'MainFeature';
 const MainFeature = () => {
@@ -25,6 +26,7 @@ const MainFeature = () => {
         <SubmitButton />
         <SubmitButton />
       </div>
+      <CardFeature />
     </>
   );
 };
