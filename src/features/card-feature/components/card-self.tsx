@@ -3,7 +3,7 @@ import { useId } from 'react';
 import Card from '@mui/material/Card';
 import classNames from 'classnames';
 
-import { CardContent } from './card-gallery-content/index';
+import { CardContentCombine } from './card-gallery-content/index';
 import { CardGalleryHeader } from './card-gallery-header/index';
 import { CardGalleryMedia } from './card-gallery-media/index';
 
@@ -18,7 +18,7 @@ const CardSelf = (props: { className?: string }) => {
       <Card sx={{ maxWidth: 345 }}>
         <CardGalleryHeader />
         <CardGalleryMedia />
-        <CardContent />
+        <CardContentCombine />
       </Card>
     </div>
   );

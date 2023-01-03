@@ -1,4 +1,4 @@
-import { CardContent } from './card-content';
+import { CardContentCombine } from './card-content-combine';
 import { CardGalleryTitle } from './card-gallery-title';
 
-export { CardGalleryTitle, CardContent };
+export { CardGalleryTitle, CardContentCombine };
