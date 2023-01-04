@@ -1,4 +1,5 @@
 export interface IAddProjectFormValues {
+  userName?: string;
   projectTitle: string;
   thumbnailUrl: string;
   description: string;

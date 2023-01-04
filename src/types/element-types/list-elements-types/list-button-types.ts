@@ -9,4 +9,8 @@ export interface IListButtonType extends ListItemButtonBaseProps {
   icon?: React.ReactNode;
   text?: string;
   onClick?: () => void;
+  variant?: string;
+  size?: string;
+  color?: string;
+  target?: string;
 }

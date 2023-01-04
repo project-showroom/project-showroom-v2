@@ -7,4 +7,5 @@ export interface IBaseButtonType extends ButtonProps {
   className?: string;
   children?: React.ReactNode;
   Icon?: React.ReactNode;
+  target?: string;
 }
