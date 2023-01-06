@@ -15,6 +15,12 @@ type CardSelfProps = {
 };
 
 const COMPONENT_NAME = 'CardSelf';
+const cardGridClassNames = classNames('h-auto sm:h-[590px]', COMPONENT_NAME);
+const cardContainerGridClassNames = classNames('flex flex-row', COMPONENT_NAME);
+const cardClassNames = classNames(
+  'flex flex-col h-full justify-between',
+  COMPONENT_NAME,
+);
 const CardSelf = (props: CardSelfProps) => {
   const id = useId() + '-' + COMPONENT_NAME;
   const { className, userCards, ...rest } = props;
@@ -23,14 +29,22 @@ const CardSelf = (props: CardSelfProps) => {
     <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
       <Grid
         container
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
+        // direction="row"
+        // justifyContent="center"
+        // alignItems="center"
         spacing={{ xs: 1, md: 3 }}
+        className={cardContainerGridClassNames}
       >
         {userCards.map((cardItem: any, index: number) => (
-          <Grid key={index} item xs={12} sm={6} md={4}>
-            <Card className="flex flex-col h-full">
+          <Grid
+            key={index}
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            className={cardGridClassNames}
+          >
+            <Card className={cardClassNames}>
               <CardGalleryHeader cardUserName={cardItem.userName} />
               <CardGalleryMedia cardImageUrl={cardItem.thumbnailUrl} />
               <CardContentCombine

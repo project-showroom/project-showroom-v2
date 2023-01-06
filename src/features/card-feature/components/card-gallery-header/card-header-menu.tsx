@@ -26,18 +26,13 @@ const CardHeaderMenu = (props: {
       className="w-h-full"
     >
       <MenuItem onClick={handleClose} className="flex flex-col">
-        <li className="p-1">
-          <ListButton href="/" icon={<DeleteIconElement />} text="Delete" />
-        </li>
+        <ListButton href="/" icon={<DeleteIconElement />} text="Delete" />
         <Divider component="div" role="presentation" flexItem />
-        <li className="p-1">
-          <ListButton
-            href="/edit-project"
-            icon={<EditIconElement />}
-            text="Edit"
-          />
-        </li>
-        <li className="p-1"></li>
+        <ListButton
+          href="/edit-project"
+          icon={<EditIconElement />}
+          text="Edit"
+        />
       </MenuItem>
     </Menu>
   );

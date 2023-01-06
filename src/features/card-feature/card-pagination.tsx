@@ -1,18 +1,23 @@
-import { useId } from 'react';
+import React, { useId } from 'react';
 
 import Pagination from '@mui/material/Pagination';
 
 const COMPONENT_NAME = 'CardPagination';
-const CardPagination = (props: { className?: string; cardLength?: any }) => {
+const CardPagination = (props: {
+  className?: string;
+  page_size: number;
+  onPageChange: (event: React.ChangeEvent<unknown>, value: number) => void;
+  page: number;
+}) => {
   const id = useId() + '-' + COMPONENT_NAME;
-  const { cardLength, ...rest } = props;
-
-  const pageLength = Math.ceil(cardLength / 4);
+  const { page_size, onPageChange, page, ...rest } = props;
 
   return (
     <div id={id} {...rest}>
       <Pagination
-        count={pageLength}
+        page={page}
+        count={page_size}
+        onChange={onPageChange}
         variant="outlined"
         color="primary"
         style={{

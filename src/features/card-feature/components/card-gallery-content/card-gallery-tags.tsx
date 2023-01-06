@@ -2,7 +2,10 @@ import Chip from '@mui/material/Chip';
 import Grid from '@mui/material/Grid';
 import classNames from 'classnames';
 
-const chipClassNames = classNames('p-1');
+const gridClassNames = classNames(
+  'flex flex-col justify-between overflow-x-auto max-h-20 ',
+);
+const chipClassNames = classNames('p-3');
 const COMPONENT_NAME = 'CardGalleryTags';
 const CardGalleryTags = (props: { cardTags: string[] }) => {
   const { cardTags } = props;
@@ -10,12 +13,15 @@ const CardGalleryTags = (props: { cardTags: string[] }) => {
   return (
     <Grid
       container
-      direction="row"
-      justifyContent="space-between"
-      alignItems="baseline"
+      // direction="column"
+      // justifyContent="space-between"
+      // alignItems="baseline"
+      // maxHeight={70}
+      className={gridClassNames}
+      // overflow={'overflow-x-auto'}
     >
-      {cardTags.map((chip) => (
-        <div key={chip} className={chipClassNames}>
+      {cardTags.map((chip, index) => (
+        <div key={chip + index} className={chipClassNames}>
           <Chip label={chip} size="small" />
         </div>
       ))}
