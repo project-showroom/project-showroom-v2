@@ -96,7 +96,7 @@ const AddProjectForm = (props: { className?: string }) => {
             <FormInputText
               id="leftButtonTitle"
               name="leftButtonTitle"
-              defaultValue="View Online"
+              placeholder="View Online"
               label="Left Button Title"
               disabled
               className="w-full"
@@ -116,7 +116,7 @@ const AddProjectForm = (props: { className?: string }) => {
             <FormInputText
               id="rightButtonTitle"
               name="rightButtonTitle"
-              defaultValue="View Codes"
+              placeholder="View Codes"
               label="Right Button Title"
               disabled
               className="w-full"

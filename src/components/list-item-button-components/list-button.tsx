@@ -4,11 +4,11 @@ import { ListIcon } from '../list-item-icon-components';
 
 const COMPONENT_NAME = 'ListButton';
 const ListButton = (props: IListButtonType) => {
-  const { text, ...rest } = props;
+  const { text, icon, ...rest } = props;
 
   return (
     <BaseListButton {...rest}>
-      <ListIcon {...rest} />
+      <ListIcon icon={icon} />
       {text}
     </BaseListButton>
   );
