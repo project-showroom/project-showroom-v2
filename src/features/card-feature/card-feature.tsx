@@ -80,7 +80,8 @@ const cardArray: IAddProjectFormValues[] = [
     skillTags: [
       'React 2',
       'TypeScript 2',
-      'Material UI 2,React 2',
+      'Material UI 2',
+      'React 2',
       'TypeScript 2',
       'Material UI 2',
     ],
