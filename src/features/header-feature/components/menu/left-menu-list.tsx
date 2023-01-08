@@ -28,7 +28,7 @@ const LeftMenuList = (props: ListItemIconButtonProps) => {
   };
 
   const themeClassNames = classNames(
-    'flex flex-col justify-between dark:bg-gray-500 dark:text-white min-h-screen',
+    'flex flex-col justify-between  min-h-screen',
   );
   return (
     <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>

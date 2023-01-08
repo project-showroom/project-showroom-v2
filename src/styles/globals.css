@@ -2,13 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer base {
+@layer base {
   body {
-    @apply bg-blue-50 text-blue-900 dark:bg-blue-900 dark:text-red-300;
-    @apply min-h-screen;
+    @apply bg-gray-50 text-gray-900 dark:bg-black dark:text-gray-100;
   }
-
-  ::selection {
-    @apply text-blue-50 bg-indigo-500;
-  }
-} */
+}

@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 import { MainFeature } from '../features/main-feature/main-feature';
 export default function Home() {
-  const mainClassNames = classNames('dark:bg-gray-500');
+  const mainClassNames = classNames('');
   return (
     <>
       <Head>

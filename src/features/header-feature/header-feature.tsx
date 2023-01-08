@@ -8,7 +8,8 @@ import {
 } from './index';
 
 const COMPONENT_NAME = 'HeaderFeature';
-const HeaderFeature = () => {
+const HeaderFeature = (props: { darkMode: any; toggleDarkMode: any }) => {
+  const { darkMode, toggleDarkMode } = props;
   const headerTitleMenuClassNames = classNames(
     'flex items-center justify-center',
   );
@@ -27,7 +28,7 @@ const HeaderFeature = () => {
       </div>
       <div className={headerRegisterThemeClassNames}>
         <LoginRegisterButton />
-        <ThemeSwitch />
+        <ThemeSwitch toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
       </div>
     </>
   );
