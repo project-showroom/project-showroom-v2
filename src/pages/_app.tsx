@@ -1,7 +1,7 @@
-import { useState, ChangeEvent, useEffect } from 'react';
+import { useState } from 'react';
 
 import '../styles/globals.css';
-import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import classNames from 'classnames';
 import { ThemeProvider as NextThemeProvider } from 'next-themes';
 import type { AppProps } from 'next/app';
@@ -11,21 +11,10 @@ import { Provider } from 'react-redux';
 import { FooterFeature } from '../features/footer-feature/footer-feature';
 import { HeaderFeature } from '../features/header-feature/header-feature';
 import store from '../store/index';
+import { lightTheme, darkTheme } from '../utils/theme-mode';
 
 function App({ Component, pageProps }: AppProps) {
-  const lightTheme = createTheme({
-    palette: {
-      mode: 'light',
-    },
-  });
-  const darkTheme = createTheme({
-    palette: {
-      mode: 'dark',
-    },
-  });
-
   const [darkMode, setDarkMode] = useState(false);
-  console.log(darkMode, 'darkMode');
 
   const Theme = darkMode ? darkTheme : lightTheme;
 
@@ -45,7 +34,6 @@ function App({ Component, pageProps }: AppProps) {
             <header className={headerClassNames}>
               <HeaderFeature darkMode={darkMode} toggleDarkMode={setDarkMode} />
             </header>
-
             <Component {...pageProps} />
             <footer>
               <FooterFeature />

@@ -1,8 +1,8 @@
-import { useId, ChangeEvent, useEffect } from 'react';
+import { useId, useEffect } from 'react';
 
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-import { IconButton, Switch } from '@mui/material';
+import { Switch } from '@mui/material';
 import Box from '@mui/material/Box';
 import classNames from 'classnames';
 import { useTheme } from 'next-themes';
