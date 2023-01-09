@@ -1,31 +1,17 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { Container, Divider } from '@mui/material';
 
-import { SubmitButton } from '../../components/button-components';
-import { iconAction } from '../../store/icon-slice';
 import { CardFeature } from '../card-feature';
 
 const COMPONENT_NAME = 'MainFeature';
 const MainFeature = () => {
-  const dispatcher = useDispatch();
-
-  let icon = useSelector((state: { icon: { icon: string } }) => state.icon);
-
-  const onChangeTheme = () => {
-    if (icon.icon === 'moon') dispatcher(iconAction.iconSun());
-    else dispatcher(iconAction.iconMoon());
-  };
-
   return (
     <>
-      Hello Tailwind
-      <p>deneme</p>
-      <button onClick={onChangeTheme}>Change Theme</button>
-      <b>You selected (Redux-Toolkit): </b>
-      <i>{icon.icon}</i>
-      <div id="button-test">
-        <SubmitButton />
-        <SubmitButton />
-      </div>
+      <Container maxWidth="md">
+        {/* <HeroName />
+        <HeroDetails />
+        <HeroButtons firstButtonText={'My projects'} /> */}
+        <Divider />
+      </Container>
       <CardFeature />
     </>
   );

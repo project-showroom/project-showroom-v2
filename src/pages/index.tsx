@@ -1,7 +1,8 @@
 import classNames from 'classnames';
 import Head from 'next/head';
 
-import { MainFeature } from '../features/main-feature/main-feature';
+import { UserProfileFeature } from '../features/user-profile-feature';
+
 export default function Home() {
   const mainClassNames = classNames('');
   return (
@@ -13,7 +14,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={mainClassNames}>
-        <MainFeature />
+        <UserProfileFeature />
       </main>
     </>
   );

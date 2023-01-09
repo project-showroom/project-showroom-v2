@@ -26,7 +26,7 @@ const CardFeature = () => {
   };
 
   return (
-    <Container maxWidth="md" className={COMPONENT_NAME}>
+    <>
       <CardPagination
         page_size={page_size}
         onPageChange={onPageChange}
@@ -38,7 +38,7 @@ const CardFeature = () => {
         onPageChange={onPageChange}
         page={page}
       />
-    </Container>
+    </>
   );
 };
 
