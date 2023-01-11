@@ -8,4 +8,5 @@ export interface IAddProjectFormValues {
   leftButtonUrl?: string;
   rightButtonTitle?: string;
   rightButtonUrl?: string;
+  cardArray?: string[];
 }
