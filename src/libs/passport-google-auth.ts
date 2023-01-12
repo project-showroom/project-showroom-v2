@@ -14,9 +14,6 @@ passport.use(
       callbackURL: process.env.NEXT_PUBLIC_URL + '/api/google/callback',
     },
     async (accessToken: any, refreshToken: any, profile: any, done: any) => {
-      console.log(profile, 'profile');
-      console.log(accessToken, 'accessToken');
-
       try {
         const userExist = await Users.findOne({ googleId: profile.id });
         if (userExist) {
@@ -56,7 +53,6 @@ passport.use(
             { expiresIn: process.env.JWT_EXPIRES_IN as string },
           );
           newUser.tokens = token;
-          console.log(newUser, 'newUser');
           await newUser.save();
           done(null, newUser, { message: 'Auth successful', token });
         }

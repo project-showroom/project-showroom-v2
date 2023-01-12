@@ -17,10 +17,16 @@ export default async function callback(
       return res.redirect(process.env.NEXT_PUBLIC_URL + '/');
     }
 
-    setCookie('token', info.token);
+    setCookie('token', info.token, {
+      req,
+      res,
+    });
 
     const userGoogleIdToken = createToken(user.googleId);
-    setCookie('userGoogleId', userGoogleIdToken);
+    setCookie('userGoogleId', userGoogleIdToken, {
+      req,
+      res,
+    });
 
     res.redirect(process.env.NEXT_PUBLIC_URL + `/`);
   })(req, res, next);
