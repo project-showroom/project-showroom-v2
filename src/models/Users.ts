@@ -1,6 +1,6 @@
-import { Schema, Document, model } from 'mongoose';
+import { Schema, Document, model, models } from 'mongoose';
 
-interface IUser extends Document {
+export interface IUser extends Document {
   googleId: string;
   defaultUserName: string;
   email: string;
@@ -48,14 +48,13 @@ const UserSchema: Schema = new Schema<IUser>({
   accessToken: {
     type: String,
   },
-  tokens: {
-    type: String,
-  },
+  // tokens: {
+  //   type: String,
+  // },
   createdAt: {
     type: Date,
     default: Date.now,
   },
 });
 
-const User = model<IUser>('User', UserSchema);
-export default User;
+export default models.Users || model<IUser>('Users', UserSchema);

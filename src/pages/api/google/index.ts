@@ -1,18 +1,17 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import passport from 'passport';
 
 import connect from '../../../libs/database';
+import passport from '../../../libs/passport-google-auth';
 
-import '../../../lib/passport';
-
-export default async function google(
+export default async function index(
   req: NextApiRequest,
   res: NextApiResponse,
+  next: any,
 ) {
   await connect();
 
   passport.authenticate('google', {
     scope: ['profile', 'email'],
     session: false,
-  })(req, res);
+  })(req, res, next);
 }

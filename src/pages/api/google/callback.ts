@@ -1,33 +1,27 @@
 import { setCookie } from 'cookies-next';
 import { NextApiRequest, NextApiResponse } from 'next';
-import passport from 'passport';
 
 import connect from '../../../libs/database';
-import '../../../lib/passport';
-// import Profiles from '../../../models/Profiles';
+import passport from '../../../libs/passport-google-auth';
 import createToken from '../../../utils/create-token';
 
-export default async function CallBack(
+export default async function callback(
   req: NextApiRequest,
   res: NextApiResponse,
+  next: any,
 ) {
   await connect();
-  passport.authenticate('google', (err, user, info) => {
+
+  passport.authenticate('google', (err: any, user: any, info: any) => {
     if (err || !user) {
       return res.redirect(process.env.NEXT_PUBLIC_URL + '/');
     }
-    setCookie('token', info.token, {
-      req,
-      res,
-    });
+
+    setCookie('token', info.token);
 
     const userGoogleIdToken = createToken(user.googleId);
-    setCookie('userGoogleId', userGoogleIdToken, {
-      req,
-      res,
-    });
+    setCookie('userGoogleId', userGoogleIdToken);
 
-    // const currentUserUrl = user.defaultUserName;
     res.redirect(process.env.NEXT_PUBLIC_URL + `/`);
-  })(req, res);
+  })(req, res, next);
 }
