@@ -9,4 +9,10 @@ export interface IAddProjectFormValues {
   rightButtonTitle?: string;
   rightButtonUrl?: string;
   cardArray?: string[];
+  creatorId: string;
+  creatorEmail: string;
+  creatorDisplayName: string;
+  creatorFirstName: string;
+  creatorLastName: string;
+  creatorDefaultUserName: string;
 }
