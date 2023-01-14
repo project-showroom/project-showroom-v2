@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { UserProfileFeature } from '../features/user-profile-feature';
 
 export default function Home() {
-  const mainClassNames = classNames('');
+  const mainClassNames = classNames('flex relative top-16');
   return (
     <>
       <Head>

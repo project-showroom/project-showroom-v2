@@ -10,11 +10,13 @@ export default function AddProjectPage(props: { className?: string }) {
   const id = useId() + '-' + COMPONENT_NAME;
   const { ...rest } = props;
 
-  const mainClassNames = classNames('flex flex-col h-screen p-4 mt-2 ');
+  const mainClassNames = classNames(
+    'flex relative flex-col h-screen p-4 top-16',
+  );
   return (
     <div id={id} {...rest} className={mainClassNames}>
       <Box>
-        <AddProjectFeature className="" />
+        <AddProjectFeature />
       </Box>
     </div>
   );

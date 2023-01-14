@@ -39,7 +39,7 @@ function App({ Component, pageProps }: AppProps) {
   }, [takenToken]);
 
   const headerClassNames = classNames(
-    'flex justify-between items-center pl-2 py-3 font-bold bg-blue-600 text-white shadow-lg shadow-gray-300/50 ',
+    'flex fixed w-full h-16 justify-between items-center pl-2 py-3 z-10 font-bold bg-blue-600 text-white shadow-lg shadow-gray-300/50 ',
   );
   return (
     <Provider store={store}>
