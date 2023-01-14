@@ -2,6 +2,7 @@ import { useId, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import classNames from 'classnames';
+import { getCookie } from 'cookies-next';
 import { Formik, Form } from 'formik';
 
 import { SubmitButton } from '../../../../components/button-components';
@@ -10,25 +11,27 @@ import {
   FormInputText,
 } from '../../../../components/form-elements';
 import { SendIconElement } from '../../../../components/icons-elements';
+import { IUser } from '../../../../models/Users';
 import { IAddProjectFormValues } from '../../../../types/element-types/form-elements-types';
 import validationSchema from '../../../../utils/add-project-validation-schema';
+import convertTokenId from '../../../../utils/convert-token-id';
+import postData from '../../../../utils/post-data';
+import initialValues from '../../../../utils/project-initial-values';
 
 const COMPONENT_NAME = 'AddProjectForm';
-const AddProjectForm = (props: { className?: string }) => {
+const AddProjectForm = (props: { className?: string; user: IUser }) => {
   const id = useId() + '-' + COMPONENT_NAME;
-  const { className, ...rest } = props;
+  const { className, user, ...rest } = props;
+
+  const token: any = getCookie('token');
 
   const [tags, setTags] = useState<string[]>([]);
 
-  const initialValues: IAddProjectFormValues = {
-    projectTitle: '',
-    thumbnailUrl: '',
-    description: '',
-    skillTags: [...tags],
-    leftButtonTitle: 'View Online',
-    leftButtonUrl: '',
-    rightButtonTitle: 'View Codes',
-    rightButtonUrl: '',
+  const onSubmit = (values: IAddProjectFormValues) => {
+    if (values.projectTitle && values.thumbnailUrl) {
+      postData('/api/projects', values);
+      setTags([]);
+    }
   };
 
   const boxClassNames = classNames(
@@ -44,9 +47,16 @@ const AddProjectForm = (props: { className?: string }) => {
         validationSchema={validationSchema}
         onSubmit={(values, actions) => {
           values.skillTags = [...tags];
-          console.log(values);
-          alert(JSON.stringify(values, null, 2));
-          actions.setSubmitting(false);
+          values.creatorId = convertTokenId(token);
+          values.creatorEmail = user.email;
+          values.creatorDefaultUserName = user.defaultUserName;
+          values.creatorDisplayName = user.displayName;
+          values.creatorFirstName = user.firstName;
+          values.creatorLastName = user.lastName;
+          onSubmit(values);
+          actions.resetForm({
+            values: { ...initialValues },
+          });
         }}
       >
         <Form>
