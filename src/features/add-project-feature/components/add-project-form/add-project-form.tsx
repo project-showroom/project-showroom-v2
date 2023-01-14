@@ -3,7 +3,6 @@ import { useId, useState } from 'react';
 import Box from '@mui/material/Box';
 import classNames from 'classnames';
 import { Formik, Form } from 'formik';
-import * as yup from 'yup';
 
 import { SubmitButton } from '../../../../components/button-components';
 import {
@@ -12,6 +11,7 @@ import {
 } from '../../../../components/form-elements';
 import { SendIconElement } from '../../../../components/icons-elements';
 import { IAddProjectFormValues } from '../../../../types/element-types/form-elements-types';
+import validationSchema from '../../../../utils/add-project-validation-schema';
 
 const COMPONENT_NAME = 'AddProjectForm';
 const AddProjectForm = (props: { className?: string }) => {
@@ -30,12 +30,6 @@ const AddProjectForm = (props: { className?: string }) => {
     rightButtonTitle: 'View Codes',
     rightButtonUrl: '',
   };
-  const validationSchema = yup.object({
-    projectTitle: yup.string().required('Required'),
-    thumbnailUrl: yup.string().required('Required'),
-    leftButtonUrl: yup.string().required('Required'),
-    rightButtonUrl: yup.string().required('Required'),
-  });
 
   const boxClassNames = classNames(
     'flex items-center bg-blue-500 w-max rounded md:absolute md:right-4 ',
