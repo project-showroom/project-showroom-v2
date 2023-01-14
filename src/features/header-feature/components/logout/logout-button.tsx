@@ -1,6 +1,7 @@
 import { useId } from 'react';
 
 import classNames from 'classnames';
+import { deleteCookie } from 'cookies-next';
 
 import { LogOutIconElement } from '../../../../components/icons-elements';
 import { ListButton } from '../../../../components/list-item-button-components/list-button';
@@ -11,7 +12,10 @@ const LogoutButton = (props: { className?: string }) => {
   const { className, ...rest } = props;
 
   const onClickLogout = () => {
-    console.log('clicked to signout');
+    deleteCookie('token');
+    deleteCookie('user');
+    deleteCookie('userGoogleId');
+    localStorage.removeItem('user');
   };
 
   return (

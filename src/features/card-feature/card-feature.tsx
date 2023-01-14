@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import Container from '@mui/material/Container';
-
 import { IAddProjectFormValues } from '../../types/element-types/form-elements-types/';
 import { ITEMS_PER_PAGE } from '../../utils/items-per-page';
 import { paginationFunction } from '../../utils/pagination-function';

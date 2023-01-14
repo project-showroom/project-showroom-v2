@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import classNames from 'classnames';
 
 import {
@@ -8,8 +10,13 @@ import {
 } from './index';
 
 const COMPONENT_NAME = 'HeaderFeature';
-const HeaderFeature = (props: { darkMode: any; toggleDarkMode: any }) => {
-  const { darkMode, toggleDarkMode } = props;
+const HeaderFeature = (props: any) => {
+  const { darkMode, toggleDarkMode, token, user } = props;
+
+  useEffect(() => {
+    localStorage.setItem('user', JSON.stringify(user.data));
+  }, [user]);
+
   const headerTitleMenuClassNames = classNames(
     'flex items-center justify-center',
   );
@@ -20,14 +27,12 @@ const HeaderFeature = (props: { darkMode: any; toggleDarkMode: any }) => {
     // When user signIn, show MenuBar.
     // When user signOut, show Login/Register button.
     <>
+      <div className={headerTitleMenuClassNames}>{token && <AppBarMenu />}</div>
       <div className={headerTitleMenuClassNames}>
-        <AppBarMenu />
-      </div>
-      <div className={headerTitleMenuClassNames}>
-        <HeaderTitle />
+        <HeaderTitle user={user.data} />
       </div>
       <div className={headerRegisterThemeClassNames}>
-        <LoginRegisterButton />
+        {!token && <LoginRegisterButton />}
         <ThemeSwitch toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
       </div>
     </>
