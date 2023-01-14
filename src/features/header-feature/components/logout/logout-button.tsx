@@ -15,7 +15,7 @@ const LogoutButton = (props: { className?: string }) => {
     deleteCookie('token');
     deleteCookie('user');
     deleteCookie('userGoogleId');
-    localStorage.removeItem('user');
+    // localStorage.removeItem('user');
   };
 
   return (
