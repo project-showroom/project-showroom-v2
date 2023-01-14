@@ -31,8 +31,6 @@ const UserSchema: Schema = new Schema<IUser>({
   },
   displayName: {
     type: String,
-    // required: true,
-    // unique: true,
   },
   firstName: {
     type: String,
@@ -48,9 +46,6 @@ const UserSchema: Schema = new Schema<IUser>({
   accessToken: {
     type: String,
   },
-  // tokens: {
-  //   type: String,
-  // },
   createdAt: {
     type: Date,
     default: Date.now,

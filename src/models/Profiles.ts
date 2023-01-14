@@ -1,4 +1,4 @@
-import { Schema, model, Document } from 'mongoose';
+import { Schema, model, Document, models } from 'mongoose';
 
 interface IProfile extends Document {
   username: string;
@@ -47,4 +47,4 @@ const ProfilesSchema: Schema = new Schema<IProfile>({
   },
 });
 
-export default model('Profiles', ProfilesSchema);
+export default models.Profiles || model<IProfile>('Profiles', ProfilesSchema);
