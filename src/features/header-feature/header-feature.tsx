@@ -13,9 +13,9 @@ const COMPONENT_NAME = 'HeaderFeature';
 const HeaderFeature = (props: any) => {
   const { darkMode, toggleDarkMode, token, user } = props;
 
-  useEffect(() => {
-    localStorage.setItem('user', JSON.stringify(user.data));
-  }, [user]);
+  // useEffect(() => {
+  //   localStorage.setItem('user', JSON.stringify(user.data));
+  // }, [user]);
 
   const headerTitleMenuClassNames = classNames(
     'flex items-center justify-center',
@@ -29,7 +29,7 @@ const HeaderFeature = (props: any) => {
     <>
       <div className={headerTitleMenuClassNames}>{token && <AppBarMenu />}</div>
       <div className={headerTitleMenuClassNames}>
-        <HeaderTitle user={user.data} />
+        <HeaderTitle user={user} />
       </div>
       <div className={headerRegisterThemeClassNames}>
         {!token && <LoginRegisterButton />}
