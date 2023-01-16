@@ -5,6 +5,7 @@ import { deleteCookie } from 'cookies-next';
 
 import { LogOutIconElement } from '../../../../components/icons-elements';
 import { ListButton } from '../../../../components/list-item-button-components/list-button';
+import { clearUser } from '../../../../store/user-slice';
 
 const COMPONENT_NAME = 'LogoutButton';
 const LogoutButton = (props: { className?: string }) => {
@@ -16,6 +17,7 @@ const LogoutButton = (props: { className?: string }) => {
     deleteCookie('user');
     deleteCookie('userGoogleId');
     // localStorage.removeItem('user');
+    clearUser();
   };
 
   return (
