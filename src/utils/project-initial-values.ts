@@ -9,12 +9,11 @@ const initialValues: IAddProjectFormValues = {
   leftButtonUrl: '',
   rightButtonTitle: 'View Codes',
   rightButtonUrl: '',
-  creatorId: '',
-  creatorEmail: '',
-  creatorDisplayName: '',
-  creatorFirstName: '',
-  creatorLastName: '',
-  creatorDefaultUserName: '',
+  userInfo: {
+    userId: '',
+    defaultUserName: '',
+    displayName: '',
+  },
 };
 
 export default initialValues;

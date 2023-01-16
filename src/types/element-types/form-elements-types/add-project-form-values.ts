@@ -1,3 +1,9 @@
+type UserInfoType = {
+  userId?: string;
+  defaultUserName: string;
+  displayName: string;
+};
+
 export interface IAddProjectFormValues {
   userName?: string;
   projectTitle: string;
@@ -8,11 +14,5 @@ export interface IAddProjectFormValues {
   leftButtonUrl?: string;
   rightButtonTitle?: string;
   rightButtonUrl?: string;
-  cardArray?: string[];
-  creatorId: string;
-  creatorEmail: string;
-  creatorDisplayName: string;
-  creatorFirstName: string;
-  creatorLastName: string;
-  creatorDefaultUserName: string;
+  userInfo: UserInfoType;
 }
