@@ -1,4 +1,7 @@
+import { useEffect } from 'react';
+
 import classNames from 'classnames';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
   ThemeSwitch,
@@ -6,10 +9,21 @@ import {
   LoginRegisterButton,
   AppBarMenu,
 } from './index';
+import { fetchUsers } from '../../store/user-slice';
 
 const COMPONENT_NAME = 'HeaderFeature';
 const HeaderFeature = (props: any) => {
   const { darkMode, toggleDarkMode } = props;
+
+  const dispatch = useDispatch();
+  const { user } = useSelector((state: any) => state.user);
+
+  useEffect(() => {
+    dispatch(fetchUsers() as any);
+  }, [dispatch]);
+
+  const currentUserDisplayName = user?.displayName;
+  const currentDefaultUserName = user?.defaultUserName;
 
   const headerTitleMenuClassNames = classNames(
     'flex items-center justify-center',
@@ -21,14 +35,16 @@ const HeaderFeature = (props: any) => {
     // When user signIn, show MenuBar.
     // When user signOut, show Login/Register button.
     <>
+      <div className={headerTitleMenuClassNames}>{user && <AppBarMenu />}</div>
+
       <div className={headerTitleMenuClassNames}>
-        <AppBarMenu />
-      </div>
-      <div className={headerTitleMenuClassNames}>
-        <HeaderTitle />
+        <HeaderTitle
+          currentUserDisplayName={currentUserDisplayName}
+          currentDefaultUserName={currentDefaultUserName}
+        />
       </div>
       <div className={headerRegisterThemeClassNames}>
-        <LoginRegisterButton />
+        {!user && <LoginRegisterButton />}
         <ThemeSwitch toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
       </div>
     </>
