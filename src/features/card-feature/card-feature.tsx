@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
+import { CardSelf } from './components/index';
+import { CardPagination } from './index';
 import { IAddProjectFormValues } from '../../types/element-types/form-elements-types/';
 import { ITEMS_PER_PAGE } from '../../utils/items-per-page';
 import { paginationFunction } from '../../utils/pagination-function';
-import { CardSelf } from './components/index';
-import { CardPagination } from './index';
 
 const COMPONENT_NAME = 'CardFeature';
 const CardFeature = () => {
@@ -69,10 +69,9 @@ const cardArray: IAddProjectFormValues[] = [
     rightButtonTitle: 'View Source Code 1',
     rightButtonUrl: 'Right Button Url 1',
     creatorId: 'string[]',
-    creatorEmail: 'string[]',
+
     creatorDisplayName: 'string[]',
-    creatorFirstName: 'string[]',
-    creatorLastName: 'string[]',
+
     creatorDefaultUserName: 'string[]',
   },
   {
@@ -94,10 +93,9 @@ const cardArray: IAddProjectFormValues[] = [
     rightButtonTitle: 'View Source Code 2',
     rightButtonUrl: 'Right Button Url 2',
     creatorId: 'string[]',
-    creatorEmail: 'string[]',
+
     creatorDisplayName: 'string[]',
-    creatorFirstName: 'string[]',
-    creatorLastName: 'string[]',
+
     creatorDefaultUserName: 'string[]',
   },
   {
@@ -111,10 +109,9 @@ const cardArray: IAddProjectFormValues[] = [
     rightButtonTitle: 'View Source Code 3',
     rightButtonUrl: 'Right Button Url 3',
     creatorId: 'string[]',
-    creatorEmail: 'string[]',
+
     creatorDisplayName: 'string[]',
-    creatorFirstName: 'string[]',
-    creatorLastName: 'string[]',
+
     creatorDefaultUserName: 'string[]',
   },
   {
@@ -128,10 +125,9 @@ const cardArray: IAddProjectFormValues[] = [
     rightButtonTitle: 'View Source Code 4',
     rightButtonUrl: 'Right Button Url 4',
     creatorId: 'string[]',
-    creatorEmail: 'string[]',
+
     creatorDisplayName: 'string[]',
-    creatorFirstName: 'string[]',
-    creatorLastName: 'string[]',
+
     creatorDefaultUserName: 'string[]',
   },
   {
@@ -145,10 +141,9 @@ const cardArray: IAddProjectFormValues[] = [
     rightButtonTitle: 'View Source Code 5',
     rightButtonUrl: 'Right Button Url 5',
     creatorId: 'string[]',
-    creatorEmail: 'string[]',
+
     creatorDisplayName: 'string[]',
-    creatorFirstName: 'string[]',
-    creatorLastName: 'string[]',
+
     creatorDefaultUserName: 'string[]',
   },
   {
@@ -162,10 +157,9 @@ const cardArray: IAddProjectFormValues[] = [
     rightButtonTitle: 'View Source Code 6',
     rightButtonUrl: 'Right Button Url 6',
     creatorId: 'string[]',
-    creatorEmail: 'string[]',
+
     creatorDisplayName: 'string[]',
-    creatorFirstName: 'string[]',
-    creatorLastName: 'string[]',
+
     creatorDefaultUserName: 'string[]',
   },
   {
@@ -179,10 +173,9 @@ const cardArray: IAddProjectFormValues[] = [
     rightButtonTitle: 'View Source Code 7',
     rightButtonUrl: 'Right Button Url 7',
     creatorId: 'string[]',
-    creatorEmail: 'string[]',
+
     creatorDisplayName: 'string[]',
-    creatorFirstName: 'string[]',
-    creatorLastName: 'string[]',
+
     creatorDefaultUserName: 'string[]',
   },
   {
@@ -196,10 +189,9 @@ const cardArray: IAddProjectFormValues[] = [
     rightButtonTitle: 'View Source Code 8',
     rightButtonUrl: 'Right Button Url 8',
     creatorId: 'string[]',
-    creatorEmail: 'string[]',
+
     creatorDisplayName: 'string[]',
-    creatorFirstName: 'string[]',
-    creatorLastName: 'string[]',
+
     creatorDefaultUserName: 'string[]',
   },
   {
@@ -213,10 +205,9 @@ const cardArray: IAddProjectFormValues[] = [
     rightButtonTitle: 'View Source Code 9',
     rightButtonUrl: 'Right Button Url 9',
     creatorId: 'string[]',
-    creatorEmail: 'string[]',
+
     creatorDisplayName: 'string[]',
-    creatorFirstName: 'string[]',
-    creatorLastName: 'string[]',
+
     creatorDefaultUserName: 'string[]',
   },
   {
@@ -230,10 +221,9 @@ const cardArray: IAddProjectFormValues[] = [
     rightButtonTitle: 'View Source Code 10',
     rightButtonUrl: 'Right Button Url 10',
     creatorId: 'string[]',
-    creatorEmail: 'string[]',
+
     creatorDisplayName: 'string[]',
-    creatorFirstName: 'string[]',
-    creatorLastName: 'string[]',
+
     creatorDefaultUserName: 'string[]',
   },
   {
@@ -247,10 +237,9 @@ const cardArray: IAddProjectFormValues[] = [
     rightButtonTitle: 'View Source Code 11',
     rightButtonUrl: 'Right Button Url 11',
     creatorId: 'string[]',
-    creatorEmail: 'string[]',
+
     creatorDisplayName: 'string[]',
-    creatorFirstName: 'string[]',
-    creatorLastName: 'string[]',
+
     creatorDefaultUserName: 'string[]',
   },
 ];

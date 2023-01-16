@@ -1,7 +1,7 @@
 import { useId } from 'react';
 
-import { IBaseButtonType } from '../../types/element-types/button-elements-types';
 import { BaseButton } from './base-button';
+import { IBaseButtonType } from '../../types/element-types/button-elements-types';
 
 const COMPONENT_NAME = 'SubmitTypeButton';
 const SubmitTypeButton = (props: IBaseButtonType) => {

@@ -3,9 +3,9 @@ import { useId } from 'react';
 import { Container, Divider } from '@mui/material';
 import classNames from 'classnames';
 
-import { CardFeature } from '../card-feature';
 import { UserProfileDescription, UserProfileTitle } from './components';
 import { UserProfileButtons } from './components/user-profile-buttons';
+import { CardFeature } from '../card-feature';
 
 const COMPONENT_NAME = 'UserProfileFeature';
 const UserProfileFeature = (props: { className?: string }) => {

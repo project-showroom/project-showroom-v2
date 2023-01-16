@@ -1,9 +1,10 @@
 import classNames from 'classnames';
+import { NextPage } from 'next';
 import Head from 'next/head';
 
 import { UserProfileFeature } from '../features/user-profile-feature';
 
-export default function Home() {
+const Home: NextPage = () => {
   const mainClassNames = classNames('flex relative justify-center top-16');
   return (
     <>
@@ -18,4 +19,6 @@ export default function Home() {
       </main>
     </>
   );
-}
+};
+
+export default Home;

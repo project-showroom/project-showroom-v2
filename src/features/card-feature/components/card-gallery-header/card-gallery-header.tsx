@@ -1,8 +1,8 @@
 import Avatar from '@mui/material/Avatar';
 import CardHeader from '@mui/material/CardHeader';
 
-import { takeFirstLetter } from '../../../../utils/take-first-letter';
 import { CardHeaderAction } from './index';
+import { takeFirstLetter } from '../../../../utils/take-first-letter';
 
 const COMPONENT_NAME = 'CardGalleryHeader';
 const CardGalleryHeader = (props: { cardUserName: string }) => {
