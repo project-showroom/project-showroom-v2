@@ -1,11 +1,11 @@
+import '../styles/globals.css';
 import { useState } from 'react';
 
-import '../styles/globals.css';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import classNames from 'classnames';
-import { ThemeProvider as NextThemeProvider } from 'next-themes';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import { ThemeProvider as NextThemeProvider } from 'next-themes';
 import { Provider } from 'react-redux';
 
 import { FooterFeature } from '../features/footer-feature/footer-feature';
