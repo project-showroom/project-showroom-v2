@@ -1,5 +1,11 @@
 import { Document, Schema, Model, Types, model, models } from 'mongoose';
 
+type UserInfoType = {
+  userId?: string;
+  defaultUserName: string;
+  displayName: string;
+};
+
 interface IProject extends Document {
   projectTitle: string;
   thumbnailUrl: string;
@@ -9,12 +15,7 @@ interface IProject extends Document {
   leftButtonUrl: string;
   rightButtonTitle: string;
   rightButtonUrl: string;
-  creatorEmail: string;
-  creatorId: string;
-  creatorDisplayName: string;
-  creatorFirstName: string;
-  creatorLastName: string;
-  creatorDefaultUserName: string;
+  userInfo: UserInfoType;
   createdAt: Date;
 }
 
@@ -42,23 +43,16 @@ const ProjectSchema: Schema = new Schema<IProject, Model<IProject>>({
   rightButtonUrl: {
     type: String,
   },
-  creatorEmail: {
-    type: String,
-  },
-  creatorId: {
-    type: String,
-  },
-  creatorDisplayName: {
-    type: String,
-  },
-  creatorFirstName: {
-    type: String,
-  },
-  creatorLastName: {
-    type: String,
-  },
-  creatorDefaultUserName: {
-    type: String,
+  userInfo: {
+    userId: {
+      type: String,
+    },
+    defaultUserName: {
+      type: String,
+    },
+    displayName: {
+      type: String,
+    },
   },
   createdAt: {
     type: Date,
