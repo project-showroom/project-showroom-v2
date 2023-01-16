@@ -2,8 +2,8 @@ import { useId, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import classNames from 'classnames';
-import { getCookie } from 'cookies-next';
 import { Formik, Form } from 'formik';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { SubmitButton } from '../../../../components/button-components';
 import {
@@ -11,26 +11,36 @@ import {
   FormInputText,
 } from '../../../../components/form-elements';
 import { SendIconElement } from '../../../../components/icons-elements';
-import { IUser } from '../../../../models/Users';
+import { createProject, sendProject } from '../../../../store/project-slice';
 import { IAddProjectFormValues } from '../../../../types/element-types/form-elements-types';
 import validationSchema from '../../../../utils/add-project-validation-schema';
-import convertTokenId from '../../../../utils/convert-token-id';
-import postData from '../../../../utils/post-data';
 import initialValues from '../../../../utils/project-initial-values';
 
 const COMPONENT_NAME = 'AddProjectForm';
-const AddProjectForm = (props: { className?: string; user: IUser }) => {
+const AddProjectForm = (props: { className?: string }) => {
   const id = useId() + '-' + COMPONENT_NAME;
-  const { className, user, ...rest } = props;
-
-  const token: any = getCookie('token');
+  const { className, ...rest } = props;
 
   const [tags, setTags] = useState<string[]>([]);
 
-  const onSubmit = (values: IAddProjectFormValues) => {
+  const dispatch = useDispatch();
+
+  const { user } = useSelector((state: any) => state.user);
+  const { _id: userId, defaultUserName, displayName } = user;
+
+  const onSubmit = async (values: IAddProjectFormValues) => {
     if (values.projectTitle && values.thumbnailUrl) {
-      postData('/api/projects', values);
       setTags([]);
+      // const res = await fetch('/api/projects', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify(values),
+      // });
+      // const data = await res.json();
+      // console.log(data);
+      dispatch((await createProject(values)) as any);
     }
   };
 
@@ -47,12 +57,11 @@ const AddProjectForm = (props: { className?: string; user: IUser }) => {
         validationSchema={validationSchema}
         onSubmit={(values, actions) => {
           values.skillTags = [...tags];
-          values.creatorId = convertTokenId(token);
-          values.creatorEmail = user.email;
-          values.creatorDefaultUserName = user.defaultUserName;
-          values.creatorDisplayName = user.displayName;
-          values.creatorFirstName = user.firstName;
-          values.creatorLastName = user.lastName;
+          values.userInfo = {
+            userId: userId,
+            defaultUserName: defaultUserName,
+            displayName: displayName,
+          };
           onSubmit(values);
           actions.resetForm({
             values: { ...initialValues },

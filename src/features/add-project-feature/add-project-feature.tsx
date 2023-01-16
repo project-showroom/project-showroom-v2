@@ -2,18 +2,17 @@ import { useId } from 'react';
 
 import classNames from 'classnames';
 
-import { IUser } from '../../models/Users';
 import { FormTitle, AddProjectForm } from './index';
 
 const COMPONENT_NAME = 'AddProjectFeature';
-const AddProjectFeature = (props: { className?: string; user: IUser }) => {
+const AddProjectFeature = (props: { className?: string }) => {
   const id = useId() + '-' + COMPONENT_NAME;
-  const { className, user, ...rest } = props;
+  const { className, ...rest } = props;
 
   return (
     <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
       <FormTitle />
-      <AddProjectForm user={user} />
+      <AddProjectForm />
     </div>
   );
 };
