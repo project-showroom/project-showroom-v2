@@ -1,11 +1,14 @@
 import classNames from 'classnames';
 import { NextPage } from 'next';
 import Head from 'next/head';
+import { useSelector } from 'react-redux';
 
-import { UserProfileFeature } from '../features/user-profile-feature';
+import { MainFeature } from '../features/main-feature';
 
 const Home: NextPage = () => {
-  const mainClassNames = classNames('flex relative justify-center top-16');
+  const { user, loading } = useSelector((state: any) => state.user);
+
+  const mainClassNames = classNames('flex relative justify-center pt-16');
   return (
     <>
       <Head>
@@ -15,7 +18,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={mainClassNames}>
-        <UserProfileFeature />
+        {!user && !loading ? null : <MainFeature user={user} />}
       </main>
     </>
   );
