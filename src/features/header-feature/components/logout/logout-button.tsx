@@ -5,7 +5,7 @@ import { deleteCookie } from 'cookies-next';
 
 import { LogOutIconElement } from '../../../../components/icons-elements';
 import { ListButton } from '../../../../components/list-item-button-components/list-button';
-import { clearUser } from '../../../../store/user-slice';
+import { clearUser } from '../../../../store/take-user-slice';
 
 const COMPONENT_NAME = 'LogoutButton';
 const LogoutButton = (props: { className?: string }) => {
