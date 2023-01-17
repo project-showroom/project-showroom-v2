@@ -34,7 +34,7 @@ function App({ Component, pageProps }: AppProps) {
               <HeaderFeature darkMode={darkMode} toggleDarkMode={setDarkMode} />
             </header>
             <Component {...pageProps} />
-            <footer>
+            <footer className="pt-16">
               <FooterFeature />
             </footer>
           </main>

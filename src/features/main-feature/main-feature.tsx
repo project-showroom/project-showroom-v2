@@ -12,7 +12,7 @@ const MainFeature = () => {
         <HeroButtons firstButtonText={'My projects'} /> */}
         <Divider />
       </Container>
-      <CardFeature />
+      {/* <CardFeature /> */}
     </>
   );
 };
