@@ -11,7 +11,7 @@ import {
   FormInputText,
 } from '../../../../components/form-elements';
 import { SendIconElement } from '../../../../components/icons-elements';
-import { createProject, sendProject } from '../../../../store/project-slice';
+import { createProject } from '../../../../store/project-slice';
 import { IAddProjectFormValues } from '../../../../types/element-types/form-elements-types';
 import validationSchema from '../../../../utils/add-project-validation-schema';
 import initialValues from '../../../../utils/project-initial-values';
@@ -31,16 +31,7 @@ const AddProjectForm = (props: { className?: string }) => {
   const onSubmit = async (values: IAddProjectFormValues) => {
     if (values.projectTitle && values.thumbnailUrl) {
       setTags([]);
-      // const res = await fetch('/api/projects', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify(values),
-      // });
-      // const data = await res.json();
-      // console.log(data);
-      dispatch((await createProject(values)) as any);
+      dispatch(createProject(values) as any);
     }
   };
 
