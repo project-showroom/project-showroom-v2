@@ -45,7 +45,7 @@ const CardSelf = (props: CardSelfProps) => {
             className={cardGridClassNames}
           >
             <Card className={cardClassNames}>
-              <CardGalleryHeader cardUserName={cardItem.userName} />
+              <CardGalleryHeader cardUserName={cardItem.userInfo.displayName} />
               <CardGalleryMedia cardImageUrl={cardItem.thumbnailUrl} />
               <CardContentCombine
                 cardTitle={cardItem.projectTitle}
