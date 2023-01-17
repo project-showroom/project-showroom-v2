@@ -9,7 +9,7 @@ import {
   LoginRegisterButton,
   AppBarMenu,
 } from './index';
-import { fetchUsers } from '../../store/user-slice';
+import { fetchUsers } from '../../store/take-user-slice';
 
 const COMPONENT_NAME = 'HeaderFeature';
 const HeaderFeature = (props: any) => {
