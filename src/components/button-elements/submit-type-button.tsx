@@ -11,7 +11,7 @@ const SubmitTypeButton = (props: IBaseButtonType) => {
 
   // Server'a istek atmadan önce formun validasyonunu yapmak için
 
-  return <BaseButton id={id} type="submit" {...rest} />;
+  return <BaseButton id={id} {...rest} />;
 };
 
 SubmitTypeButton.displayName = COMPONENT_NAME;
