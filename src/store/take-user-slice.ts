@@ -36,14 +36,10 @@ const initialState: IInitialState = {
   error: '',
 };
 
-const userSlice: any = createSlice({
+const takeUserSlice: any = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    // getUser: (state) => {
-    //   state.loading = true;
-    //   state.user = userData;
-    // },
     clearUser: (state) => {
       state.loading = false;
       state.user = [];
@@ -66,6 +62,6 @@ const userSlice: any = createSlice({
   },
 });
 
-export const { getUser, clearUser } = userSlice.actions;
+export const { clearUser } = takeUserSlice.actions;
 
-export default userSlice.reducer;
+export default takeUserSlice.reducer;

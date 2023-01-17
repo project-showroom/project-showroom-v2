@@ -2,29 +2,28 @@ import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { getCookie } from 'cookies-next';
 
-import convertTokenId from '../utils/convert-token-id';
-
-// const allProjectsOfUser:any = [];
-
 const token = getCookie('token');
-const userId = convertTokenId(token);
 
-export const createProject = createAsyncThunk(
-  'project/postProject',
-  async (value: any) => {
-    if (!userId) return;
-    return await axios.post(`http://localhost:3000/api/projects`, value);
+export const allProjects = createAsyncThunk(
+  'projects/getAllProjects',
+  async (username: any) => {
+    if (!token) return;
+    return await axios
+      .get(`http://localhost:3000/api/projects/${username}`)
+      .then((response) => {
+        return response.data.data;
+      });
   },
 );
 
 interface IInitialState {
   loading: boolean;
-  project: any;
+  projects: any;
   error: any;
 }
 const initialState: IInitialState = {
   loading: false,
-  project: [],
+  projects: [],
   error: '',
 };
 
@@ -33,20 +32,22 @@ const projectSlice: any = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(createProject.pending, (state) => {
+    builder.addCase(allProjects.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(createProject.fulfilled, (state, action: PayloadAction) => {
+    builder.addCase(allProjects.fulfilled, (state, action: PayloadAction) => {
       state.loading = false;
-      state.project = action.payload;
+      state.projects = action.payload;
       state.error = '';
     });
-    builder.addCase(createProject.rejected, (state, action) => {
+    builder.addCase(allProjects.rejected, (state, action) => {
       state.loading = false;
-      state.project = [];
+      state.projects = [];
       state.error = action.error.message || 'Something went wrong';
     });
   },
 });
+
+export const { addProject } = projectSlice.actions;
 
 export default projectSlice.reducer;

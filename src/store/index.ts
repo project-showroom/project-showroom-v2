@@ -2,13 +2,15 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import iconSlice from './icon-slice';
 import projectSlice from './project-slice';
-import userSlice from './user-slice';
+import takeProjectsSlice from './take-projects-slice';
+import takeUserSlice from './take-user-slice';
 
 const store = configureStore({
   reducer: {
     icon: iconSlice.reducer,
-    user: userSlice,
+    user: takeUserSlice,
     project: projectSlice,
+    projects: takeProjectsSlice,
   },
 });
 
