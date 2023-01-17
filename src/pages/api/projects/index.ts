@@ -9,18 +9,18 @@ export default async function handler(
 ) {
   await connect();
   const { body, method } = req;
-  body.createdAt = Date.now();
 
   switch (method) {
     case 'POST':
       {
+        body.createdAt = Date.now();
         const newProject = new Projects(body);
         await newProject.save();
       }
       break;
     case 'GET':
       {
-        const allProjects = await Projects.find();
+        const allProjects = await Projects.find({});
         res.status(200).json({
           success: true,
           data: allProjects,
