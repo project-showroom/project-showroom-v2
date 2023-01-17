@@ -29,9 +29,6 @@ const CardSelf = (props: CardSelfProps) => {
     <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
       <Grid
         container
-        // direction="row"
-        // justifyContent="center"
-        // alignItems="center"
         spacing={{ xs: 1, md: 3 }}
         className={cardContainerGridClassNames}
       >
@@ -45,7 +42,11 @@ const CardSelf = (props: CardSelfProps) => {
             className={cardGridClassNames}
           >
             <Card className={cardClassNames}>
-              <CardGalleryHeader cardUserName={cardItem.userInfo.displayName} />
+              <CardGalleryHeader
+                cardUserName={cardItem.userInfo.displayName}
+                cardId={cardItem._id}
+                cardUserId={cardItem.userInfo.userId}
+              />
               <CardGalleryMedia cardImageUrl={cardItem.thumbnailUrl} />
               <CardContentCombine
                 cardTitle={cardItem.projectTitle}

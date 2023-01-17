@@ -4,7 +4,7 @@ import CardMedia from '@mui/material/CardMedia';
 import classNames from 'classnames';
 
 const COMPONENT_NAME = 'CardGalleryMedia';
-const cardMediaClassNames = classNames('h-48', COMPONENT_NAME);
+const cardMediaClassNames = classNames('h-48 ', COMPONENT_NAME);
 const CardGalleryMedia = (props: { cardImageUrl: string }) => {
   const id = useId() + '-' + COMPONENT_NAME;
 
@@ -12,7 +12,12 @@ const CardGalleryMedia = (props: { cardImageUrl: string }) => {
 
   return (
     <div id={id} {...rest} className={cardMediaClassNames}>
-      <CardMedia image={cardImageUrl} component="img" alt="Paella dish" />
+      <CardMedia
+        className="h-full"
+        image={cardImageUrl}
+        component="img"
+        alt="Paella dish"
+      />
     </div>
   );
 };
