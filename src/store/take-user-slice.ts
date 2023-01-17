@@ -26,11 +26,13 @@ export const fetchUsers = createAsyncThunk('user/fetchUsers', () => {
 });
 
 interface IInitialState {
+  userId: string;
   loading: boolean;
   user: any;
   error: any;
 }
 const initialState: IInitialState = {
+  userId: userId,
   loading: false,
   user: [],
   error: '',
