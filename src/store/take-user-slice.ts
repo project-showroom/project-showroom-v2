@@ -18,11 +18,9 @@ const userId = convertTokenId(token);
 
 export const fetchUsers = createAsyncThunk('user/fetchUsers', () => {
   if (!userId) return;
-  return axios
-    .get(`http://localhost:3000/api/users/${userId}`)
-    .then((response) => {
-      return response.data.data;
-    });
+  return axios.get(`/api/users/${userId}`).then((response) => {
+    return response.data.data;
+  });
 });
 
 interface IInitialState {

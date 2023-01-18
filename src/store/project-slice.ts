@@ -13,7 +13,7 @@ export const createProject = createAsyncThunk(
   'project/postProject',
   async (value: any) => {
     if (!userId) return;
-    return await axios.post(`http://localhost:3000/api/projects`, value);
+    return await axios.post(`/api/projects`, value);
   },
 );
 

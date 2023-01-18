@@ -8,11 +8,9 @@ export const allProjects = createAsyncThunk(
   'projects/getAllProjects',
   async (username: any) => {
     if (!token) return;
-    return await axios
-      .get(`http://localhost:3000/api/projects/${username}`)
-      .then((response) => {
-        return response.data.data;
-      });
+    return await axios.get(`/api/projects/${username}`).then((response) => {
+      return response.data.data;
+    });
   },
 );
 
@@ -28,7 +26,7 @@ const initialState: IInitialState = {
 };
 
 const projectSlice: any = createSlice({
-  name: 'project',
+  name: 'projects',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -47,7 +45,5 @@ const projectSlice: any = createSlice({
     });
   },
 });
-
-export const { addProject } = projectSlice.actions;
 
 export default projectSlice.reducer;
