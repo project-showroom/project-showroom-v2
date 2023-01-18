@@ -12,14 +12,14 @@ const LoginRegisterButton = (props: { className?: string }) => {
   const { ...rest } = props;
 
   const headerLoginButtonClassNames = classNames('bg-gray-600');
-  const headerLoginClassNames = classNames('flex text-sm mr-1');
+  const headerLoginClassNames = classNames('flex text-sm mr-1 bg-gray-600');
   return (
     <div id={id} {...rest} className={headerLoginClassNames}>
       <SubmitButton
         href="/api/google"
         variant="contained"
-        className={headerLoginButtonClassNames}
         Icon={<LogInIconElement />}
+        className={headerLoginButtonClassNames}
       >
         Sign In / Up
       </SubmitButton>
