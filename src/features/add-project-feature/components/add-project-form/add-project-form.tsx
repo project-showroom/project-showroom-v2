@@ -14,7 +14,7 @@ import { SendIconElement } from '../../../../components/icons-elements';
 import { createProject } from '../../../../store/project-slice';
 import { IAddProjectFormValues } from '../../../../types/element-types/form-elements-types';
 import validationSchema from '../../../../utils/add-project-validation-schema';
-import initialValues from '../../../../utils/project-initial-values';
+import initialValuesFunc from '../../../../utils/project-initial-values';
 
 const COMPONENT_NAME = 'AddProjectForm';
 const AddProjectForm = (props: { className?: string }) => {
@@ -34,6 +34,8 @@ const AddProjectForm = (props: { className?: string }) => {
       dispatch(createProject(values) as any);
     }
   };
+
+  const initialValues = initialValuesFunc('', '');
 
   const boxClassNames = classNames(
     'flex items-center bg-blue-500 w-max rounded md:absolute md:right-4 ',
