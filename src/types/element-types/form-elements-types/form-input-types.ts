@@ -10,8 +10,9 @@ export interface ITextFieldProps {
   required?: boolean;
   variant?: 'standard' | 'filled' | 'outlined';
   multiline?: boolean;
-  defaultValue?: string;
+  defaultValue?: any;
   helperText?: string;
   disabled?: boolean;
   type?: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
