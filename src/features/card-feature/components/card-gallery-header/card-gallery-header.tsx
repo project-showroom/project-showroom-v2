@@ -10,9 +10,9 @@ const CardGalleryHeader = (props: {
   cardUserName: string;
   cardId: string;
   cardUserId: string;
+  cardDefaultUserName: string;
 }) => {
-  const { cardUserName, cardId, cardUserId } = props;
-  console.log(cardId, 'cardId');
+  const { cardUserName, cardId, cardUserId, cardDefaultUserName } = props;
 
   const { userId } = useSelector((state: any) => state.user);
 
@@ -21,7 +21,14 @@ const CardGalleryHeader = (props: {
   return (
     <CardHeader
       avatar={<Avatar aria-label="recipe">{cardUserNameFirstLetter}</Avatar>}
-      action={userId === cardUserId && <CardHeaderAction />}
+      action={
+        userId === cardUserId && (
+          <CardHeaderAction
+            cardId={cardId}
+            cardDefaultUserName={cardDefaultUserName}
+          />
+        )
+      }
       subheader={
         <>
           <span>Posted at </span>

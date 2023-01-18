@@ -46,6 +46,7 @@ const CardSelf = (props: CardSelfProps) => {
                 cardUserName={cardItem.userInfo.displayName}
                 cardId={cardItem._id}
                 cardUserId={cardItem.userInfo.userId}
+                cardDefaultUserName={cardItem.userInfo.defaultUserName}
               />
               <CardGalleryMedia cardImageUrl={cardItem.thumbnailUrl} />
               <CardContentCombine

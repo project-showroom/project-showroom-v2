@@ -19,7 +19,6 @@ const CardFeature = (props: { projects: any }) => {
   const page_size = Math.ceil(cardLength / ITEMS_PER_PAGE);
 
   const onPageChange = (event: React.ChangeEvent<unknown>, value: number) => {
-    console.log(value);
     event.preventDefault();
     const { pageArray } = paginationFunction(projects, value, ITEMS_PER_PAGE);
     setPage(value);

@@ -6,7 +6,12 @@ import IconButton from '@mui/material/IconButton';
 import { CardHeaderMenu } from './index';
 
 const COMPONENT_NAME = 'CardHeaderAction';
-const CardHeaderAction = () => {
+const CardHeaderAction = (props: {
+  cardId: string;
+  cardDefaultUserName: string;
+}) => {
+  const { cardId, cardDefaultUserName } = props;
+
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -30,6 +35,8 @@ const CardHeaderAction = () => {
         open={open}
         handleClose={handleClose}
         anchorEl={anchorEl}
+        cardId={cardId}
+        cardDefaultUserName={cardDefaultUserName}
       />
     </>
   );
