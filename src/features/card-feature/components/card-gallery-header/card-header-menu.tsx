@@ -13,8 +13,16 @@ const CardHeaderMenu = (props: {
   open: boolean;
   anchorEl: null | HTMLElement;
   handleClose: () => void;
+  cardId: string;
+  cardDefaultUserName: string;
 }) => {
-  const { anchorEl, handleClose, open } = props;
+  const {
+    anchorEl,
+    handleClose,
+    open,
+    cardId: cardid,
+    cardDefaultUserName,
+  } = props;
 
   return (
     <Menu
@@ -29,7 +37,7 @@ const CardHeaderMenu = (props: {
         <ListButton href="/" icon={<DeleteIconElement />} text="Delete" />
         <Divider component="div" role="presentation" flexItem />
         <ListButton
-          href="/edit-project"
+          href={`/${cardDefaultUserName}/edit-project/${cardid}`}
           icon={<EditIconElement />}
           text="Edit"
         />
