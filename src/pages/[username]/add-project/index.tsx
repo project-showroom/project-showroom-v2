@@ -3,7 +3,7 @@ import { useId } from 'react';
 import Box from '@mui/material/Box';
 import classNames from 'classnames';
 
-import { AddProjectFeature } from '../../features/add-project-feature/add-project-feature';
+import { AddProjectFeature } from '../../../features/add-project-feature/add-project-feature';
 
 const COMPONENT_NAME = 'AddProjectPage';
 export default function AddProjectPage(props: { className?: string }) {

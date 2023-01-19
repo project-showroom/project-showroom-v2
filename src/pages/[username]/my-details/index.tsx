@@ -4,8 +4,8 @@ import { Box } from '@mui/material';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { MyDetailsFeature } from '../../features/my-details-feature';
-import { getCurrentProfile } from '../../store/take-profile-slice';
+import { MyDetailsFeature } from '../../../features/my-details-feature';
+import { getCurrentProfile } from '../../../store/take-profile-slice';
 
 const COMPONENT_NAME = 'Index';
 export default function MyDetailsPage(props: { className?: string }) {
