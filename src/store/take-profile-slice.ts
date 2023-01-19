@@ -10,7 +10,7 @@ const userid = convertTokenId(token);
 export const getCurrentProfile = createAsyncThunk(
   'profile/getCurrentProfile',
   async () => {
-    if (!token) return;
+    if (!userid) return console.log('No user id found');
     return await axios.get(`/api/profiles/${userid}`).then((response) => {
       return response.data.data;
     });

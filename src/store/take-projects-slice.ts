@@ -1,13 +1,9 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { getCookie } from 'cookies-next';
-
-const token = getCookie('token');
 
 export const allProjects = createAsyncThunk(
   'projects/getAllProjects',
   async (username: any) => {
-    if (!token) return;
     return await axios.get(`/api/projects/${username}`).then((response) => {
       return response.data.data;
     });
