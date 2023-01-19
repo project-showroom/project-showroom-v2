@@ -15,7 +15,7 @@ import { SendIconElement } from '../../../../components/icons-elements';
 import { updateCardProject } from '../../../../store/update-project-slice';
 import { IAddProjectFormValues } from '../../../../types/element-types/form-elements-types';
 import validationSchema from '../../../../utils/add-project-validation-schema';
-import initialValuesFunc from '../../../../utils/project-initial-values';
+import initialFormValuesFunc from '../../../../utils/project-initial-values';
 
 const COMPONENT_NAME = 'EditProjectForm';
 const EditProjectForm = (props: { className?: string }) => {
@@ -35,7 +35,7 @@ const EditProjectForm = (props: { className?: string }) => {
     router.push(`/${editProject.userInfo.defaultUserName}`);
   };
 
-  const initialValues = initialValuesFunc(editProject, tags);
+  const initialValues = initialFormValuesFunc(editProject, tags);
 
   const boxClassNames = classNames(
     'flex items-center bg-blue-500 w-max rounded md:absolute md:right-4 ',
