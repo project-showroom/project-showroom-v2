@@ -3,24 +3,29 @@ import { useId } from 'react';
 import Box from '@mui/material/Box';
 import classNames from 'classnames';
 import { Formik, Form } from 'formik';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { SubmitButton } from '../../../components/button-components';
 import { FormInputText } from '../../../components/form-elements';
 import { SendIconElement } from '../../../components/icons-elements';
+import { postAndUpdateProfile } from '../../../store/update-profile-slice';
 import { IManegeDetailsFormValues } from '../../../types/element-types/form-elements-types';
+import initialProfileValuesFunc from '../../../utils/profil-initial-values';
 
 const COMPONENT_NAME = 'MyDetailsForm';
 const MyDetailsForm = (props: { className?: string }) => {
   const id = useId() + '-' + COMPONENT_NAME;
   const { className, ...rest } = props;
 
-  const initialValues: IManegeDetailsFormValues = {
-    userName: 'Google Default User Name',
-    myDetails: '',
-    giveNameToButton: '',
-    addLinkToYourDetails: '',
-    changeTitle: '',
+  const dispatch = useDispatch();
+  const { profile } = useSelector((state: any) => state.profile);
+  const { user } = useSelector((state: any) => state.user);
+
+  const onSubmit = async (values: IManegeDetailsFormValues) => {
+    dispatch(postAndUpdateProfile(values) as any);
   };
+
+  const initialValues = initialProfileValuesFunc(profile);
 
   const boxClassNames = classNames(
     'flex items-center bg-blue-500 w-max rounded md:absolute md:right-4 ',
@@ -31,10 +36,14 @@ const MyDetailsForm = (props: { className?: string }) => {
     <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
       <Formik
         initialValues={initialValues}
-        onSubmit={(values, actions) => {
-          console.log(values);
-          alert(JSON.stringify(values, null, 2));
-          actions.setSubmitting(false);
+        onSubmit={(values) => {
+          values.userInfo = {
+            defaultUserName: user?.defaultUserName,
+            userEmail: user?.email,
+            userId: user?._id,
+            displayName: user?.displayName,
+          };
+          onSubmit(values);
         }}
       >
         <Form>
@@ -53,7 +62,6 @@ const MyDetailsForm = (props: { className?: string }) => {
             placeholder="My Details"
             variant="outlined"
             type="text"
-            multiline
           />
 
           <div className={spaceClassNames} />
@@ -75,8 +83,8 @@ const MyDetailsForm = (props: { className?: string }) => {
           />
           <div className={spaceClassNames} />
           <FormInputText
-            id="changeTitle"
-            name="changeTitle"
+            id="profileTitle"
+            name="profileTitle"
             label="Change Title"
             placeholder="Change Title"
             type="text"
