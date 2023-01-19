@@ -1,6 +1,6 @@
 import { IAddProjectFormValues } from '../types/element-types/form-elements-types';
 
-const initialValuesFunc = (
+const initialFormValuesFunc = (
   editProject: IAddProjectFormValues | any,
   tags: any,
 ) => {
@@ -28,4 +28,4 @@ const initialValuesFunc = (
     userInfo: '',
   };
 };
-export default initialValuesFunc;
+export default initialFormValuesFunc;
