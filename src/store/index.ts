@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 
+import deleteProjectSlice from './delete-project-slice';
 import editProjectSlice from './edit-project-slice';
 import iconSlice from './icon-slice';
 import projectSlice from './project-slice';
@@ -21,6 +22,7 @@ const store = configureStore({
     updateProfile: updateProfileSlice,
     profile: takeProfileSlice,
     searchProfile: searchProfileSlice,
+    deleteProject: deleteProjectSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
