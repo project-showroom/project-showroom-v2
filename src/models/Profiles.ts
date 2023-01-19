@@ -1,20 +1,23 @@
 import { Schema, model, Document, models } from 'mongoose';
 
+type ProfileInfoType = {
+  userId: string;
+  userEmail: string;
+  defaultUserName: string;
+  displayName: string;
+};
 interface IProfile extends Document {
-  username: string;
+  userName: string;
   myDetails: string;
   giveNameToButton: string;
-  addOneUrl: string;
-  title: string;
-  creatorId: string;
-  creatorEmail: string;
-  creatorDisplayName: string;
-  creatorDefaultUserName: string;
+  addLinkToYourDetails: string;
+  profileTitle: string;
+  userInfo: ProfileInfoType;
   createdAt: Date;
 }
 
 const ProfilesSchema: Schema = new Schema<IProfile>({
-  username: {
+  userName: {
     type: String,
   },
   myDetails: {
@@ -23,23 +26,17 @@ const ProfilesSchema: Schema = new Schema<IProfile>({
   giveNameToButton: {
     type: String,
   },
-  addOneUrl: {
+  addLinkToYourDetails: {
     type: String,
   },
-  title: {
+  profileTitle: {
     type: String,
   },
-  creatorId: {
-    type: String,
-  },
-  creatorEmail: {
-    type: String,
-  },
-  creatorDisplayName: {
-    type: String,
-  },
-  creatorDefaultUserName: {
-    type: String,
+  userInfo: {
+    userId: String,
+    userEmail: String,
+    defaultUserName: String,
+    displayName: String,
   },
   createdAt: {
     type: Date,
