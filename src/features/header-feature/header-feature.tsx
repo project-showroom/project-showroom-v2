@@ -35,7 +35,9 @@ const HeaderFeature = (props: any) => {
     // When user signIn, show MenuBar.
     // When user signOut, show Login/Register button.
     <>
-      <div className={headerTitleMenuClassNames}>{user && <AppBarMenu />}</div>
+      <div className={headerTitleMenuClassNames}>
+        {user && <AppBarMenu currentDefaultUserName={currentDefaultUserName} />}
+      </div>
 
       <div className={headerTitleMenuClassNames}>
         <HeaderTitle

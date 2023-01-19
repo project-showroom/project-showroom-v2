@@ -7,23 +7,22 @@ import classNames from 'classnames';
 import { MoveToInBoxIconElement } from '../../../../components/icons-elements';
 import { LogoutButton, ListItemIconButton } from '../../index';
 
-interface ListItemIconButtonProps {
+const COMPONENT_NAME = 'LeftMenuList';
+const LeftMenuList = (props: {
   className?: string;
   closeMenu?: () => void;
-}
-
-const COMPONENT_NAME = 'LeftMenuList';
-const LeftMenuList = (props: ListItemIconButtonProps) => {
+  currentDefaultUserName?: string;
+}) => {
   const id = useId() + '-' + COMPONENT_NAME;
-  const { className, closeMenu, ...rest } = props;
+  const { className, closeMenu, currentDefaultUserName, ...rest } = props;
 
   const firstItem = {
-    url: '/add-project',
+    url: `${currentDefaultUserName}/add-project`,
     text: 'Add New Project',
   };
 
   const secondItem = {
-    url: '/my-details',
+    url: `${currentDefaultUserName}/my-details`,
     text: 'Manege Your Details',
   };
 

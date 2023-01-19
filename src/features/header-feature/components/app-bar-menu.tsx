@@ -8,9 +8,13 @@ import classNames from 'classnames';
 import { LeftMenuList } from '../index';
 
 const COMPONENT_NAME = 'AppBarMenu';
-const AppBarMenu = (props: { className?: string }) => {
+const AppBarMenu = (props: {
+  className?: string;
+  currentDefaultUserName?: string;
+}) => {
   const id = useId() + '-' + COMPONENT_NAME;
-  const { className, ...rest } = props;
+  const { className, currentDefaultUserName, ...rest } = props;
+
   const [openMenu, setOpenMenu] = useState(false);
 
   const closeMenu = () => setOpenMenu(false);
@@ -31,7 +35,10 @@ const AppBarMenu = (props: { className?: string }) => {
         onClose={closeMenu}
         className="relative mt-20"
       >
-        <LeftMenuList closeMenu={closeMenu} />
+        <LeftMenuList
+          currentDefaultUserName={currentDefaultUserName}
+          closeMenu={closeMenu}
+        />
       </Drawer>
     </div>
   );

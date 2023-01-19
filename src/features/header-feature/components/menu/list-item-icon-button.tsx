@@ -1,8 +1,10 @@
 import React, { useId } from 'react';
 
 import classNames from 'classnames';
+import { useRouter } from 'next/router';
 
 import { ListButton } from '../../../../components/list-item-button-components/list-button';
+import { urlHomePage } from '../../../../utils/url-home-page';
 
 // import { urlHomePage } from '../../../../utils/url-home-page';
 
@@ -20,16 +22,21 @@ const ListItemIconButton = (props: ListItemIconButtonProps) => {
   const id = useId() + '-' + COMPONENT_NAME;
   const { className, url, text, onClickLogout, ListIcon, ...rest } = props;
 
-  // const onListItemClick = url ? onClick : onClickLogout;
+  const router = useRouter();
   // convert url to new URL
-  // const newUrl = urlHomePage(url);
+  const newUrl = urlHomePage(url);
+  const onClick = () => {
+    router.push(newUrl);
+  };
+
+  const onListItemClick = url ? onClick : onClickLogout;
 
   return (
     <>
       <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
         <ListButton
-          href={url}
-          onClick={onClickLogout}
+          // href={newUrl}
+          onClick={onListItemClick}
           icon={ListIcon}
           text={text}
         />
