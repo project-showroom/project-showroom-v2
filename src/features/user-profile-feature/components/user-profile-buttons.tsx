@@ -5,9 +5,13 @@ import classNames from 'classnames';
 import { SubmitButton } from '../../../components/button-components';
 
 const COMPONENT_NAME = 'UserProfileButtons';
-const UserProfileButtons = (props: { className?: string }) => {
+const UserProfileButtons = (props: {
+  className?: string;
+  cvURL?: string;
+  buttonName?: string;
+}) => {
   const id = useId() + '-' + COMPONENT_NAME;
-  const { ...rest } = props;
+  const { cvURL, buttonName, ...rest } = props;
 
   const userProfileButtonClassNames = classNames(
     'flex justify-center p-6 gap-3',
@@ -25,14 +29,16 @@ const UserProfileButtons = (props: { className?: string }) => {
         VIEW MY PROJECTS
       </SubmitButton>
       {/* if there is CV url, show this button */}
-      <SubmitButton
-        href="/view-codes"
-        variant="contained"
-        size="small"
-        color="primary"
-      >
-        CV
-      </SubmitButton>
+      {buttonName && (
+        <SubmitButton
+          href={cvURL}
+          variant="contained"
+          size="small"
+          color="primary"
+        >
+          {buttonName}
+        </SubmitButton>
+      )}
     </div>
   );
 };

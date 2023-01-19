@@ -5,9 +5,12 @@ import classNames from 'classnames';
 import { BaseTypography } from '../../../components/typography-elements';
 
 const COMPONENT_NAME = 'UserProfileTitle';
-const UserProfileTitle = (props: { className?: string }) => {
+const UserProfileTitle = (props: {
+  className?: string;
+  profileTitle?: string;
+}) => {
   const id = useId() + '-' + COMPONENT_NAME;
-  const { ...rest } = props;
+  const { profileTitle, ...rest } = props;
 
   const titleClassNames = classNames('flex justify-center p-6', COMPONENT_NAME);
   return (
@@ -18,7 +21,7 @@ const UserProfileTitle = (props: { className?: string }) => {
         component="h4"
         color="textPrimary"
       >
-        Ercan Akalar
+        {profileTitle}
       </BaseTypography>
     </div>
   );
