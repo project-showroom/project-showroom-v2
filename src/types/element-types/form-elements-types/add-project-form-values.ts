@@ -6,6 +6,7 @@ export type UserInfoType = {
 };
 
 export interface IAddProjectFormValues {
+  _id?: string;
   userName?: string;
   projectTitle?: string;
   thumbnailUrl?: string;
@@ -16,4 +17,5 @@ export interface IAddProjectFormValues {
   rightButtonTitle?: string;
   rightButtonUrl?: string;
   userInfo?: UserInfoType;
+  createdAt?: Date;
 }

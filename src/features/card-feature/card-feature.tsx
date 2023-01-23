@@ -7,7 +7,7 @@ import { ITEMS_PER_PAGE } from '../../utils/items-per-page';
 import { paginationFunction } from '../../utils/pagination-function';
 
 const COMPONENT_NAME = 'CardFeature';
-const CardFeature = (props: { projects: any }) => {
+const CardFeature = (props: { projects: IAddProjectFormValues[] }) => {
   const { projects } = props;
   const [page, setPage] = useState(1);
 

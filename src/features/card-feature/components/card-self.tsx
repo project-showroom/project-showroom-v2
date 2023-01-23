@@ -8,11 +8,7 @@ import { CardGalleryButtons } from './card-gallery-buttons';
 import { CardContentCombine } from './card-gallery-content/index';
 import { CardGalleryHeader } from './card-gallery-header/index';
 import { CardGalleryMedia } from './card-gallery-media/index';
-
-type CardSelfProps = {
-  className?: string;
-  userCards?: any;
-};
+import { CardSelfProps } from '../../../types/api-types';
 
 const COMPONENT_NAME = 'CardSelf';
 const cardGridClassNames = classNames('h-auto sm:h-[600px]', COMPONENT_NAME);
@@ -23,10 +19,12 @@ const cardClassNames = classNames(
 );
 const CardSelf = (props: CardSelfProps) => {
   const id = useId() + '-' + COMPONENT_NAME;
-  const { className, userCards, ...rest } = props;
+  const { className, userCards } = props;
+
+  if (!userCards) return null;
 
   return (
-    <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
+    <div id={id} className={classNames(className, COMPONENT_NAME)}>
       <Grid
         container
         spacing={{ xs: 1, md: 3 }}

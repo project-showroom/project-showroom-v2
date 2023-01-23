@@ -10,7 +10,7 @@ export interface ITextFieldProps {
   required?: boolean;
   variant?: 'standard' | 'filled' | 'outlined';
   multiline?: boolean;
-  defaultValue?: any;
+  defaultValue?: string;
   helperText?: string;
   disabled?: boolean;
   type?: string;

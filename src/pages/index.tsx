@@ -4,9 +4,12 @@ import Head from 'next/head';
 import { useSelector } from 'react-redux';
 
 import { MainFeature } from '../features/main-feature';
+import { IUserType } from '../types/api-types';
 
 const Home: NextPage = () => {
-  const { user, loading } = useSelector((state: any) => state.user);
+  const { user, loading } = useSelector(
+    (state: { user: { loading: boolean; user: IUserType } }) => state.user,
+  );
 
   const mainClassNames = classNames('flex relative justify-center pt-16');
   return (

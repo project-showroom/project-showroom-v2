@@ -4,7 +4,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import Chip from '@mui/material/Chip';
 import TextField from '@mui/material/TextField';
 import classNames from 'classnames';
-import { Field } from 'formik';
+import { Field, FieldProps } from 'formik';
 
 import { IFormAutoCompleteProps } from '../../types/element-types/form-elements-types';
 
@@ -16,7 +16,7 @@ const FormAutoComplete = (props: IFormAutoCompleteProps) => {
   return (
     <div id={id} className={classNames(COMPONENT_NAME)}>
       <Field name={name}>
-        {({ field, meta }: any) => (
+        {({ field, meta }: FieldProps) => (
           <>
             <Autocomplete
               multiple

@@ -1,8 +1,9 @@
 import Avatar from '@mui/material/Avatar';
 import CardHeader from '@mui/material/CardHeader';
-import { useSelector } from 'react-redux';
+import { getCookie } from 'cookies-next';
 
 import { CardHeaderAction } from './index';
+import convertTokenId from '../../../../utils/convert-token-id';
 import { takeFirstLetter } from '../../../../utils/take-first-letter';
 
 const COMPONENT_NAME = 'CardGalleryHeader';
@@ -14,7 +15,8 @@ const CardGalleryHeader = (props: {
 }) => {
   const { cardUserName, cardId, cardUserId, cardDefaultUserName } = props;
 
-  const { userId } = useSelector((state: any) => state.user);
+  const token = getCookie('token');
+  const userId = convertTokenId(token);
 
   const cardUserNameFirstLetter = takeFirstLetter(cardUserName);
 

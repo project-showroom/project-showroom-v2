@@ -10,7 +10,7 @@ export const deleteProject = createAsyncThunk(
 
 interface IInitialState {
   loading: boolean;
-  error: any;
+  error: string;
 }
 const initialState: IInitialState = {
   loading: false,

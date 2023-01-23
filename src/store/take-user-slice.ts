@@ -4,17 +4,8 @@ import { getCookie } from 'cookies-next';
 
 import convertTokenId from '../utils/convert-token-id';
 
-// let userData: any;
-
 const token = getCookie('token');
 const userId = convertTokenId(token);
-
-// export const fetchUser = async () => {
-//   const res = await fetch(`http://localhost:3000/api/users/${userId}`);
-//   const data = await res.json();
-//   userData = data.data;
-//   return data.data;
-// };
 
 export const fetchUsers = createAsyncThunk('user/fetchUsers', () => {
   if (!userId) return;
@@ -24,13 +15,11 @@ export const fetchUsers = createAsyncThunk('user/fetchUsers', () => {
 });
 
 interface IInitialState {
-  userId: string;
   loading: boolean;
   user: any;
-  error: any;
+  error: string;
 }
 const initialState: IInitialState = {
-  userId: userId,
   loading: false,
   user: [],
   error: '',

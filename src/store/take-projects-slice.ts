@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const allProjects = createAsyncThunk(
   'projects/getAllProjects',
-  async (username: any) => {
+  async (username: string | string[]) => {
     return await axios.get(`/api/projects/${username}`).then((response) => {
       return response.data.data;
     });
@@ -13,7 +13,7 @@ export const allProjects = createAsyncThunk(
 interface IInitialState {
   loading: boolean;
   projects: any;
-  error: any;
+  error: string;
 }
 const initialState: IInitialState = {
   loading: false,

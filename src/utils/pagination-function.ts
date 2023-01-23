@@ -1,9 +1,11 @@
 // import { IPaginationFunctionType } from '../types/utils-types/pagination-function-type';
 
+import { IAddProjectFormValues } from '../types/element-types/form-elements-types';
+
 export const paginationFunction = (
-  array: any,
-  page_number: any,
-  ITEMS_PER_PAGE: any,
+  array: IAddProjectFormValues[],
+  page_number: number,
+  ITEMS_PER_PAGE: number,
 ) => {
   const pageArray = array.slice(
     (page_number - 1) * ITEMS_PER_PAGE,

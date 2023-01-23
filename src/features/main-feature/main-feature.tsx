@@ -4,12 +4,13 @@ import classNames from 'classnames';
 
 import { SubmitTypeButton } from '../../components/button-elements';
 import { BaseTypography } from '../../components/typography-elements';
+import { IUserType } from '../../types/api-types';
 
 const COMPONENT_NAME = 'MainFeature';
-const MainFeature = (props: { user: any }) => {
+const MainFeature = (props: { user: IUserType }) => {
   const id = useId() + '-' + COMPONENT_NAME;
-
   const { user } = props;
+
   return (
     <div id={id} className="p-6">
       <div className={classNames(COMPONENT_NAME)}>

@@ -23,7 +23,9 @@ const UserCardEditById = (props: { className?: string }) => {
     dispatch(getCardProject(cardid) as any);
   }, [dispatch, cardid]);
 
-  const { loading } = useSelector((state: any) => state.editProject);
+  const { loading } = useSelector(
+    (state: { editProject: { loading: boolean } }) => state.editProject,
+  );
 
   if (loading && cardid) return <div>Loading...</div>;
 

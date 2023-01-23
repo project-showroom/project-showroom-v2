@@ -2,7 +2,7 @@ import { useId } from 'react';
 
 import TextField from '@mui/material/TextField';
 import classNames from 'classnames';
-import { Field } from 'formik';
+import { Field, FieldProps } from 'formik';
 
 import { ITextFieldProps } from '../../types/element-types/form-elements-types';
 
@@ -15,7 +15,7 @@ const FormInputText = (props: ITextFieldProps) => {
   return (
     <div id={id} className={classNames(className, COMPONENT_NAME)}>
       <Field type={type} name={name}>
-        {({ field, meta }: any) => (
+        {({ field, meta }: FieldProps) => (
           <>
             {meta.touched && meta.error ? (
               <>

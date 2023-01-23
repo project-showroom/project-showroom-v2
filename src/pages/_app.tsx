@@ -14,7 +14,7 @@ import store from '../store/index';
 import { lightTheme, darkTheme } from '../utils/theme-mode';
 
 function App({ Component, pageProps }: AppProps) {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState<boolean>(false);
   const Theme = darkMode ? darkTheme : lightTheme;
 
   const headerClassNames = classNames(
@@ -31,7 +31,10 @@ function App({ Component, pageProps }: AppProps) {
         <NextThemeProvider attribute="class">
           <main>
             <header className={headerClassNames}>
-              <HeaderFeature darkMode={darkMode} toggleDarkMode={setDarkMode} />
+              <HeaderFeature
+                darkMode={darkMode}
+                toggleDarkMode={(e: boolean) => setDarkMode(e)}
+              />
             </header>
             <Component {...pageProps} />
             <footer className="pt-16">

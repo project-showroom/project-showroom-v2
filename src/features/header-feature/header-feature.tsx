@@ -10,13 +10,19 @@ import {
   AppBarMenu,
 } from './index';
 import { fetchUsers } from '../../store/take-user-slice';
+import { IUserType } from '../../types/api-types';
 
 const COMPONENT_NAME = 'HeaderFeature';
-const HeaderFeature = (props: any) => {
+const HeaderFeature = (props: {
+  darkMode: boolean;
+  toggleDarkMode: (e: boolean) => void;
+}) => {
   const { darkMode, toggleDarkMode } = props;
 
   const dispatch = useDispatch();
-  const { user } = useSelector((state: any) => state.user);
+  const { user } = useSelector(
+    (state: { user: { user: IUserType } }) => state.user,
+  );
 
   useEffect(() => {
     dispatch(fetchUsers() as any);
@@ -47,7 +53,10 @@ const HeaderFeature = (props: any) => {
       </div>
       <div className={headerRegisterThemeClassNames}>
         {!user && <LoginRegisterButton />}
-        <ThemeSwitch toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
+        <ThemeSwitch
+          toggleDarkMode={(e: boolean) => toggleDarkMode(e)}
+          darkMode={darkMode}
+        />
       </div>
     </>
   );

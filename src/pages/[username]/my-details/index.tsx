@@ -14,8 +14,9 @@ export default function MyDetailsPage(props: { className?: string }) {
 
   const dispatch = useDispatch();
 
-  const { loading } = useSelector((state: any) => state.profile);
-
+  const { loading } = useSelector(
+    (state: { profile: { loading: boolean } }) => state.profile,
+  );
   useEffect(() => {
     dispatch(getCurrentProfile() as any);
   }, [dispatch]);

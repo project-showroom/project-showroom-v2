@@ -24,15 +24,20 @@ const EditProjectForm = (props: { className?: string }) => {
 
   const dispatch = useDispatch();
   const router = useRouter();
-  const { cardid } = router.query;
+  const { username, cardid } = router.query;
 
-  const { editProject } = useSelector((state: any) => state.editProject);
+  const { editProject } = useSelector(
+    (state: { editProject: { editProject: IAddProjectFormValues } }) =>
+      state.editProject,
+  );
 
-  const [tags, setTags] = useState<string[]>(editProject.skillTags);
+  const [tags, setTags] = useState(editProject.skillTags);
+
+  console.log(tags);
 
   const onSubmit = async (values: IAddProjectFormValues) => {
-    dispatch(updateCardProject({ cardid, values }) as any);
-    router.push(`/${editProject.userInfo.defaultUserName}`);
+    dispatch(updateCardProject({ values, cardid }) as any);
+    router.push(`/${username}`);
   };
 
   const initialValues = initialFormValuesFunc(editProject, tags);
@@ -49,7 +54,7 @@ const EditProjectForm = (props: { className?: string }) => {
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={(values) => {
-          values.skillTags = [...tags];
+          values.skillTags = tags;
           onSubmit(values);
         }}
       >

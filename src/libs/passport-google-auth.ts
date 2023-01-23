@@ -13,11 +13,16 @@ passport.use(
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
       callbackURL: process.env.NEXT_PUBLIC_URL + '/api/google/callback',
     },
-    async (accessToken: any, refreshToken: any, profile: any, done: any) => {
+    async (
+      accessToken: string,
+      refreshToken: string,
+      profile: any,
+      done: any,
+    ) => {
       try {
         const userExist = await Users.findOne({ googleId: profile.id });
         if (userExist) {
-          const token: any = jwt.sign(
+          const token: string = jwt.sign(
             {
               id: userExist._id,
             },
@@ -44,12 +49,12 @@ passport.use(
             image: profile.photos[0].value,
           });
           await newUser.save();
-          const token: any = jwt.sign(
+          const token: string = jwt.sign(
             {
               id: newUser._id,
               created: Date.now().toString(),
             },
-            process.env.JWT_SECRET as any,
+            process.env.JWT_SECRET as string,
             { expiresIn: process.env.JWT_EXPIRES_IN as string },
           );
           newUser.tokens = token;

@@ -7,11 +7,11 @@ import { SubmitButton } from '../../../components/button-components';
 const COMPONENT_NAME = 'UserProfileButtons';
 const UserProfileButtons = (props: {
   className?: string;
-  cvURL?: string;
+  cvUrl?: string;
   buttonName?: string;
 }) => {
   const id = useId() + '-' + COMPONENT_NAME;
-  const { cvURL, buttonName, ...rest } = props;
+  const { cvUrl, buttonName, ...rest } = props;
 
   const userProfileButtonClassNames = classNames(
     'flex justify-center p-6 gap-3',
@@ -19,7 +19,6 @@ const UserProfileButtons = (props: {
   );
   return (
     <div id={id} {...rest} className={userProfileButtonClassNames}>
-      {/* if there is project url, show this button */}
       <SubmitButton
         href="/view-codes"
         variant="contained"
@@ -28,10 +27,10 @@ const UserProfileButtons = (props: {
       >
         VIEW MY PROJECTS
       </SubmitButton>
-      {/* if there is CV url, show this button */}
-      {buttonName && (
+
+      {cvUrl && (
         <SubmitButton
-          href={cvURL}
+          href={cvUrl}
           variant="contained"
           size="small"
           color="primary"

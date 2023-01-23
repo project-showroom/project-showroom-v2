@@ -12,6 +12,7 @@ import {
 } from '../../../../components/form-elements';
 import { SendIconElement } from '../../../../components/icons-elements';
 import { createProject } from '../../../../store/project-slice';
+import { IUserType } from '../../../../types/api-types';
 import { IAddProjectFormValues } from '../../../../types/element-types/form-elements-types';
 import validationSchema from '../../../../utils/add-project-validation-schema';
 import initialValuesFunc from '../../../../utils/project-initial-values';
@@ -25,7 +26,9 @@ const AddProjectForm = (props: { className?: string }) => {
 
   const dispatch = useDispatch();
 
-  const { user } = useSelector((state: any) => state.user);
+  const { user } = useSelector(
+    (state: { user: { user: IUserType } }) => state.user,
+  );
   const { _id: userId, defaultUserName, displayName } = user;
 
   const onSubmit = async (values: IAddProjectFormValues) => {

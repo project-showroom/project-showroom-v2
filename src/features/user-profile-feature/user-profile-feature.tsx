@@ -6,19 +6,24 @@ import { useSelector } from 'react-redux';
 
 import { UserProfileDescription, UserProfileTitle } from './components';
 import { UserProfileButtons } from './components/user-profile-buttons';
+import { IProfileType } from '../../types/api-types';
+import { IAddProjectFormValues } from '../../types/element-types/form-elements-types';
 import { CardFeature } from '../card-feature';
 
 const COMPONENT_NAME = 'UserProfileFeature';
 const UserProfileFeature = (props: {
   className?: string;
-  projects: any;
+  projects: IAddProjectFormValues[];
   username?: string | string[];
-  profile?: any;
+  profile?: IProfileType;
 }) => {
   const id = useId() + '-' + COMPONENT_NAME;
   const { className, projects, ...rest } = props;
 
-  const { searchProfile } = useSelector((state: any) => state.searchProfile);
+  const { searchProfile } = useSelector(
+    (state: { searchProfile: { searchProfile: IProfileType } }) =>
+      state.searchProfile,
+  );
 
   const currentSearchProfile = { ...searchProfile };
 
@@ -31,7 +36,7 @@ const UserProfileFeature = (props: {
             profileDescription={currentSearchProfile.myDetails}
           />
           <UserProfileButtons
-            cvURL={currentSearchProfile.addLinkToYourDetails}
+            cvUrl={currentSearchProfile.addLinkToYourDetails}
             buttonName={currentSearchProfile.giveNameToButton}
           />
           <Divider />

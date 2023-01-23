@@ -2,16 +2,8 @@ import { useId } from 'react';
 
 import Typography from '@mui/material/Typography';
 
-interface BaseTypographyProps {
-  className?: string;
-  title?: any;
-  gutterBottom?: boolean;
-  component?: string;
-  variant?: any;
-  color?: string;
-  align?: any;
-  children?: any;
-}
+import { BaseTypographyProps } from '../../types/element-types/typography-elements-types';
+
 const COMPONENT_NAME = 'BaseTypography';
 const BaseTypography = (props: BaseTypographyProps) => {
   const id = useId() + '-' + COMPONENT_NAME;

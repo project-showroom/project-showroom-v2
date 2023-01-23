@@ -6,7 +6,7 @@ const token = getCookie('token');
 
 export const getCardProject = createAsyncThunk(
   'projects/edit-project/[cardid]',
-  async (cardid: any) => {
+  async (cardid: string | string[]) => {
     if (!token) return;
     return await axios
       .get(`/api/projects/edit-project/${cardid}`)
@@ -19,7 +19,7 @@ export const getCardProject = createAsyncThunk(
 interface IInitialState {
   loading: boolean;
   editProject: any;
-  error: any;
+  error: string;
 }
 const initialState: IInitialState = {
   loading: false,

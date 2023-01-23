@@ -11,7 +11,7 @@ const COMPONENT_NAME = 'ThemeSwitch';
 const ThemeSwitch = (props: {
   className?: string;
   darkMode: boolean;
-  toggleDarkMode: any;
+  toggleDarkMode: (e: boolean) => void;
 }) => {
   const id = useId() + '-' + COMPONENT_NAME;
   const { className, darkMode, toggleDarkMode, ...rest } = props;

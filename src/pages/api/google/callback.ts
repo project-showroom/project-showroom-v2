@@ -3,16 +3,17 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 import connect from '../../../libs/database';
 import passport from '../../../libs/passport-google-auth';
+import { IUserType } from '../../../types/api-types';
 import createToken from '../../../utils/create-token';
 
 export default async function callback(
   req: NextApiRequest,
   res: NextApiResponse,
-  next: any,
 ) {
   await connect();
 
-  passport.authenticate('google', (err: any, user: any, info: any) => {
+  passport.authenticate('google', (err: string, user: IUserType, info: any) => {
+    console.log(info, 'info');
     if (err || !user) {
       return res.redirect(process.env.NEXT_PUBLIC_URL + '/');
     }
@@ -29,5 +30,5 @@ export default async function callback(
     });
 
     res.redirect(process.env.NEXT_PUBLIC_URL + `/`);
-  })(req, res, next);
+  })(req, res);
 }

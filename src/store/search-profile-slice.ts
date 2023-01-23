@@ -15,7 +15,7 @@ export const getSearchProfile = createAsyncThunk(
 interface IInitialState {
   loading: boolean;
   searchProfile: any;
-  error: any;
+  error: string;
 }
 const initialState: IInitialState = {
   loading: false,

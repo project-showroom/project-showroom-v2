@@ -1,13 +1,19 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+import { IAddProjectFormValues } from '../types/element-types/form-elements-types';
+
 export const updateCardProject = createAsyncThunk(
   'projects/put/[cardid]',
-  async (data: any) => {
-    if (!data.cardid) return;
+  async (data: {
+    values?: IAddProjectFormValues;
+    cardid?: string | string[];
+  }) => {
+    const { values, cardid } = data;
+    if (!cardid) return;
     return await axios.put(
-      `/api/projects/edit-project/${data.cardid}`,
-      { data: { ...data.values } },
+      `/api/projects/edit-project/${cardid}`,
+      { data: { ...values } },
       {
         headers: {
           'Content-Type': 'application/json',
@@ -20,7 +26,7 @@ export const updateCardProject = createAsyncThunk(
 interface IInitialState {
   loading: boolean;
   updateProject: any;
-  error: any;
+  error: string;
 }
 const initialState: IInitialState = {
   loading: false,

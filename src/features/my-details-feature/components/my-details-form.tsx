@@ -8,7 +8,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { SubmitButton } from '../../../components/button-components';
 import { FormInputText } from '../../../components/form-elements';
 import { SendIconElement } from '../../../components/icons-elements';
+import { AppDispatch } from '../../../store';
 import { postAndUpdateProfile } from '../../../store/update-profile-slice';
+import { IProfileType, IUserType } from '../../../types/api-types';
 import { IManegeDetailsFormValues } from '../../../types/element-types/form-elements-types';
 import initialProfileValuesFunc from '../../../utils/profil-initial-values';
 
@@ -17,12 +19,16 @@ const MyDetailsForm = (props: { className?: string }) => {
   const id = useId() + '-' + COMPONENT_NAME;
   const { className, ...rest } = props;
 
-  const dispatch = useDispatch();
-  const { profile } = useSelector((state: any) => state.profile);
-  const { user } = useSelector((state: any) => state.user);
+  const dispatch = useDispatch<AppDispatch>();
+  const { profile } = useSelector(
+    (state: { profile: { profile: IProfileType } }) => state.profile,
+  );
+  const { user } = useSelector(
+    (state: { user: { user: IUserType } }) => state.user,
+  );
 
   const onSubmit = async (values: IManegeDetailsFormValues) => {
-    dispatch(postAndUpdateProfile(values) as any);
+    dispatch(postAndUpdateProfile(values));
   };
 
   const initialValues = initialProfileValuesFunc(profile);
