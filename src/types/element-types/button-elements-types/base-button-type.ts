@@ -6,6 +6,6 @@ export interface IBaseButtonType extends ButtonProps {
   href?: string;
   className?: string;
   children?: React.ReactNode;
-  Icon?: React.ReactNode;
+  buttonIcon?: React.ReactNode;
   target?: string;
 }
