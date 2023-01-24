@@ -14,15 +14,12 @@ export default async function handler(
     method,
   } = req;
 
-  console.log(username);
-
   switch (method) {
     case 'GET':
       {
         const getSearchProfile = await Profiles.findOne({
           userName: username,
         });
-        console.log(getSearchProfile, 'getSearchProfile');
         res.status(200).json({
           success: true,
           message: 'Found all Profiles of user',
