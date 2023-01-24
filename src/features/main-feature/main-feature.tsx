@@ -1,6 +1,7 @@
 import { useId } from 'react';
 
 import classNames from 'classnames';
+import Link from 'next/link';
 
 import { SubmitTypeButton } from '../../components/button-elements';
 import { BaseTypography } from '../../components/typography-elements';
@@ -24,12 +25,9 @@ const MainFeature = (props: { user: IUserType }) => {
         </BaseTypography>
       </div>
       <div className={classNames('flex justify-center', COMPONENT_NAME + 1)}>
-        <SubmitTypeButton
-          variant="contained"
-          href={`/${user?.defaultUserName}`}
-        >
-          My Projects
-        </SubmitTypeButton>
+        <Link href={`/${user?.defaultUserName}`}>
+          <SubmitTypeButton variant="contained">My Projects</SubmitTypeButton>
+        </Link>
       </div>
     </div>
   );
