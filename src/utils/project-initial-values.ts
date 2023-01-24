@@ -1,8 +1,8 @@
 import { IAddProjectFormValues } from '../types/element-types/form-elements-types';
 
 const initialFormValuesFunc = (
-  editProject: IAddProjectFormValues | any,
-  tags: any,
+  editProject: IAddProjectFormValues,
+  tags: Array<string>,
 ) => {
   if (editProject && tags)
     return {
@@ -25,7 +25,12 @@ const initialFormValuesFunc = (
     leftButtonUrl: '',
     rightButtonTitle: 'View Codes',
     rightButtonUrl: '',
-    userInfo: '',
+    userInfo: {
+      userId: '',
+      userEmail: '',
+      defaultUserName: '',
+      displayName: '',
+    },
   };
 };
 export default initialFormValuesFunc;
