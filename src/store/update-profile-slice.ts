@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { getCookie } from 'cookies-next';
 
@@ -24,7 +24,7 @@ export const postAndUpdateProfile = createAsyncThunk(
 
 interface IInitialState {
   loading: boolean;
-  updateProfile: any;
+  updateProfile: IProfileType[];
   error: string;
 }
 const initialState: IInitialState = {
@@ -41,14 +41,7 @@ const updateProfileSlice = createSlice({
     builder.addCase(postAndUpdateProfile.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(
-      postAndUpdateProfile.fulfilled,
-      (state, action: PayloadAction) => {
-        state.loading = false;
-        state.updateProfile = action.payload;
-        state.error = '';
-      },
-    );
+
     builder.addCase(postAndUpdateProfile.rejected, (state, action) => {
       state.loading = false;
       state.updateProfile = [];

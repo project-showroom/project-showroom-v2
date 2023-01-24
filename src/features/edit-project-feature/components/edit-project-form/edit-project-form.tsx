@@ -54,7 +54,7 @@ const EditProjectForm = (props: { className?: string }) => {
         validationSchema={validationSchema}
         onSubmit={(values) => {
           values.skillTags = tags;
-          onSubmit(values);
+          onSubmit(initialValues);
         }}
       >
         <Form>

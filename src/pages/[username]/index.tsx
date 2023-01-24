@@ -8,6 +8,7 @@ import { UserProfileFeature } from '../../features/user-profile-feature';
 import { AppDispatch } from '../../store';
 import { getSearchProfile } from '../../store/search-profile-slice';
 import { allProjects } from '../../store/take-projects-slice';
+import { IAddProjectFormValues } from '../../types/element-types/form-elements-types';
 
 const COMPONENT_NAME = 'UserPage';
 const UserPage = (props: { className?: string }) => {
@@ -25,7 +26,13 @@ const UserPage = (props: { className?: string }) => {
     dispatch(getSearchProfile(username));
   }, [dispatch, username]);
 
-  const { projects, loading } = useSelector((state: any) => state.projects);
+  const { projects, loading } = useSelector(
+    (state: {
+      projects: { projects: IAddProjectFormValues[]; loading: boolean };
+    }) => state.projects,
+  );
+
+  console.log(projects, 'projects');
 
   if (loading && username) return <div>Loading...</div>;
 

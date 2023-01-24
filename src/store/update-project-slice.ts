@@ -25,7 +25,7 @@ export const updateCardProject = createAsyncThunk(
 
 interface IInitialState {
   loading: boolean;
-  updateProject: any;
+  updateProject: IAddProjectFormValues[];
   error: string;
 }
 const initialState: IInitialState = {
@@ -42,14 +42,6 @@ const updateProjectSlice = createSlice({
     builder.addCase(updateCardProject.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(
-      updateCardProject.fulfilled,
-      (state, action: PayloadAction) => {
-        state.loading = false;
-        state.updateProject = action.payload;
-        state.error = '';
-      },
-    );
     builder.addCase(updateCardProject.rejected, (state, action) => {
       state.loading = false;
       state.updateProject = [];
