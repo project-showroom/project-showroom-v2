@@ -18,7 +18,7 @@ const LoginRegisterButton = (props: { className?: string }) => {
       <SubmitButton
         href="/api/google"
         variant="contained"
-        Icon={<LogInIconElement />}
+        buttonIcon={<LogInIconElement />}
         className={headerLoginButtonClassNames}
       >
         Sign In / Up

@@ -8,9 +8,9 @@ const COMPONENT_NAME = 'BaseButton';
 
 const BaseButton = (props: IBaseButtonType) => {
   const id = useId() + '-' + COMPONENT_NAME;
-  const { Icon, ...rest } = props;
+  const { buttonIcon, ...rest } = props;
 
-  return <Button id={id} endIcon={Icon} {...rest} />;
+  return <Button id={id} endIcon={buttonIcon} {...rest} />;
 };
 
 BaseButton.displayName = COMPONENT_NAME;

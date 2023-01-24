@@ -100,12 +100,12 @@ const MyDetailsForm = (props: { className?: string }) => {
           <Box className={boxClassNames}>
             <SubmitButton
               className={headerLoginButtonClassNames}
-              Icon={<SendIconElement />}
+              buttonIcon={<SendIconElement />}
               type="submit"
               variant="contained"
               size="large"
             >
-              Send
+              {profile === null ? 'Send' : 'Update'}
             </SubmitButton>
           </Box>
         </Form>
