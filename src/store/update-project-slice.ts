@@ -34,7 +34,7 @@ const initialState: IInitialState = {
   error: '',
 };
 
-const updateProjectSlice: any = createSlice({
+const updateProjectSlice = createSlice({
   name: 'updateProject',
   initialState,
   reducers: {},

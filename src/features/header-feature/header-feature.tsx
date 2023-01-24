@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import classNames from 'classnames';
+import { getCookie } from 'cookies-next';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
@@ -9,8 +10,10 @@ import {
   LoginRegisterButton,
   AppBarMenu,
 } from './index';
+import { AppDispatch } from '../../store';
 import { fetchUsers } from '../../store/take-user-slice';
 import { IUserType } from '../../types/api-types';
+import convertTokenId from '../../utils/convert-token-id';
 
 const COMPONENT_NAME = 'HeaderFeature';
 const HeaderFeature = (props: {
@@ -19,14 +22,20 @@ const HeaderFeature = (props: {
 }) => {
   const { darkMode, toggleDarkMode } = props;
 
-  const dispatch = useDispatch();
+  const token = getCookie('token');
+  const takenUserId = convertTokenId(token);
+
+  const [userId, setUserId] = useState(takenUserId);
+
+  const dispatch = useDispatch<AppDispatch>();
   const { user } = useSelector(
     (state: { user: { user: IUserType } }) => state.user,
   );
 
   useEffect(() => {
-    dispatch(fetchUsers() as any);
-  }, [dispatch]);
+    if (!takenUserId) setUserId(null);
+    dispatch(fetchUsers(userId));
+  }, [dispatch, userId, takenUserId]);
 
   const currentUserDisplayName = user?.displayName;
   const currentDefaultUserName = user?.defaultUserName;

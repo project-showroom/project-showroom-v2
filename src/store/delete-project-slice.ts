@@ -17,7 +17,7 @@ const initialState: IInitialState = {
   error: '',
 };
 
-const deleteProjectSlice: any = createSlice({
+const deleteProjectSlice = createSlice({
   name: 'deleteProject',
   initialState,
   reducers: {},

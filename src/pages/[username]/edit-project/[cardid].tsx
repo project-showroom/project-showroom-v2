@@ -6,7 +6,9 @@ import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { EditProjectFeature } from '../../../features/edit-project-feature/edit-project-feature';
+import { AppDispatch } from '../../../store';
 import { getCardProject } from '../../../store/edit-project-slice';
+import { IAddProjectFormValues } from '../../../types/element-types/form-elements-types';
 
 const COMPONENT_NAME = 'UserCardEditById';
 const UserCardEditById = (props: { className?: string }) => {
@@ -16,11 +18,11 @@ const UserCardEditById = (props: { className?: string }) => {
   const router = useRouter();
   const { cardid } = router.query;
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     if (!cardid) return;
-    dispatch(getCardProject(cardid) as any);
+    dispatch(getCardProject(cardid));
   }, [dispatch, cardid]);
 
   const { loading } = useSelector(

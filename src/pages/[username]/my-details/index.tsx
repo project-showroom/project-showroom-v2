@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { MyDetailsFeature } from '../../../features/my-details-feature';
+import { AppDispatch } from '../../../store';
 import { getCurrentProfile } from '../../../store/take-profile-slice';
 
 const COMPONENT_NAME = 'Index';
@@ -12,13 +13,13 @@ export default function MyDetailsPage(props: { className?: string }) {
   const id = useId() + '-' + COMPONENT_NAME;
   const { ...rest } = props;
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const { loading } = useSelector(
     (state: { profile: { loading: boolean } }) => state.profile,
   );
   useEffect(() => {
-    dispatch(getCurrentProfile() as any);
+    dispatch(getCurrentProfile());
   }, [dispatch]);
 
   if (loading) return <div>Loading...</div>;

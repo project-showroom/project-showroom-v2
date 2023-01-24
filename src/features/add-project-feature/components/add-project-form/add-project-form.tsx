@@ -11,6 +11,7 @@ import {
   FormInputText,
 } from '../../../../components/form-elements';
 import { SendIconElement } from '../../../../components/icons-elements';
+import { AppDispatch } from '../../../../store';
 import { createProject } from '../../../../store/project-slice';
 import { IUserType } from '../../../../types/api-types';
 import { IAddProjectFormValues } from '../../../../types/element-types/form-elements-types';
@@ -24,7 +25,7 @@ const AddProjectForm = (props: { className?: string }) => {
 
   const [tags, setTags] = useState<string[]>([]);
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const { user } = useSelector(
     (state: { user: { user: IUserType } }) => state.user,
@@ -34,7 +35,7 @@ const AddProjectForm = (props: { className?: string }) => {
   const onSubmit = async (values: IAddProjectFormValues) => {
     if (values.projectTitle && values.thumbnailUrl) {
       setTags([]);
-      dispatch(createProject(values) as any);
+      dispatch(createProject(values));
     }
   };
 
@@ -145,7 +146,7 @@ const AddProjectForm = (props: { className?: string }) => {
           <Box className={boxClassNames}>
             <SubmitButton
               className={headerLoginButtonClassNames}
-              Icon={<SendIconElement />}
+              buttonIcon={<SendIconElement />}
               type="submit"
               variant="contained"
               size="large"

@@ -12,6 +12,7 @@ import {
   FormInputText,
 } from '../../../../components/form-elements';
 import { SendIconElement } from '../../../../components/icons-elements';
+import { AppDispatch } from '../../../../store';
 import { updateCardProject } from '../../../../store/update-project-slice';
 import { IAddProjectFormValues } from '../../../../types/element-types/form-elements-types';
 import validationSchema from '../../../../utils/add-project-validation-schema';
@@ -22,7 +23,7 @@ const EditProjectForm = (props: { className?: string }) => {
   const id = useId() + '-' + COMPONENT_NAME;
   const { className, ...rest } = props;
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
   const { username, cardid } = router.query;
 
@@ -33,10 +34,8 @@ const EditProjectForm = (props: { className?: string }) => {
 
   const [tags, setTags] = useState(editProject.skillTags);
 
-  console.log(tags);
-
   const onSubmit = async (values: IAddProjectFormValues) => {
-    dispatch(updateCardProject({ values, cardid }) as any);
+    dispatch(updateCardProject({ values, cardid }));
     router.push(`/${username}`);
   };
 
@@ -160,7 +159,7 @@ const EditProjectForm = (props: { className?: string }) => {
           <Box className={boxClassNames}>
             <SubmitButton
               className={headerLoginButtonClassNames}
-              Icon={<SendIconElement />}
+              buttonIcon={<SendIconElement />}
               type="submit"
               variant="contained"
               size="large"

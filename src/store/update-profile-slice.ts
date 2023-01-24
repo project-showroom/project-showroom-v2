@@ -33,7 +33,7 @@ const initialState: IInitialState = {
   error: '',
 };
 
-const updateProfileSlice: any = createSlice({
+const updateProfileSlice = createSlice({
   name: 'updateProfile',
   initialState,
   reducers: {},

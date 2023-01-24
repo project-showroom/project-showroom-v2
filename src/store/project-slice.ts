@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { getCookie } from 'cookies-next';
 
@@ -18,7 +18,7 @@ export const createProject = createAsyncThunk(
 
 interface IInitialState {
   loading: boolean;
-  project: any;
+  project: IAddProjectFormValues[];
   error: string;
 }
 const initialState: IInitialState = {
@@ -27,7 +27,7 @@ const initialState: IInitialState = {
   error: '',
 };
 
-const projectSlice: any = createSlice({
+const projectSlice = createSlice({
   name: 'project',
   initialState,
   reducers: {},
@@ -35,11 +35,7 @@ const projectSlice: any = createSlice({
     builder.addCase(createProject.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(createProject.fulfilled, (state, action: PayloadAction) => {
-      state.loading = false;
-      state.project = action.payload;
-      state.error = '';
-    });
+
     builder.addCase(createProject.rejected, (state, action) => {
       state.loading = false;
       state.project = [];

@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { UserProfileFeature } from '../../features/user-profile-feature';
+import { AppDispatch } from '../../store';
 import { getSearchProfile } from '../../store/search-profile-slice';
 import { allProjects } from '../../store/take-projects-slice';
 
@@ -16,12 +17,12 @@ const UserPage = (props: { className?: string }) => {
   const router = useRouter();
   const { username } = router.query;
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     if (!username) return;
-    dispatch(allProjects(username) as any);
-    dispatch(getSearchProfile(username) as any);
+    dispatch(allProjects(username));
+    dispatch(getSearchProfile(username));
   }, [dispatch, username]);
 
   const { projects, loading } = useSelector((state: any) => state.projects);

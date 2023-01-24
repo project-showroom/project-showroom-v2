@@ -1,6 +1,8 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+import { IAddProjectFormValues } from '../types/element-types/form-elements-types';
+
 export const allProjects = createAsyncThunk(
   'projects/getAllProjects',
   async (username: string | string[]) => {
@@ -12,7 +14,7 @@ export const allProjects = createAsyncThunk(
 
 interface IInitialState {
   loading: boolean;
-  projects: any;
+  projects: IAddProjectFormValues[];
   error: string;
 }
 const initialState: IInitialState = {
@@ -21,7 +23,7 @@ const initialState: IInitialState = {
   error: '',
 };
 
-const projectSlice: any = createSlice({
+const projectSlice = createSlice({
   name: 'projects',
   initialState,
   reducers: {},
@@ -29,11 +31,14 @@ const projectSlice: any = createSlice({
     builder.addCase(allProjects.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(allProjects.fulfilled, (state, action: PayloadAction) => {
-      state.loading = false;
-      state.projects = action.payload;
-      state.error = '';
-    });
+    builder.addCase(
+      allProjects.fulfilled,
+      (state, action: PayloadAction<IAddProjectFormValues[]>) => {
+        state.loading = false;
+        state.projects = action.payload;
+        state.error = '';
+      },
+    );
     builder.addCase(allProjects.rejected, (state, action) => {
       state.loading = false;
       state.projects = [];

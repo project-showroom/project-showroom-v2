@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { getCookie } from 'cookies-next';
 
+import { IProfileType } from '../types/api-types';
 import convertTokenId from '../utils/convert-token-id';
 
 const token: any = getCookie('token');
@@ -10,7 +11,7 @@ const userid = convertTokenId(token);
 export const getCurrentProfile = createAsyncThunk(
   'profile/getCurrentProfile',
   async () => {
-    if (!userid) return console.log('No user id found');
+    if (!userid) return;
     return await axios.get(`/api/profiles/${userid}`).then((response) => {
       return response.data.data;
     });
@@ -19,7 +20,7 @@ export const getCurrentProfile = createAsyncThunk(
 
 interface IInitialState {
   loading: boolean;
-  profile: any;
+  profile: IProfileType[];
   error: string;
 }
 const initialState: IInitialState = {
@@ -28,7 +29,7 @@ const initialState: IInitialState = {
   error: '',
 };
 
-const profileSlice: any = createSlice({
+const profileSlice = createSlice({
   name: 'profile',
   initialState,
   reducers: {},
@@ -38,7 +39,7 @@ const profileSlice: any = createSlice({
     });
     builder.addCase(
       getCurrentProfile.fulfilled,
-      (state, action: PayloadAction) => {
+      (state, action: PayloadAction<IProfileType[]>) => {
         state.loading = false;
         state.profile = action.payload;
         state.error = '';

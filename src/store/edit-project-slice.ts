@@ -2,6 +2,8 @@ import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { getCookie } from 'cookies-next';
 
+import { IAddProjectFormValues } from '../types/element-types/form-elements-types';
+
 const token = getCookie('token');
 
 export const getCardProject = createAsyncThunk(
@@ -18,7 +20,7 @@ export const getCardProject = createAsyncThunk(
 
 interface IInitialState {
   loading: boolean;
-  editProject: any;
+  editProject: IAddProjectFormValues[];
   error: string;
 }
 const initialState: IInitialState = {
@@ -27,7 +29,7 @@ const initialState: IInitialState = {
   error: '',
 };
 
-const editProjectSlice: any = createSlice({
+const editProjectSlice = createSlice({
   name: 'editProject',
   initialState,
   reducers: {},
@@ -37,7 +39,7 @@ const editProjectSlice: any = createSlice({
     });
     builder.addCase(
       getCardProject.fulfilled,
-      (state, action: PayloadAction) => {
+      (state, action: PayloadAction<IAddProjectFormValues[]>) => {
         state.loading = false;
         state.editProject = action.payload;
         state.error = '';

@@ -1,22 +1,21 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { getCookie } from 'cookies-next';
 
-import convertTokenId from '../utils/convert-token-id';
+import { IUserType } from '../types/api-types';
 
-const token = getCookie('token');
-const userId = convertTokenId(token);
-
-export const fetchUsers = createAsyncThunk('user/fetchUsers', () => {
-  if (!userId) return;
-  return axios.get(`/api/users/${userId}`).then((response) => {
-    return response.data.data;
-  });
-});
+export const fetchUsers = createAsyncThunk(
+  'user/fetchUsers',
+  async (userId: string) => {
+    if (!userId) return;
+    return await axios.get(`/api/users/${userId}`).then((response) => {
+      return response.data.data;
+    });
+  },
+);
 
 interface IInitialState {
   loading: boolean;
-  user: any;
+  user: IUserType[];
   error: string;
 }
 const initialState: IInitialState = {
@@ -25,7 +24,7 @@ const initialState: IInitialState = {
   error: '',
 };
 
-const takeUserSlice: any = createSlice({
+const takeUserSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
@@ -38,11 +37,13 @@ const takeUserSlice: any = createSlice({
     builder.addCase(fetchUsers.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(fetchUsers.fulfilled, (state, action: PayloadAction) => {
-      state.loading = false;
-      state.user = action.payload;
-      state.error = '';
-    });
+    builder.addCase(
+      fetchUsers.fulfilled,
+      (state, action: PayloadAction<IUserType[]>) => {
+        state.user = action.payload;
+        state.error = '';
+      },
+    );
     builder.addCase(fetchUsers.rejected, (state, action) => {
       state.loading = false;
       state.user = [];

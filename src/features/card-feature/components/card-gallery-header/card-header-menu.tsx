@@ -1,6 +1,7 @@
 import Divider from '@mui/material/Divider';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 
 import {
@@ -8,6 +9,7 @@ import {
   EditIconElement,
 } from '../../../../components/icons-elements';
 import { ListButton } from '../../../../components/list-item-button-components/list-button';
+import { AppDispatch } from '../../../../store';
 import { deleteProject } from '../../../../store/delete-project-slice';
 
 const COMPONENT_NAME = 'CardHeaderMenu';
@@ -26,11 +28,14 @@ const CardHeaderMenu = (props: {
     cardDefaultUserName,
   } = props;
 
-  const dispatch = useDispatch();
+  const router = useRouter();
+  const dispatch = useDispatch<AppDispatch>();
 
   const deleteCard = (cardid: string) => {
-    console.log(cardid);
-    dispatch(deleteProject(cardid) as any);
+    dispatch(deleteProject(cardid));
+  };
+  const editCard = () => {
+    router.push(`/${cardDefaultUserName}/edit-project/${cardid}`);
   };
 
   return (
@@ -44,14 +49,14 @@ const CardHeaderMenu = (props: {
     >
       <MenuItem onClick={handleClose} className="flex flex-col">
         <ListButton
-          href={`/${cardDefaultUserName}`}
+          href={`/${cardDefaultUserName}/`}
           onClick={() => deleteCard(cardid)}
           icon={<DeleteIconElement />}
           text="Delete"
         />
         <Divider component="div" role="presentation" flexItem />
         <ListButton
-          href={`/${cardDefaultUserName}/edit-project/${cardid}`}
+          onClick={() => editCard()}
           icon={<EditIconElement />}
           text="Edit"
         />

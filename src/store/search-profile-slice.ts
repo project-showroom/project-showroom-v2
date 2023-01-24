@@ -1,6 +1,8 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+import { IProfileType } from '../types/api-types';
+
 export const getSearchProfile = createAsyncThunk(
   'profile/getSearchProfile',
   async (username?: string | string[]) => {
@@ -14,7 +16,7 @@ export const getSearchProfile = createAsyncThunk(
 
 interface IInitialState {
   loading: boolean;
-  searchProfile: any;
+  searchProfile: IProfileType[];
   error: string;
 }
 const initialState: IInitialState = {
@@ -23,7 +25,7 @@ const initialState: IInitialState = {
   error: '',
 };
 
-const searchProfileSlice: any = createSlice({
+const searchProfileSlice = createSlice({
   name: 'searchProfile',
   initialState,
   reducers: {},
@@ -33,7 +35,7 @@ const searchProfileSlice: any = createSlice({
     });
     builder.addCase(
       getSearchProfile.fulfilled,
-      (state, action: PayloadAction) => {
+      (state, action: PayloadAction<IProfileType[]>) => {
         state.loading = false;
         state.searchProfile = action.payload;
         state.error = '';
