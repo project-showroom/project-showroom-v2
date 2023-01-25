@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 import connect from '../../../libs/database';
 import Profiles from '../../../models/Profiles';
+import convertTokenId from '../../../utils/convert-token-id';
 
 export default async function handler(
   req: NextApiRequest,
@@ -9,12 +10,15 @@ export default async function handler(
 ) {
   await connect();
   const { body, method } = req;
+  const token: any = req.cookies.token;
+  const userid = convertTokenId(token);
 
   switch (method) {
     case 'GET':
       {
-        const getProfiles = await Profiles.find({
-          'userInfo.defaultUserName': body.data.userInfo.defaultUserName,
+        const getProfiles = await Profiles.findOne({
+          // 'userInfo.defaultUserName': body.data.userInfo.defaultUserName,
+          'userInfo.userId': userid,
         });
         res.status(200).json({
           success: true,
@@ -49,7 +53,6 @@ export default async function handler(
               displayName: body.data.userInfo.displayName,
             },
           });
-          //   const newProfile = new Profiles(body.data);
           await newProfile.save();
         }
         res.status(200).json({
