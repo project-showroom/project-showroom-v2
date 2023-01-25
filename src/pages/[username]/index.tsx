@@ -32,9 +32,7 @@ const UserPage = (props: { className?: string }) => {
     }) => state.projects,
   );
 
-  console.log(projects, 'projects');
-
-  if (loading && username) return <div>Loading...</div>;
+  if (loading) return <div>Loading...</div>;
 
   const userClassNames = classNames(
     'flow-root relative min-[320px]-justify-center top-16',

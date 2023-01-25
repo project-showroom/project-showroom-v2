@@ -6,8 +6,6 @@ import { useRouter } from 'next/router';
 import { ListButton } from '../../../../components/list-item-button-components/list-button';
 import { urlHomePage } from '../../../../utils/url-home-page';
 
-// import { urlHomePage } from '../../../../utils/url-home-page';
-
 interface ListItemIconButtonProps {
   className?: string;
   url: string;
@@ -23,7 +21,6 @@ const ListItemIconButton = (props: ListItemIconButtonProps) => {
   const { className, url, text, onClickLogout, ListIcon, ...rest } = props;
 
   const router = useRouter();
-  // convert url to new URL
   const newUrl = urlHomePage(url);
   const onClick = () => {
     router.push(newUrl);
@@ -34,12 +31,7 @@ const ListItemIconButton = (props: ListItemIconButtonProps) => {
   return (
     <>
       <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
-        <ListButton
-          // href={newUrl}
-          onClick={onListItemClick}
-          icon={ListIcon}
-          text={text}
-        />
+        <ListButton onClick={onListItemClick} icon={ListIcon} text={text} />
       </div>
     </>
   );

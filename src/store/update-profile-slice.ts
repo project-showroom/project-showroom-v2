@@ -1,15 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { getCookie } from 'cookies-next';
 
 import { IProfileType } from '../types/api-types';
-
-const token: any = getCookie('token');
 
 export const postAndUpdateProfile = createAsyncThunk(
   'profile/putProfile',
   async (values: IProfileType) => {
-    if (!token) return;
     return await axios.put(
       `/api/profiles`,
       { data: values },

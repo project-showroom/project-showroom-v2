@@ -17,7 +17,6 @@ const HeaderTitle = (props: {
   const headerTitleClassNames = classNames('flex');
   const headerTitleLinkClassNames = classNames('text-sm no-underline');
   return (
-    // If user is not signed in, do not show the user name.
     <div id={id} {...rest} className={headerTitleClassNames}>
       <Link href="/">
         <h1 className={headerTitleLinkClassNames}>{title} &nbsp;</h1>

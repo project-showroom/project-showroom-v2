@@ -16,7 +16,6 @@ import { createProject } from '../../../../store/project-slice';
 import { IUserType } from '../../../../types/api-types';
 import { IAddProjectFormValues } from '../../../../types/element-types/form-elements-types';
 import validationSchema from '../../../../utils/add-project-validation-schema';
-import initialValuesFunc from '../../../../utils/project-initial-values';
 
 const COMPONENT_NAME = 'AddProjectForm';
 const AddProjectForm = (props: { className?: string }) => {
@@ -39,7 +38,22 @@ const AddProjectForm = (props: { className?: string }) => {
     }
   };
 
-  const initialValues = initialValuesFunc('', '');
+  const initialValues: IAddProjectFormValues = {
+    projectTitle: '',
+    thumbnailUrl: '',
+    description: '',
+    skillTags: [],
+    leftButtonTitle: 'View Online',
+    leftButtonUrl: '',
+    rightButtonTitle: 'View Codes',
+    rightButtonUrl: '',
+    userInfo: {
+      userId: '',
+      userEmail: '',
+      defaultUserName: '',
+      displayName: '',
+    },
+  };
 
   const boxClassNames = classNames(
     'flex items-center bg-blue-500 w-max rounded md:absolute md:right-4 ',

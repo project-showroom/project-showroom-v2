@@ -3,15 +3,13 @@ import axios from 'axios';
 import { getCookie } from 'cookies-next';
 
 import { IAddProjectFormValues } from '../types/element-types/form-elements-types';
-import convertTokenId from '../utils/convert-token-id';
 
 const token = getCookie('token');
-const userId = convertTokenId(token);
 
 export const createProject = createAsyncThunk(
   'project/postProject',
   async (value: IAddProjectFormValues) => {
-    if (!userId) return;
+    if (!token) return;
     return await axios.post(`/api/projects`, value);
   },
 );

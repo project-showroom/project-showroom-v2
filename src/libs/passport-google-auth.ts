@@ -1,9 +1,8 @@
 import jwt from 'jsonwebtoken';
-import NativeError from 'mongoose';
 import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 
-import Users, { IUser } from '../models/Users';
+import Users from '../models/Users';
 
 passport.use(
   'google',
@@ -69,12 +68,12 @@ passport.use(
   ),
 );
 
-passport.serializeUser<any, any>((req, user, done) => {
-  done(undefined, user);
-});
+// passport.serializeUser<any, any>((req, user, done) => {
+//   done(undefined, user);
+// });
 
-passport.deserializeUser((id, done) => {
-  Users.findById(id, (err: NativeError, { ...user }: IUser) => done(err, user));
-});
+// passport.deserializeUser((id, done) => {
+//   Users.findById(id, (err: NativeError, { ...user }: IUser) => done(err, user));
+// });
 
 export default passport;

@@ -47,8 +47,6 @@ const HeaderFeature = (props: {
     'flex items-center justify-end',
   );
   return (
-    // When user signIn, show MenuBar.
-    // When user signOut, show Login/Register button.
     <>
       <div className={headerTitleMenuClassNames}>
         {user && <AppBarMenu currentDefaultUserName={currentDefaultUserName} />}

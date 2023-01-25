@@ -16,7 +16,6 @@ import { AppDispatch } from '../../../../store';
 import { updateCardProject } from '../../../../store/update-project-slice';
 import { IAddProjectFormValues } from '../../../../types/element-types/form-elements-types';
 import validationSchema from '../../../../utils/add-project-validation-schema';
-import initialFormValuesFunc from '../../../../utils/project-initial-values';
 
 const COMPONENT_NAME = 'EditProjectForm';
 const EditProjectForm = (props: { className?: string }) => {
@@ -39,8 +38,17 @@ const EditProjectForm = (props: { className?: string }) => {
     router.push(`/${username}`);
   };
 
-  const initialValues = initialFormValuesFunc(editProject, tags);
-
+  const initialValues = {
+    projectTitle: editProject.projectTitle,
+    thumbnailUrl: editProject.thumbnailUrl,
+    description: editProject.description,
+    skillTags: tags,
+    leftButtonTitle: 'View Online',
+    leftButtonUrl: editProject.leftButtonUrl,
+    rightButtonTitle: 'View Codes',
+    rightButtonUrl: editProject.rightButtonUrl,
+    userInfo: { ...editProject.userInfo },
+  };
   const boxClassNames = classNames(
     'flex items-center bg-blue-500 w-max rounded md:absolute md:right-4 ',
   );
@@ -75,7 +83,7 @@ const EditProjectForm = (props: { className?: string }) => {
             name="editThumbnailUrl"
             label="Thumbnail Url"
             placeholder="Thumbnail Url"
-            // type="url"
+            type="url"
             defaultValue={editProject.thumbnailUrl}
             onChange={(e) => {
               initialValues.thumbnailUrl = e.target.value;
@@ -104,7 +112,6 @@ const EditProjectForm = (props: { className?: string }) => {
             helperText="If you cannot find your technology, you can write it anyway."
             setTags={setTags}
             tags={tags}
-            // editTags={tags}
           />
           <div className={spaceClassNames} />
           <div className={leftRightButtonClassNames}>

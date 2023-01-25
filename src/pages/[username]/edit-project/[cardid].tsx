@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { EditProjectFeature } from '../../../features/edit-project-feature/edit-project-feature';
 import { AppDispatch } from '../../../store';
 import { getCardProject } from '../../../store/edit-project-slice';
-import { IAddProjectFormValues } from '../../../types/element-types/form-elements-types';
 
 const COMPONENT_NAME = 'UserCardEditById';
 const UserCardEditById = (props: { className?: string }) => {

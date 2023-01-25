@@ -11,15 +11,7 @@ const CardGalleryTags = (props: { cardTags: string[] }) => {
   const { cardTags } = props;
 
   return (
-    <Grid
-      container
-      // direction="column"
-      // justifyContent="space-between"
-      // alignItems="baseline"
-      // maxHeight={70}
-      className={gridClassNames}
-      // overflow={'overflow-x-auto'}
-    >
+    <Grid container className={gridClassNames}>
       {cardTags.map((chip, index) => (
         <div key={chip + index} className={chipClassNames}>
           <Chip label={chip} size="small" />

@@ -1,5 +1,3 @@
-// import { IPaginationFunctionType } from '../types/utils-types/pagination-function-type';
-
 import { IAddProjectFormValues } from '../types/element-types/form-elements-types';
 
 export const paginationFunction = (

@@ -1,3 +1,4 @@
-export const takeFirstLetter = (str: string) => {
+export const takeFirstLetter = (str?: string) => {
+  if (!str) return '';
   return str[0];
 };

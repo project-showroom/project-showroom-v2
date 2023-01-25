@@ -2,7 +2,6 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import deleteProjectSlice from './delete-project-slice';
 import editProjectSlice from './edit-project-slice';
-import iconSlice from './icon-slice';
 import projectSlice from './project-slice';
 import searchProfileSlice from './search-profile-slice';
 import takeProfileSlice from './take-profile-slice';
@@ -13,7 +12,6 @@ import updateProjectSlice from './update-project-slice';
 
 const store = configureStore({
   reducer: {
-    icon: iconSlice.reducer,
     user: takeUserSlice,
     project: projectSlice,
     projects: takeProjectsSlice,

@@ -1,18 +1,12 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { getCookie } from 'cookies-next';
 
 import { IProfileType } from '../types/api-types';
-import convertTokenId from '../utils/convert-token-id';
-
-const token: any = getCookie('token');
-const userid = convertTokenId(token);
 
 export const getCurrentProfile = createAsyncThunk(
   'profile/getCurrentProfile',
   async () => {
-    if (!userid) return;
-    return await axios.get(`/api/profiles/${userid}`).then((response) => {
+    return await axios.get(`/api/profiles`).then((response) => {
       return response.data.data;
     });
   },
