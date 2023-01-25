@@ -30,7 +30,7 @@ const CardSelf = (props: CardSelfProps) => {
         spacing={{ xs: 1, md: 3 }}
         className={cardContainerGridClassNames}
       >
-        {userCards.map((cardItem: any, index: number) => (
+        {userCards?.map((cardItem: any, index: number) => (
           <Grid
             key={index}
             item
