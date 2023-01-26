@@ -5,7 +5,7 @@ import { IUserType } from '../types/api-types';
 
 export const fetchUsers = createAsyncThunk(
   'user/fetchUsers',
-  async (userId: string) => {
+  async (userId: string | undefined) => {
     if (!userId) return;
     return await axios.get(`/api/users/${userId}`).then((response) => {
       return response.data.data;

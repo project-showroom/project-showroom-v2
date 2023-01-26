@@ -1,6 +1,5 @@
 import Avatar from '@mui/material/Avatar';
 import CardHeader from '@mui/material/CardHeader';
-import { getCookie } from 'cookies-next';
 
 import { CardHeaderAction } from './index';
 import convertTokenId from '../../../../utils/convert-token-id';
@@ -15,8 +14,7 @@ const CardGalleryHeader = (props: {
 }) => {
   const { cardUserName, cardId, cardUserId, cardDefaultUserName } = props;
 
-  const token = getCookie('token');
-  const userId = convertTokenId(token);
+  const userId = convertTokenId();
 
   const cardUserNameFirstLetter = takeFirstLetter(cardUserName);
 

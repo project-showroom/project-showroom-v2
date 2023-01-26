@@ -31,7 +31,10 @@ const MyDetailsForm = (props: { className?: string }) => {
     dispatch(postAndUpdateProfile(values));
   };
 
+  console.log(profile, 'profile');
+
   const initialValues = initialProfileValuesFunc(profile);
+  console.log(initialValues, 'initialValues');
 
   const boxClassNames = classNames(
     'flex items-center bg-blue-500 w-max rounded md:absolute md:right-4 ',

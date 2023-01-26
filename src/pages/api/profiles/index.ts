@@ -1,8 +1,9 @@
+import jwt from 'jsonwebtoken';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 import connect from '../../../libs/database';
 import Profiles from '../../../models/Profiles';
-import convertTokenId from '../../../utils/convert-token-id';
+import { MyToken } from '../../../types/api-types/token-types';
 
 export default async function handler(
   req: NextApiRequest,
@@ -10,19 +11,21 @@ export default async function handler(
 ) {
   await connect();
   const { body, method } = req;
-  const token: any = req.cookies.token;
-  const userid = convertTokenId(token);
+
+  const token = req.cookies.token as string;
+  const verifyToken = jwt.decode(token);
+  const { id } = verifyToken as MyToken;
 
   switch (method) {
     case 'GET':
       {
         const getProfiles = await Profiles.findOne({
           // 'userInfo.defaultUserName': body.data.userInfo.defaultUserName,
-          'userInfo.userId': userid,
+          'userInfo.userId': id,
         });
         res.status(200).json({
           success: true,
-          message: 'Found all Profiles of user',
+          message: 'Found all Profiles',
           loading: false,
           data: getProfiles,
         });
@@ -30,14 +33,14 @@ export default async function handler(
       break;
     case 'PUT':
       {
-        const userProfile = await Profiles.findOneAndUpdate(
+        const updateProfile = await Profiles.findOneAndUpdate(
           {
             'userInfo.defaultUserName': body.data.userInfo.defaultUserName,
           },
           body.data,
         );
 
-        if (!userProfile) {
+        if (!updateProfile) {
           body.createdAt = Date.now();
 
           const newProfile = new Profiles({
@@ -57,8 +60,8 @@ export default async function handler(
         }
         res.status(200).json({
           success: true,
-          data: userProfile,
-          message: 'Found user profile',
+          data: updateProfile,
+          message: 'Update user profile',
           loading: false,
         });
       }

@@ -18,11 +18,12 @@ export default async function handler(
     case 'GET':
       {
         const getSearchProfile = await Profiles.findOne({
-          userName: username,
+          'userInfo.defaultUserName': username,
         });
+
         res.status(200).json({
           success: true,
-          message: 'Found all Profiles of user',
+          message: 'Found Profile of user',
           loading: false,
           data: getSearchProfile,
         });

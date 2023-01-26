@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 
 import classNames from 'classnames';
-import { getCookie } from 'cookies-next';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
@@ -22,8 +21,7 @@ const HeaderFeature = (props: {
 }) => {
   const { darkMode, toggleDarkMode } = props;
 
-  const token = getCookie('token');
-  const takenUserId = convertTokenId(token);
+  const takenUserId = convertTokenId();
 
   const [userId, setUserId] = useState(takenUserId);
 
@@ -33,7 +31,7 @@ const HeaderFeature = (props: {
   );
 
   useEffect(() => {
-    if (!takenUserId) setUserId(null);
+    if (!takenUserId) setUserId('');
     dispatch(fetchUsers(userId));
   }, [dispatch, userId, takenUserId]);
 
