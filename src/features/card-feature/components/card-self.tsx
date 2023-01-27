@@ -9,6 +9,7 @@ import { CardContentCombine } from './card-gallery-content/index';
 import { CardGalleryHeader } from './card-gallery-header/index';
 import { CardGalleryMedia } from './card-gallery-media/index';
 import { CardSelfProps } from '../../../types/api-types';
+import { IAddProjectFormValues } from '../../../types/element-types/form-elements-types';
 
 const COMPONENT_NAME = 'CardSelf';
 const cardGridClassNames = classNames('h-auto sm:h-[600px]', COMPONENT_NAME);
@@ -30,32 +31,34 @@ const CardSelf = (props: CardSelfProps) => {
         spacing={{ xs: 1, md: 3 }}
         className={cardContainerGridClassNames}
       >
-        {userCards?.map((cardItem: any, index: number) => (
-          <Grid
-            key={index}
-            item
-            xs={12}
-            sm={6}
-            md={4}
-            className={cardGridClassNames}
-          >
-            <Card className={cardClassNames}>
-              <CardGalleryHeader
-                cardUserName={cardItem.userInfo.displayName}
-                cardId={cardItem._id}
-                cardUserId={cardItem.userInfo.userId}
-                cardDefaultUserName={cardItem.userInfo.defaultUserName}
-              />
-              <CardGalleryMedia cardImageUrl={cardItem.thumbnailUrl} />
-              <CardContentCombine
-                cardTitle={cardItem.projectTitle}
-                cardDescription={cardItem.description}
-                cardTags={cardItem.skillTags}
-              />
-              <CardGalleryButtons />
-            </Card>
-          </Grid>
-        ))}
+        {userCards?.map(
+          (cardItem: IAddProjectFormValues | undefined, index: number) => (
+            <Grid
+              key={index}
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              className={cardGridClassNames}
+            >
+              <Card className={cardClassNames}>
+                <CardGalleryHeader
+                  cardUserName={cardItem?.userInfo?.displayName}
+                  cardId={cardItem?._id}
+                  cardUserId={cardItem?.userInfo?.userId}
+                  cardDefaultUserName={cardItem?.userInfo?.defaultUserName}
+                />
+                <CardGalleryMedia cardImageUrl={cardItem?.thumbnailUrl} />
+                <CardContentCombine
+                  cardTitle={cardItem?.projectTitle}
+                  cardDescription={cardItem?.description}
+                  cardTags={cardItem?.skillTags}
+                />
+                <CardGalleryButtons />
+              </Card>
+            </Grid>
+          ),
+        )}
       </Grid>
     </div>
   );

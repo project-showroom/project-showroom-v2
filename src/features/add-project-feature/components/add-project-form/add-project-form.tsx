@@ -22,7 +22,7 @@ const AddProjectForm = (props: { className?: string }) => {
   const id = useId() + '-' + COMPONENT_NAME;
   const { className, ...rest } = props;
 
-  const [tags, setTags] = useState<string[]>([]);
+  const [tags, setTags] = useState([]);
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -112,7 +112,7 @@ const AddProjectForm = (props: { className?: string }) => {
             name="skillTags"
             label="Skill Tags (ex: ReactJs, Materialui)"
             helperText="If you cannot find your technology, you can write it anyway."
-            setTags={setTags}
+            setTags={(tags: string[]) => setTags}
             tags={tags}
           />
           <div className={spaceClassNames} />

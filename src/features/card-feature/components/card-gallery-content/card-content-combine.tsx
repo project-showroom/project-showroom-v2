@@ -13,9 +13,9 @@ import {
 const COMPONENT_NAME = 'CardContentCombine';
 const CardContentCombine = (props: {
   className?: string;
-  cardTitle: string;
-  cardDescription: string;
-  cardTags: string[];
+  cardTitle?: string;
+  cardDescription?: string;
+  cardTags: (string | number)[] | undefined;
 }) => {
   const id = useId() + '-' + COMPONENT_NAME;
 

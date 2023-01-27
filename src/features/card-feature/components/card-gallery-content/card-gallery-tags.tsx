@@ -7,13 +7,17 @@ const gridClassNames = classNames(
 );
 const chipClassNames = classNames('p-3');
 const COMPONENT_NAME = 'CardGalleryTags';
-const CardGalleryTags = (props: { cardTags: string[] }) => {
+const CardGalleryTags = (props: {
+  cardTags?: (string | number)[] | undefined;
+}) => {
   const { cardTags } = props;
+
+  if (!cardTags) return null;
 
   return (
     <Grid container className={gridClassNames}>
-      {cardTags.map((chip, index) => (
-        <div key={chip + index} className={chipClassNames}>
+      {cardTags?.map((chip) => (
+        <div key={chip} className={chipClassNames}>
           <Chip label={chip} size="small" />
         </div>
       ))}

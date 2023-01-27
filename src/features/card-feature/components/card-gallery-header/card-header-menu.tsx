@@ -17,8 +17,8 @@ const CardHeaderMenu = (props: {
   open: boolean;
   anchorEl: null | HTMLElement;
   handleClose: () => void;
-  cardId: string;
-  cardDefaultUserName: string;
+  cardId?: string | undefined;
+  cardDefaultUserName?: string;
 }) => {
   const {
     anchorEl,
@@ -37,6 +37,8 @@ const CardHeaderMenu = (props: {
   const editCard = () => {
     router.push(`/${cardDefaultUserName}/edit-project/${cardid}`);
   };
+
+  if (!cardid) return null;
 
   return (
     <Menu

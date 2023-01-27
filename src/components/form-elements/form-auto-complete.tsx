@@ -6,10 +6,15 @@ import TextField from '@mui/material/TextField';
 import classNames from 'classnames';
 import { Field, FieldProps } from 'formik';
 
-import { IFormAutoCompleteProps } from '../../types/element-types/form-elements-types';
-
 const COMPONENT_NAME = 'FormAutoComplete';
-const FormAutoComplete = (props: IFormAutoCompleteProps) => {
+const FormAutoComplete = (props: {
+  name: string;
+  id: string;
+  label: string;
+  helperText: string;
+  tags: (string | number)[] | undefined;
+  setTags: (tags: string[]) => void;
+}) => {
   const id = useId() + '-' + COMPONENT_NAME;
   const { name, id: formId, label, helperText, tags, setTags } = props;
 
@@ -25,7 +30,7 @@ const FormAutoComplete = (props: IFormAutoCompleteProps) => {
               id={formId}
               value={tags}
               onChange={(_, newValue) => {
-                setTags([...newValue]);
+                setTags([...newValue] as []);
               }}
               options={top100Films.map((option) => option.title)}
               renderTags={(value, getTagProps) =>

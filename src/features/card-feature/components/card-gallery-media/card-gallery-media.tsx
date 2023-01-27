@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 const COMPONENT_NAME = 'CardGalleryMedia';
 const cardMediaClassNames = classNames('h-48 ', COMPONENT_NAME);
-const CardGalleryMedia = (props: { cardImageUrl: string }) => {
+const CardGalleryMedia = (props: { cardImageUrl?: string }) => {
   const id = useId() + '-' + COMPONENT_NAME;
 
   const { cardImageUrl, ...rest } = props;

@@ -7,10 +7,10 @@ import { takeFirstLetter } from '../../../../utils/take-first-letter';
 
 const COMPONENT_NAME = 'CardGalleryHeader';
 const CardGalleryHeader = (props: {
-  cardUserName: string;
-  cardId: string;
-  cardUserId: string;
-  cardDefaultUserName: string;
+  cardUserName?: string;
+  cardId?: string;
+  cardUserId?: string;
+  cardDefaultUserName?: string;
 }) => {
   const { cardUserName, cardId, cardUserId, cardDefaultUserName } = props;
 

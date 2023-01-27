@@ -6,7 +6,7 @@ const typographyClassNames = classNames(
   'flex flex-col justify-between overflow-x-auto h-20 max-h-20 ',
 );
 const COMPONENT_NAME = 'CardGalleryExplanation';
-const CardGalleryDescription = (props: { cardDescription: string }) => {
+const CardGalleryDescription = (props: { cardDescription?: string }) => {
   const { cardDescription } = props;
 
   return (

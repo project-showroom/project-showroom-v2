@@ -7,8 +7,8 @@ import { CardHeaderMenu } from './index';
 
 const COMPONENT_NAME = 'CardHeaderAction';
 const CardHeaderAction = (props: {
-  cardId: string;
-  cardDefaultUserName: string;
+  cardId?: string;
+  cardDefaultUserName?: string;
 }) => {
   const { cardId, cardDefaultUserName } = props;
 

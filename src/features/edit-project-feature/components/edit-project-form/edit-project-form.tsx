@@ -110,7 +110,7 @@ const EditProjectForm = (props: { className?: string }) => {
             name="editSkillTags"
             label="Skill Tags (ex: ReactJs, Materialui)"
             helperText="If you cannot find your technology, you can write it anyway."
-            setTags={setTags}
+            setTags={(tags: string[]) => setTags}
             tags={tags}
           />
           <div className={spaceClassNames} />

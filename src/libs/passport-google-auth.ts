@@ -1,8 +1,14 @@
 import jwt from 'jsonwebtoken';
+import { NextApiRequest } from 'next';
 import passport from 'passport';
-import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
+import {
+  Strategy as GoogleStrategy,
+  Profile,
+  VerifyCallback,
+} from 'passport-google-oauth20';
 
 import Users from '../models/Users';
+import { IUserType } from '../types/api-types';
 
 passport.use(
   'google',
@@ -15,8 +21,8 @@ passport.use(
     async (
       accessToken: string,
       refreshToken: string,
-      profile: any,
-      done: any,
+      profile: Profile,
+      done: VerifyCallback,
     ) => {
       try {
         const userExist = await Users.findOne({ googleId: profile.id });
@@ -37,15 +43,15 @@ passport.use(
             .substring(1);
           const newUser = new Users({
             googleId: profile.id,
-            email: profile.emails[0].value,
+            email: profile?.emails?.values().next().value.value,
             defaultUserName:
               profile.displayName.replaceAll(' ', '-').toLowerCase() +
               generateId,
-            emailVerified: profile.emails[0].verified,
+            emailVerified: profile.emails?.values().next().value.verified,
             displayName: profile.displayName,
-            firstName: profile.name.givenName,
-            lastName: profile.name.familyName,
-            image: profile.photos[0].value,
+            firstName: profile?.name?.givenName,
+            lastName: profile?.name?.familyName,
+            image: profile?.photos?.values().next().value.value,
           });
           await newUser.save();
           const token: string = jwt.sign(
@@ -62,18 +68,20 @@ passport.use(
         }
       } catch (err) {
         console.error(err, 'err');
-        done(err, false, { message: 'Internal server error' });
+        done(null, false, { message: 'Internal server error' });
       }
     },
   ),
 );
 
-// passport.serializeUser<any, any>((req, user, done) => {
-//   done(undefined, user);
-// });
+passport.serializeUser(
+  (req: NextApiRequest, user: IUserType, done: VerifyCallback) => {
+    done(undefined, user);
+  },
+);
 
-// passport.deserializeUser((id, done) => {
-//   Users.findById(id, (err: NativeError, { ...user }: IUser) => done(err, user));
-// });
+passport.deserializeUser((id, done) => {
+  Users.findById(id, (err: Error, { ...user }: IUserType) => done(err, user));
+});
 
 export default passport;

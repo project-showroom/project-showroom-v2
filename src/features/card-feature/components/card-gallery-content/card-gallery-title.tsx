@@ -5,7 +5,10 @@ import classNames from 'classnames';
 import { BaseTypography } from '../../../../components/typography-elements';
 
 const COMPONENT_NAME = 'CardGalleryTitle';
-const CardGalleryTitle = (props: { className?: string; cardTitle: string }) => {
+const CardGalleryTitle = (props: {
+  className?: string;
+  cardTitle?: string;
+}) => {
   const id = useId() + '-' + COMPONENT_NAME;
 
   const { className, cardTitle, ...rest } = props;
