@@ -9,8 +9,8 @@ import {
   LoginRegisterButton,
   AppBarMenu,
 } from './index';
+import { getUser } from '../../libs/api/user';
 import { AppDispatch } from '../../store';
-import { fetchUsers } from '../../store/take-user-slice';
 import { IUserType } from '../../types/api-types';
 import convertTokenId from '../../utils/convert-token-id';
 
@@ -32,7 +32,7 @@ const HeaderFeature = (props: {
 
   useEffect(() => {
     if (!takenUserId) setUserId('');
-    dispatch(fetchUsers(userId));
+    dispatch(getUser(userId));
   }, [dispatch, userId, takenUserId]);
 
   const currentUserDisplayName = user?.displayName;

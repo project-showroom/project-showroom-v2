@@ -11,8 +11,8 @@ import {
   FormInputText,
 } from '../../../../components/form-elements';
 import { SendIconElement } from '../../../../components/icons-elements';
+import { createProject } from '../../../../libs/api/projects';
 import { AppDispatch } from '../../../../store';
-import { createProject } from '../../../../store/project-slice';
 import { IUserType } from '../../../../types/api-types';
 import { IAddProjectFormValues } from '../../../../types/element-types/form-elements-types';
 import validationSchema from '../../../../utils/add-project-validation-schema';

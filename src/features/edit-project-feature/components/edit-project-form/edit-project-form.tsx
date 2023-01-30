@@ -12,8 +12,8 @@ import {
   FormInputText,
 } from '../../../../components/form-elements';
 import { SendIconElement } from '../../../../components/icons-elements';
+import { updateProject } from '../../../../libs/api/projects';
 import { AppDispatch } from '../../../../store';
-import { updateCardProject } from '../../../../store/update-project-slice';
 import { IAddProjectFormValues } from '../../../../types/element-types/form-elements-types';
 import validationSchema from '../../../../utils/add-project-validation-schema';
 
@@ -34,7 +34,7 @@ const EditProjectForm = (props: { className?: string }) => {
   const [tags, setTags] = useState(editProject.skillTags);
 
   const onSubmit = async (values: IAddProjectFormValues) => {
-    dispatch(updateCardProject({ values, cardid }));
+    dispatch(updateProject({ values, cardid }));
     router.push(`/${username}`);
   };
 

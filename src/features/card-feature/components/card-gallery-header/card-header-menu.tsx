@@ -9,8 +9,8 @@ import {
   EditIconElement,
 } from '../../../../components/icons-elements';
 import { ListButton } from '../../../../components/list-item-button-components/list-button';
+import { deleteProject } from '../../../../libs/api/projects';
 import { AppDispatch } from '../../../../store';
-import { deleteProject } from '../../../../store/delete-project-slice';
 
 const COMPONENT_NAME = 'CardHeaderMenu';
 const CardHeaderMenu = (props: {

@@ -5,9 +5,9 @@ import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { UserProfileFeature } from '../../features/user-profile-feature';
+import { getSearchProfile } from '../../libs/api/profile';
+import { getAllProjects } from '../../libs/api/projects';
 import { AppDispatch } from '../../store';
-import { getSearchProfile } from '../../store/search-profile-slice';
-import { allProjects } from '../../store/take-projects-slice';
 import { IAddProjectFormValues } from '../../types/element-types/form-elements-types';
 
 const COMPONENT_NAME = 'UserPage';
@@ -22,7 +22,7 @@ const UserPage = (props: { className?: string }) => {
 
   useEffect(() => {
     if (!username) return;
-    dispatch(allProjects(username));
+    dispatch(getAllProjects(username));
     dispatch(getSearchProfile(username));
   }, [dispatch, username]);
 
