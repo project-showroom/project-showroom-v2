@@ -1,17 +1,7 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { getUser } from '../libs/api/user';
 import { IUserType } from '../types/api-types';
-
-export const fetchUsers = createAsyncThunk(
-  'user/fetchUsers',
-  async (userId: string | undefined) => {
-    if (!userId) return;
-    return await axios.get(`/api/users/${userId}`).then((response) => {
-      return response.data.data;
-    });
-  },
-);
 
 interface IInitialState {
   loading: boolean;
@@ -34,17 +24,17 @@ const takeUserSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchUsers.pending, (state) => {
+    builder.addCase(getUser.pending, (state) => {
       state.loading = true;
     });
     builder.addCase(
-      fetchUsers.fulfilled,
+      getUser.fulfilled,
       (state, action: PayloadAction<IUserType[]>) => {
         state.user = action.payload;
         state.error = '';
       },
     );
-    builder.addCase(fetchUsers.rejected, (state, action) => {
+    builder.addCase(getUser.rejected, (state, action) => {
       state.loading = false;
       state.user = [];
       state.error = action.error.message || 'Something went wrong';

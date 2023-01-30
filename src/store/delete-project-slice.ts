@@ -1,12 +1,6 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice } from '@reduxjs/toolkit';
 
-export const deleteProject = createAsyncThunk(
-  'projects/deleteProject',
-  (cardid: string) => {
-    return axios.delete(`/api/projects/delete-project/${cardid}`);
-  },
-);
+import { deleteProject } from '../libs/api/projects';
 
 interface IInitialState {
   loading: boolean;

@@ -1,22 +1,7 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice } from '@reduxjs/toolkit';
 
+import { postAndUpdateProfile } from '../libs/api/profile';
 import { IProfileType } from '../types/api-types';
-
-export const postAndUpdateProfile = createAsyncThunk(
-  'profile/putProfile',
-  async (values: IProfileType) => {
-    return await axios.put(
-      `/api/profiles`,
-      { data: values },
-      {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      },
-    );
-  },
-);
 
 interface IInitialState {
   loading: boolean;

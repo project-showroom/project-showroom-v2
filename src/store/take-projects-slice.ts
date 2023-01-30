@@ -1,16 +1,7 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { getAllProjects } from '../libs/api/projects';
 import { IAddProjectFormValues } from '../types/element-types/form-elements-types';
-
-export const allProjects = createAsyncThunk(
-  'projects/getAllProjects',
-  async (username: string | string[]) => {
-    return await axios.get(`/api/projects/${username}`).then((response) => {
-      return response.data.data;
-    });
-  },
-);
 
 interface IInitialState {
   loading: boolean;
@@ -28,18 +19,18 @@ const projectSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(allProjects.pending, (state) => {
+    builder.addCase(getAllProjects.pending, (state) => {
       state.loading = true;
     });
     builder.addCase(
-      allProjects.fulfilled,
+      getAllProjects.fulfilled,
       (state, action: PayloadAction<IAddProjectFormValues[]>) => {
         state.loading = false;
         state.projects = action.payload;
         state.error = '';
       },
     );
-    builder.addCase(allProjects.rejected, (state, action) => {
+    builder.addCase(getAllProjects.rejected, (state, action) => {
       state.loading = false;
       state.projects = [];
       state.error = action.error.message || 'Something went wrong';

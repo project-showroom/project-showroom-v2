@@ -1,16 +1,7 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { getCurrentProfile } from '../libs/api/profile';
 import { IProfileType } from '../types/api-types';
-
-export const getCurrentProfile = createAsyncThunk(
-  'profile/getCurrentProfile',
-  async () => {
-    return await axios.get(`/api/profiles`).then((response) => {
-      return response.data.data;
-    });
-  },
-);
 
 interface IInitialState {
   loading: boolean;

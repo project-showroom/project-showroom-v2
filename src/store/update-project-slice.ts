@@ -1,27 +1,7 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice } from '@reduxjs/toolkit';
 
+import { updateProject } from '../libs/api/projects';
 import { IAddProjectFormValues } from '../types/element-types/form-elements-types';
-
-export const updateCardProject = createAsyncThunk(
-  'projects/put/[cardid]',
-  async (data: {
-    values?: IAddProjectFormValues;
-    cardid?: string | string[];
-  }) => {
-    const { values, cardid } = data;
-    if (!cardid) return;
-    return await axios.put(
-      `/api/projects/edit-project/${cardid}`,
-      { data: { ...values } },
-      {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      },
-    );
-  },
-);
 
 interface IInitialState {
   loading: boolean;
@@ -39,10 +19,10 @@ const updateProjectSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(updateCardProject.pending, (state) => {
+    builder.addCase(updateProject.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(updateCardProject.rejected, (state, action) => {
+    builder.addCase(updateProject.rejected, (state, action) => {
       state.loading = false;
       state.updateProject = [];
       state.error = action.error.message || 'Something went wrong';
