@@ -24,11 +24,6 @@ const MainFeature = (props: { user: IUserType }) => {
           {user?.displayName}
         </BaseTypography>
       </div>
-      <div className={classNames('flex justify-center', COMPONENT_NAME + 1)}>
-        <Link href={`/${user?.defaultUserName}`}>
-          <SubmitTypeButton variant="contained">My Projects</SubmitTypeButton>
-        </Link>
-      </div>
     </div>
   );
 };
