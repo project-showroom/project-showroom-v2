@@ -17,7 +17,7 @@ const Copyright = (props: { className?: string }) => {
 
   return (
     <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
-      <Divider />
+      <Divider className="dark:bg-white" />
       <div>
         <BaseTypography variant="h6" align="center" gutterBottom>
           <Link href="https://project-showroom.vercel.app/">
