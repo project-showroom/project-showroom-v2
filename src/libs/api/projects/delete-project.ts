@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const deleteProject = createAsyncThunk(
   'projects/deleteProject',
-  (cardid: string) => {
-    return axios.delete(`/api/projects/delete-project/${cardid}`);
+  async (cardid: string) => {
+    return await axios.delete(`/api/projects/delete-project/${cardid}`);
   },
 );

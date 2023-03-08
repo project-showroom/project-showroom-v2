@@ -19,6 +19,10 @@ const deleteProjectSlice = createSlice({
     builder.addCase(deleteProject.pending, (state) => {
       state.loading = true;
     });
+    builder.addCase(deleteProject.fulfilled, (state) => {
+      state.loading = false;
+      state.error = '';
+    });
     builder.addCase(deleteProject.rejected, (state, action) => {
       state.loading = false;
       state.error = action.error.message || 'Something went wrong';
