@@ -12,6 +12,8 @@ const CardPagination = (props: {
   const id = useId() + '-' + COMPONENT_NAME;
   const { page_size, onPageChange, page, ...rest } = props;
 
+  if (page_size === 0) return <div className="h-12"></div>;
+
   return (
     <div id={id} {...rest}>
       <Pagination
