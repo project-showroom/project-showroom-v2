@@ -13,7 +13,7 @@ const FormAutoComplete = (props: {
   label: string;
   helperText: string;
   tags: (string | number)[] | undefined;
-  setTags: (tags: string[]) => void;
+  setTags: any;
 }) => {
   const id = useId() + '-' + COMPONENT_NAME;
   const { name, id: formId, label, helperText, tags, setTags } = props;

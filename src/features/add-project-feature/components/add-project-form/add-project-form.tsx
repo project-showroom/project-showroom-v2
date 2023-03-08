@@ -112,7 +112,7 @@ const AddProjectForm = (props: { className?: string }) => {
             name="skillTags"
             label="Skill Tags (ex: ReactJs, Materialui)"
             helperText="If you cannot find your technology, you can write it anyway."
-            setTags={(tags: string[]) => setTags}
+            setTags={setTags}
             tags={tags}
           />
           <div className={spaceClassNames} />
