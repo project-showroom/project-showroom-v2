@@ -54,7 +54,10 @@ const CardSelf = (props: CardSelfProps) => {
                   cardDescription={cardItem?.description}
                   cardTags={cardItem?.skillTags}
                 />
-                <CardGalleryButtons />
+                <CardGalleryButtons
+                  leftButtonUrl={cardItem?.leftButtonUrl}
+                  rightButtonUrl={cardItem?.rightButtonUrl}
+                />
               </Card>
             </Grid>
           ),
