@@ -2,7 +2,7 @@ import { useId } from 'react';
 
 import classNames from 'classnames';
 
-import { SubmitButton } from '../../../components/button-components';
+import { ViewButton } from '../../../components/button-components';
 
 const COMPONENT_NAME = 'UserProfileButtons';
 const UserProfileButtons = (props: {
@@ -19,24 +19,24 @@ const UserProfileButtons = (props: {
   );
   return (
     <div id={id} {...rest} className={userProfileButtonClassNames}>
-      <SubmitButton
+      <ViewButton
         href="/view-codes"
         variant="contained"
         size="small"
         color="primary"
       >
         VIEW MY PROJECTS
-      </SubmitButton>
+      </ViewButton>
 
       {cvUrl && (
-        <SubmitButton
+        <ViewButton
           href={cvUrl}
           variant="contained"
           size="small"
           color="primary"
         >
           {buttonName}
-        </SubmitButton>
+        </ViewButton>
       )}
     </div>
   );

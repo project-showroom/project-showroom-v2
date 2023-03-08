@@ -1,27 +1,27 @@
 import { CardActions } from '@mui/material';
 
-import { SubmitButton } from '../../../../components/button-components';
+import { ViewButton } from '../../../../components/button-components';
 
 const COMPONENT_NAME = 'CardGalleryButtons';
 const CardGalleryButtons = () => {
   return (
     <CardActions className="flex justify-between">
-      <SubmitButton
+      <ViewButton
         href="/view-online"
         variant="contained"
         size="small"
         color="primary"
       >
         VIEW ONLINE
-      </SubmitButton>
-      <SubmitButton
+      </ViewButton>
+      <ViewButton
         href="/view-codes"
         variant="contained"
         size="small"
         color="primary"
       >
         VIEW CODES
-      </SubmitButton>
+      </ViewButton>
     </CardActions>
   );
 };

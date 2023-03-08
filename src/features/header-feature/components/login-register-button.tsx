@@ -2,7 +2,7 @@ import { useId } from 'react';
 
 import classNames from 'classnames';
 
-import { SubmitButton } from '../../../components/button-components/index';
+import { SingInUpButton } from '../../../components/button-components/index';
 import { LogInIconElement } from '../../../components/icons-elements';
 
 const COMPONENT_NAME = 'LoginRegisterButton';
@@ -11,18 +11,17 @@ const LoginRegisterButton = (props: { className?: string }) => {
 
   const { ...rest } = props;
 
-  const headerLoginButtonClassNames = classNames('bg-gray-600');
-  const headerLoginClassNames = classNames('flex text-sm mr-1 bg-gray-600');
+  const headerLoginClassNames = classNames('flex text-sm mr-1');
   return (
     <div id={id} {...rest} className={headerLoginClassNames}>
-      <SubmitButton
+      <SingInUpButton
         href="/api/google"
         variant="contained"
+        color="loginButtonColor"
         buttonIcon={<LogInIconElement />}
-        className={headerLoginButtonClassNames}
       >
         Sign In / Up
-      </SubmitButton>
+      </SingInUpButton>
     </div>
   );
 };
