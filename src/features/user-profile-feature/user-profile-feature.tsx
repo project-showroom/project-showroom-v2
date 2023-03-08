@@ -38,6 +38,7 @@ const UserProfileFeature = (props: {
           <UserProfileButtons
             cvUrl={currentSearchProfile.addLinkToYourDetails}
             buttonName={currentSearchProfile.giveNameToButton}
+            userProjectUrl={currentSearchProfile.userInfo?.defaultUserName}
           />
           <Divider className="dark:bg-white" />
           <CardFeature projects={projects} />
