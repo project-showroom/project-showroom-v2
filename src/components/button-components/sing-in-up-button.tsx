@@ -1,10 +1,10 @@
 import { useId } from 'react';
 
-import { ISignInUpButtonType } from '../../types/element-types/button-elements-types';
+import { IButtonType } from '../../types/element-types/button-elements-types';
 import { SubmitTypeButton } from '../button-elements';
 
 const COMPONENT_NAME = 'SingInUpButton';
-const SingInUpButton = (props: ISignInUpButtonType) => {
+const SingInUpButton = (props: IButtonType) => {
   const id = useId() + '-' + COMPONENT_NAME;
 
   const { children, ...rest } = props;
