@@ -13,7 +13,7 @@ const MainFeature = (props: { user: IUserType }) => {
   const id = useId() + '-' + COMPONENT_NAME;
   const { user } = props;
 
-  const userUrl = urlHomePage(user.defaultUserName).href;
+  const userUrl = urlHomePage(user?.defaultUserName)?.href;
 
   return (
     <div id={id} className="p-6">
@@ -28,15 +28,17 @@ const MainFeature = (props: { user: IUserType }) => {
         </BaseTypography>
       </div>
       <div className="flex relative left-1/4">
-        <ViewButton
-          href={userUrl}
-          variant="contained"
-          size="small"
-          color="primary"
-          LinkComponent={Link}
-        >
-          My Projects
-        </ViewButton>
+        {user && (
+          <ViewButton
+            href={userUrl}
+            variant="contained"
+            size="small"
+            color="primary"
+            LinkComponent={Link}
+          >
+            My Projects
+          </ViewButton>
+        )}
       </div>
     </div>
   );
