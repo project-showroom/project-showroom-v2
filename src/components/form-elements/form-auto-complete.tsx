@@ -14,9 +14,18 @@ const FormAutoComplete = (props: {
   helperText: string;
   tags: (string | number)[] | undefined;
   setTags: any;
+  allTechs: any;
 }) => {
   const id = useId() + '-' + COMPONENT_NAME;
-  const { name, id: formId, label, helperText, tags, setTags } = props;
+  const {
+    name,
+    id: formId,
+    label,
+    helperText,
+    tags,
+    setTags,
+    allTechs,
+  } = props;
 
   return (
     <div id={id} className={classNames(COMPONENT_NAME)}>
@@ -32,7 +41,7 @@ const FormAutoComplete = (props: {
               onChange={(_, newValue) => {
                 setTags([...newValue] as []);
               }}
-              options={top100Films.map((option) => option.title)}
+              options={allTechs}
               renderTags={(value, getTagProps) =>
                 value.map((option, index) => (
                   <div key={index}>
@@ -69,12 +78,3 @@ const FormAutoComplete = (props: {
 FormAutoComplete.displayName = COMPONENT_NAME;
 
 export { FormAutoComplete };
-const top100Films = [
-  { title: 'The Shawshank Redemption' },
-  { title: 'The Godfather' },
-  { title: 'The Godfather: Part II' },
-  { title: 'The Dark Knight' },
-  { title: '12 Angry Men' },
-  { title: "Schindler's List" },
-  { title: 'Pulp Fiction' },
-];
