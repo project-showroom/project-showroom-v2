@@ -3,14 +3,17 @@ import { useId } from 'react';
 import classNames from 'classnames';
 import Link from 'next/link';
 
-import { SubmitTypeButton } from '../../components/button-elements';
+import { ViewButton } from '../../components/button-components';
 import { BaseTypography } from '../../components/typography-elements';
 import { IUserType } from '../../types/api-types';
+import { urlHomePage } from '../../utils/url-home-page';
 
 const COMPONENT_NAME = 'MainFeature';
 const MainFeature = (props: { user: IUserType }) => {
   const id = useId() + '-' + COMPONENT_NAME;
   const { user } = props;
+
+  const userUrl = urlHomePage(user.defaultUserName).href;
 
   return (
     <div id={id} className="p-6">
@@ -23,6 +26,18 @@ const MainFeature = (props: { user: IUserType }) => {
         >
           {user?.displayName}
         </BaseTypography>
+      </div>
+      <div className="flex relative left-1/4">
+        <Link href={userUrl}>
+          <ViewButton
+            href={userUrl}
+            variant="contained"
+            size="small"
+            color="primary"
+          >
+            My Projects
+          </ViewButton>
+        </Link>
       </div>
     </div>
   );
