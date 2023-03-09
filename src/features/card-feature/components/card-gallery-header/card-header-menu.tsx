@@ -1,6 +1,7 @@
 import Divider from '@mui/material/Divider';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 
@@ -55,6 +56,7 @@ const CardHeaderMenu = (props: {
           onClick={() => deleteCard(cardid)}
           icon={<DeleteIconElement />}
           text="Delete"
+          LinkComponent={Link}
         />
         <Divider component="div" role="presentation" flexItem />
         <ListButton

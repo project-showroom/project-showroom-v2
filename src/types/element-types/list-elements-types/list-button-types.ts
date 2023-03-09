@@ -13,4 +13,5 @@ export interface IListButtonType extends ListItemButtonBaseProps {
   size?: string;
   color?: string;
   target?: string;
+  LinkComponent?: React.ElementType;
 }

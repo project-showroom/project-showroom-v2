@@ -28,16 +28,15 @@ const MainFeature = (props: { user: IUserType }) => {
         </BaseTypography>
       </div>
       <div className="flex relative left-1/4">
-        <Link href={userUrl}>
-          <ViewButton
-            href={userUrl}
-            variant="contained"
-            size="small"
-            color="primary"
-          >
-            My Projects
-          </ViewButton>
-        </Link>
+        <ViewButton
+          href={userUrl}
+          variant="contained"
+          size="small"
+          color="primary"
+          LinkComponent={Link}
+        >
+          My Projects
+        </ViewButton>
       </div>
     </div>
   );
