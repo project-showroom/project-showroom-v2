@@ -4,11 +4,11 @@ import { Container, Divider } from '@mui/material';
 import classNames from 'classnames';
 import { useSelector } from 'react-redux';
 
-import { UserProfileDescription, UserProfileTitle } from './components';
-import { UserProfileButtons } from './components/user-profile-buttons';
 import { IProfileType } from '../../types/api-types';
 import { IAddProjectFormValues } from '../../types/element-types/form-elements-types';
 import { CardFeature } from '../card-feature';
+import { UserProfileDescription, UserProfileTitle } from './components';
+import { UserProfileButtons } from './components/user-profile-buttons';
 
 const COMPONENT_NAME = 'UserProfileFeature';
 const UserProfileFeature = (props: {

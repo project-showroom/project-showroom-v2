@@ -3,16 +3,16 @@ import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { getUser } from '../../libs/api/user';
+import { AppDispatch } from '../../store';
+import { IUserType } from '../../types/api-types';
+import convertTokenId from '../../utils/convert-token-id';
 import {
   ThemeSwitch,
   HeaderTitle,
   LoginRegisterButton,
   AppBarMenu,
 } from './index';
-import { getUser } from '../../libs/api/user';
-import { AppDispatch } from '../../store';
-import { IUserType } from '../../types/api-types';
-import convertTokenId from '../../utils/convert-token-id';
 
 const COMPONENT_NAME = 'HeaderFeature';
 const HeaderFeature = (props: {

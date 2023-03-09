@@ -5,8 +5,8 @@ import Divider from '@mui/material/Divider';
 import Link from '@mui/material/Link';
 import classNames from 'classnames';
 
-import { CopyrightExplanation } from './copyright-explanation';
 import { BaseTypography } from '../../../components/typography-elements/index';
+import { CopyrightExplanation } from './copyright-explanation';
 
 const COMPONENT_NAME = 'Copyright';
 const copyrightWhoHas = 'Emre MUTLU & ERCAN AKALAR';

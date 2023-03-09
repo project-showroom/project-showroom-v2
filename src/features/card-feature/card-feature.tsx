@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-import { CardSelf } from './components/index';
-import { CardPagination } from './index';
 import { IAddProjectFormValues } from '../../types/element-types/form-elements-types/';
 import { ITEMS_PER_PAGE } from '../../utils/items-per-page';
 import { paginationFunction } from '../../utils/pagination-function';
+import { CardSelf } from './components/index';
+import { CardPagination } from './index';
 
 const COMPONENT_NAME = 'CardFeature';
 const CardFeature = (props: { projects: IAddProjectFormValues[] }) => {

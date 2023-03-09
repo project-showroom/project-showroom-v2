@@ -4,12 +4,12 @@ import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
 import classNames from 'classnames';
 
+import { CardSelfProps } from '../../../types/api-types';
+import { IAddProjectFormValues } from '../../../types/element-types/form-elements-types';
 import { CardGalleryButtons } from './card-gallery-buttons';
 import { CardContentCombine } from './card-gallery-content/index';
 import { CardGalleryHeader } from './card-gallery-header/index';
 import { CardGalleryMedia } from './card-gallery-media/index';
-import { CardSelfProps } from '../../../types/api-types';
-import { IAddProjectFormValues } from '../../../types/element-types/form-elements-types';
 
 const COMPONENT_NAME = 'CardSelf';
 const cardGridClassNames = classNames('h-auto sm:h-[600px]', COMPONENT_NAME);
@@ -56,7 +56,9 @@ const CardSelf = (props: CardSelfProps) => {
                 />
                 <CardGalleryButtons
                   leftButtonUrl={cardItem?.leftButtonUrl}
+                  leftButtonTitle={cardItem?.leftButtonTitle}
                   rightButtonUrl={cardItem?.rightButtonUrl}
+                  rightButtonTitle={cardItem?.rightButtonTitle}
                 />
               </Card>
             </Grid>
