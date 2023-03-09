@@ -6,9 +6,11 @@ const COMPONENT_NAME = 'CardGalleryButtons';
 const CardGalleryButtons = (props: {
   leftButtonUrl: string | undefined;
   rightButtonUrl: string | undefined;
+  leftButtonTitle: string | undefined;
+  rightButtonTitle: string | undefined;
 }) => {
-  const { leftButtonUrl, rightButtonUrl } = props;
-  console.log(leftButtonUrl);
+  const { leftButtonUrl, rightButtonUrl, leftButtonTitle, rightButtonTitle } =
+    props;
   return (
     <CardActions className="flex justify-between">
       <ViewButton
@@ -17,7 +19,7 @@ const CardGalleryButtons = (props: {
         size="small"
         color="primary"
       >
-        VIEW ONLINE
+        {leftButtonTitle}
       </ViewButton>
       <ViewButton
         href={rightButtonUrl}
@@ -25,7 +27,7 @@ const CardGalleryButtons = (props: {
         size="small"
         color="primary"
       >
-        VIEW CODES
+        {rightButtonTitle}
       </ViewButton>
     </CardActions>
   );

@@ -16,6 +16,7 @@ import { updateProject } from '../../../../libs/api/projects';
 import { AppDispatch } from '../../../../store';
 import { IAddProjectFormValues } from '../../../../types/element-types/form-elements-types';
 import validationSchema from '../../../../utils/add-project-validation-schema';
+import { allTechs } from '../../../../utils/all-techs';
 
 const COMPONENT_NAME = 'EditProjectForm';
 const EditProjectForm = (props: { className?: string }) => {
@@ -31,7 +32,7 @@ const EditProjectForm = (props: { className?: string }) => {
       state.editProject,
   );
 
-  const [tags, setTags] = useState(editProject.skillTags);
+  const [tags, setTags] = useState(editProject?.skillTags);
 
   const onSubmit = async (values: IAddProjectFormValues) => {
     dispatch(updateProject({ values, cardid }));
@@ -39,16 +40,17 @@ const EditProjectForm = (props: { className?: string }) => {
   };
 
   const initialValues = {
-    projectTitle: editProject.projectTitle,
-    thumbnailUrl: editProject.thumbnailUrl,
-    description: editProject.description,
+    projectTitle: editProject?.projectTitle,
+    thumbnailUrl: editProject?.thumbnailUrl,
+    description: editProject?.description,
     skillTags: tags,
-    leftButtonTitle: 'View Online',
-    leftButtonUrl: editProject.leftButtonUrl,
-    rightButtonTitle: 'View Codes',
-    rightButtonUrl: editProject.rightButtonUrl,
-    userInfo: { ...editProject.userInfo },
+    leftButtonTitle: editProject?.leftButtonTitle,
+    leftButtonUrl: editProject?.leftButtonUrl,
+    rightButtonTitle: editProject?.rightButtonTitle,
+    rightButtonUrl: editProject?.rightButtonUrl,
+    userInfo: { ...editProject?.userInfo },
   };
+
   const boxClassNames = classNames(
     'flex items-center bg-blue-500 w-max rounded md:absolute md:right-4 ',
   );
@@ -61,7 +63,9 @@ const EditProjectForm = (props: { className?: string }) => {
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={(values) => {
-          values.skillTags = tags;
+          initialValues.rightButtonTitle = values.rightButtonTitle;
+          initialValues.leftButtonTitle = values.leftButtonTitle;
+          initialValues.skillTags = tags;
           onSubmit(initialValues);
         }}
       >
@@ -72,7 +76,7 @@ const EditProjectForm = (props: { className?: string }) => {
             label="Project Title"
             placeholder="Project Title"
             type="text"
-            defaultValue={editProject.projectTitle}
+            defaultValue={editProject?.projectTitle}
             onChange={(e) => {
               initialValues.projectTitle = e.target.value;
             }}
@@ -84,7 +88,7 @@ const EditProjectForm = (props: { className?: string }) => {
             label="Thumbnail Url"
             placeholder="Thumbnail Url"
             type="url"
-            defaultValue={editProject.thumbnailUrl}
+            defaultValue={editProject?.thumbnailUrl}
             onChange={(e) => {
               initialValues.thumbnailUrl = e.target.value;
             }}
@@ -98,7 +102,7 @@ const EditProjectForm = (props: { className?: string }) => {
             variant="outlined"
             type="text"
             multiline
-            defaultValue={editProject.description}
+            defaultValue={editProject?.description}
             onChange={(e) => {
               initialValues.description = e.target.value;
             }}
@@ -112,16 +116,16 @@ const EditProjectForm = (props: { className?: string }) => {
             helperText="If you cannot find your technology, you can write it anyway."
             setTags={setTags}
             tags={tags}
+            allTechs={allTechs}
           />
           <div className={spaceClassNames} />
           <div className={leftRightButtonClassNames}>
             <FormInputText
               id="leftButtonTitle"
               name="leftButtonTitle"
-              placeholder="View Online"
               label="Left Button Title"
-              disabled
               className="w-full"
+              type="text"
             />
             <FormInputText
               id="editLeftButtonUrl"
@@ -131,7 +135,7 @@ const EditProjectForm = (props: { className?: string }) => {
               label="Left Button Url"
               className="w-full"
               type="url"
-              defaultValue={editProject.leftButtonUrl}
+              defaultValue={editProject?.leftButtonUrl}
               onChange={(e) => {
                 initialValues.leftButtonUrl = e.target.value;
               }}
@@ -142,10 +146,9 @@ const EditProjectForm = (props: { className?: string }) => {
             <FormInputText
               id="rightButtonTitle"
               name="rightButtonTitle"
-              placeholder="View Codes"
               label="Right Button Title"
-              disabled
               className="w-full"
+              type="text"
             />
             <FormInputText
               id="editRightButtonUrl"
@@ -155,7 +158,7 @@ const EditProjectForm = (props: { className?: string }) => {
               label="Right Button Url"
               className="w-full"
               type="url"
-              defaultValue={editProject.rightButtonUrl}
+              defaultValue={editProject?.rightButtonUrl}
               onChange={(e) => {
                 initialValues.rightButtonUrl = e.target.value;
               }}

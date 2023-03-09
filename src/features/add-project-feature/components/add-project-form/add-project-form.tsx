@@ -16,6 +16,7 @@ import { AppDispatch } from '../../../../store';
 import { IUserType } from '../../../../types/api-types';
 import { IAddProjectFormValues } from '../../../../types/element-types/form-elements-types';
 import validationSchema from '../../../../utils/add-project-validation-schema';
+import { allTechs } from '../../../../utils/all-techs';
 
 const COMPONENT_NAME = 'AddProjectForm';
 const AddProjectForm = (props: { className?: string }) => {
@@ -113,6 +114,7 @@ const AddProjectForm = (props: { className?: string }) => {
             label="Skill Tags (ex: ReactJs, Materialui)"
             helperText="If you cannot find your technology, you can write it anyway."
             setTags={setTags}
+            allTechs={allTechs}
             tags={tags}
           />
           <div className={spaceClassNames} />
@@ -122,8 +124,8 @@ const AddProjectForm = (props: { className?: string }) => {
               name="leftButtonTitle"
               placeholder="View Online"
               label="Left Button Title"
-              disabled
               className="w-full"
+              type="text"
             />
             <FormInputText
               id="leftButtonUrl"
@@ -142,8 +144,8 @@ const AddProjectForm = (props: { className?: string }) => {
               name="rightButtonTitle"
               placeholder="View Codes"
               label="Right Button Title"
-              disabled
               className="w-full"
+              type="text"
             />
             <FormInputText
               id="rightButtonUrl"
