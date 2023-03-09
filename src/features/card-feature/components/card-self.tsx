@@ -1,9 +1,8 @@
-import { useState, useId } from 'react';
+import { useState, useId, useEffect } from 'react';
 
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
 import classNames from 'classnames';
-import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 
 import { deleteProject } from '../../../libs/api/projects';
@@ -27,6 +26,10 @@ const CardSelf = (props: CardSelfProps) => {
   const { className, userCards } = props;
 
   const [ama, setAma] = useState(userCards);
+
+  useEffect(() => {
+    setAma(userCards);
+  }, [userCards]);
 
   const dispatch = useDispatch<AppDispatch>();
 
