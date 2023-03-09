@@ -63,6 +63,7 @@ const CardHeaderMenu = (props: {
           onClick={() => editCard()}
           icon={<EditIconElement />}
           text="Edit"
+          LinkComponent={Link}
         />
       </MenuItem>
     </Menu>
