@@ -1,7 +1,7 @@
 import { useId } from 'react';
 
 import { IButtonType } from '../../types/element-types/button-elements-types';
-import {  ViewTypeButton } from '../button-elements';
+import { ViewTypeButton } from '../button-elements';
 
 const COMPONENT_NAME = 'ViewButton';
 const ViewButton = (props: IButtonType) => {
@@ -19,4 +19,3 @@ const ViewButton = (props: IButtonType) => {
 ViewButton.displayName = COMPONENT_NAME;
 
 export { ViewButton };
-  

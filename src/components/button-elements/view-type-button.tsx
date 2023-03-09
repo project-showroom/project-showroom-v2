@@ -1,9 +1,10 @@
 import { useId } from 'react';
 
+import { IButtonType } from '../../types/element-types/button-elements-types';
 import { BaseButton } from './base-button';
 
 const COMPONENT_NAME = 'ViewTypeButton';
-const ViewTypeButton = (props: { className?: string }) => {
+const ViewTypeButton = (props: IButtonType) => {
   const id = useId() + '-' + COMPONENT_NAME;
 
   const { ...rest } = props;
