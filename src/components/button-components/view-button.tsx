@@ -1,7 +1,7 @@
 import { useId } from 'react';
 
 import { IButtonType } from '../../types/element-types/button-elements-types';
-import { SubmitTypeButton } from '../button-elements';
+import {  ViewTypeButton } from '../button-elements';
 
 const COMPONENT_NAME = 'ViewButton';
 const ViewButton = (props: IButtonType) => {
@@ -10,12 +10,13 @@ const ViewButton = (props: IButtonType) => {
   const { children, ...rest } = props;
 
   return (
-    <SubmitTypeButton id={id} {...rest}>
+    <ViewTypeButton id={id} {...rest}>
       {children}
-    </SubmitTypeButton>
+    </ViewTypeButton>
   );
 };
 
 ViewButton.displayName = COMPONENT_NAME;
 
 export { ViewButton };
+  
