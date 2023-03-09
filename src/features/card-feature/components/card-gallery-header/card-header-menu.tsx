@@ -3,15 +3,12 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useDispatch } from 'react-redux';
 
 import {
   DeleteIconElement,
   EditIconElement,
 } from '../../../../components/icons-elements';
 import { ListButton } from '../../../../components/list-item-button-components/list-button';
-import { deleteProject } from '../../../../libs/api/projects';
-import { AppDispatch } from '../../../../store';
 
 const COMPONENT_NAME = 'CardHeaderMenu';
 const CardHeaderMenu = (props: {
@@ -20,6 +17,7 @@ const CardHeaderMenu = (props: {
   handleClose: () => void;
   cardId?: string | undefined;
   cardDefaultUserName?: string;
+  deleteCardById?: () => void;
 }) => {
   const {
     anchorEl,
@@ -27,14 +25,11 @@ const CardHeaderMenu = (props: {
     open,
     cardId: cardid,
     cardDefaultUserName,
+    deleteCardById,
   } = props;
 
   const router = useRouter();
-  const dispatch = useDispatch<AppDispatch>();
 
-  const deleteCard = (cardid: string) => {
-    dispatch(deleteProject(cardid));
-  };
   const editCard = () => {
     router.push(`/${cardDefaultUserName}/edit-project/${cardid}`);
   };
@@ -52,8 +47,7 @@ const CardHeaderMenu = (props: {
     >
       <MenuItem onClick={handleClose} className="flex flex-col">
         <ListButton
-          href={`/${cardDefaultUserName}/`}
-          onClick={() => deleteCard(cardid)}
+          onClick={deleteCardById}
           icon={<DeleteIconElement />}
           text="Delete"
           LinkComponent={Link}

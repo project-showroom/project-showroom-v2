@@ -11,8 +11,15 @@ const CardGalleryHeader = (props: {
   cardId?: string;
   cardUserId?: string;
   cardDefaultUserName?: string;
+  deleteCardById?: () => void;
 }) => {
-  const { cardUserName, cardId, cardUserId, cardDefaultUserName } = props;
+  const {
+    cardUserName,
+    cardId,
+    cardUserId,
+    cardDefaultUserName,
+    deleteCardById,
+  } = props;
 
   const userId = convertTokenId();
 
@@ -26,6 +33,7 @@ const CardGalleryHeader = (props: {
           <CardHeaderAction
             cardId={cardId}
             cardDefaultUserName={cardDefaultUserName}
+            deleteCardById={deleteCardById}
           />
         )
       }

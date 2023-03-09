@@ -9,8 +9,9 @@ const COMPONENT_NAME = 'CardHeaderAction';
 const CardHeaderAction = (props: {
   cardId?: string;
   cardDefaultUserName?: string;
+  deleteCardById?: () => void;
 }) => {
-  const { cardId, cardDefaultUserName } = props;
+  const { cardId, cardDefaultUserName, deleteCardById } = props;
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -37,6 +38,7 @@ const CardHeaderAction = (props: {
         anchorEl={anchorEl}
         cardId={cardId}
         cardDefaultUserName={cardDefaultUserName}
+        deleteCardById={deleteCardById}
       />
     </>
   );
