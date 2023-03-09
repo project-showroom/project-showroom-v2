@@ -16,6 +16,12 @@ export default async function handler(
         body.createdAt = Date.now();
         const newProject = new Projects(body);
         await newProject.save();
+        res.status(200).json({
+          success: true,
+          data: newProject,
+          message: 'Created new project',
+          loading: false,
+        });
       }
       break;
     case 'GET':
