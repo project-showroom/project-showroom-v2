@@ -20,7 +20,7 @@ const store = configureStore({
     updateProfile: updateProfileSlice,
     profile: takeProfileSlice,
     searchProfile: searchProfileSlice,
-    deleteProject: deleteProjectSlice,
+    leftProjectsAfterDeleted: deleteProjectSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

@@ -28,11 +28,21 @@ export default async function handler(
         const deleteProject = await Projects.findOneAndDelete({
           _id: cardid,
         });
+        if(!deleteProject) {
+          return res.status(401).json({
+            success: false,
+            message: 'Not Deleted projects',
+            loading: false,
+          });
+        }
+        const leftProjectsAfterDelete = await Projects.find({
+          'userInfo.defaultUserName': deleteProject.userInfo.defaultUserName,
+        });
         res.status(200).json({
           success: true,
           message: 'Deleted project',
           loading: false,
-          data: deleteProject,
+          data: leftProjectsAfterDelete,
         });
       }
       break;

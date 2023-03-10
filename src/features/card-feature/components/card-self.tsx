@@ -1,12 +1,9 @@
-import { useState, useId, useEffect } from 'react';
+import { useId } from 'react';
 
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
 import classNames from 'classnames';
-import { useDispatch } from 'react-redux';
 
-import { deleteProject } from '../../../libs/api/projects';
-import { AppDispatch } from '../../../store';
 import { CardSelfProps } from '../../../types/api-types';
 import { IAddProjectFormValues } from '../../../types/element-types/form-elements-types';
 import { CardGalleryButtons } from './card-gallery-buttons';
@@ -23,24 +20,9 @@ const cardClassNames = classNames(
 );
 const CardSelf = (props: CardSelfProps) => {
   const id = useId() + '-' + COMPONENT_NAME;
-  const { className, userCards } = props;
+  const { className, userCards, deleteCardById } = props;
 
-  const [ama, setAma] = useState(userCards);
-
-  useEffect(() => {
-    setAma(userCards);
-  }, [userCards]);
-
-  const dispatch = useDispatch<AppDispatch>();
-
-  const deleteCardById = (cardId: string | undefined) => {
-    const all = ama?.filter((card) => card?._id !== cardId);
-    setAma(all);
-    if (!cardId) return null;
-    dispatch(deleteProject(cardId));
-  };
-
-  if (!userCards && !ama) return null;
+  if (!userCards) return null;
 
   return (
     <div id={id} className={classNames(className, COMPONENT_NAME)}>
@@ -49,7 +31,7 @@ const CardSelf = (props: CardSelfProps) => {
         spacing={{ xs: 1, md: 3 }}
         className={cardContainerGridClassNames}
       >
-        {ama?.map(
+        {userCards?.map(
           (cardItem: IAddProjectFormValues | undefined, index: number) => (
             <Grid
               key={index}
