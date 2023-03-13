@@ -16,7 +16,7 @@ const CardGalleryDescription = (props: { cardDescription?: string }) => {
       component="p"
       className={typographyClassNames}
     >
-      Card Description - {cardDescription}
+      {cardDescription}
     </BaseTypography>
   );
 };
