@@ -37,7 +37,7 @@ function App({ Component, pageProps }: AppProps) {
               />
             </header>
             <Component {...pageProps} />
-            <footer className="pt-16">
+            <footer className="pt-28">
               <FooterFeature />
             </footer>
           </main>

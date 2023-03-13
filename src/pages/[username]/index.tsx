@@ -34,9 +34,7 @@ const UserPage = (props: { className?: string }) => {
 
   if (loading) return <div>Loading...</div>;
 
-  const userClassNames = classNames(
-    'flow-root relative min-[320px]-justify-center top-16',
-  );
+  const userClassNames = classNames('flex relative flex-col p-4 top-16');
   return (
     <div id={id} {...rest} className={userClassNames}>
       {username && <UserProfileFeature projects={projects} />}
