@@ -3,7 +3,7 @@ import { useId } from 'react';
 import Box from '@mui/material/Box';
 import classNames from 'classnames';
 import { Formik, Form } from 'formik';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { SubmitButton } from '../../../components/button-components';
 import { FormInputText } from '../../../components/form-elements';
@@ -15,23 +15,17 @@ import { IManegeDetailsFormValues } from '../../../types/element-types/form-elem
 import initialProfileValuesFunc from '../../../utils/profil-initial-values';
 
 const COMPONENT_NAME = 'MyDetailsForm';
-const MyDetailsForm = (props: { className?: string }) => {
+const MyDetailsForm = (props: { profile: IProfileType; user: IUserType }) => {
   const id = useId() + '-' + COMPONENT_NAME;
-  const { className, ...rest } = props;
+  const { profile, user, ...rest } = props;
 
   const dispatch = useDispatch<AppDispatch>();
-  const { profile } = useSelector(
-    (state: { profile: { profile: IProfileType } }) => state.profile,
-  );
-  const { user } = useSelector(
-    (state: { user: { user: IUserType } }) => state.user,
-  );
 
   const onSubmit = async (values: IManegeDetailsFormValues) => {
     dispatch(postAndUpdateProfile(values));
   };
 
-  const initialValues = initialProfileValuesFunc(profile);
+  const initialValues = initialProfileValuesFunc(profile, user);
 
   const boxClassNames = classNames(
     'flex items-center bg-blue-500 w-max rounded md:absolute md:right-4 ',
@@ -39,7 +33,7 @@ const MyDetailsForm = (props: { className?: string }) => {
   const spaceClassNames = classNames('flex flex-col h-full p-4 mt-2');
   const headerLoginButtonClassNames = classNames('bg-blue-600');
   return (
-    <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
+    <div id={id} {...rest} className={classNames(COMPONENT_NAME)}>
       <Formik
         initialValues={initialValues}
         onSubmit={(values) => {

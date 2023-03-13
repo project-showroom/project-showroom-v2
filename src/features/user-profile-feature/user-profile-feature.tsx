@@ -40,7 +40,10 @@ const UserProfileFeature = (props: {
             buttonName={currentSearchProfile.giveNameToButton}
             userProjectUrl={currentSearchProfile.userInfo?.defaultUserName}
           />
-          <Divider className="dark:bg-white" />
+          {currentSearchProfile.profileTitle ||
+            currentSearchProfile.myDetails ? (
+              <Divider className="dark:bg-white" />
+            ):null}
           <CardFeature projects={projects} />
         </Container>
       </>

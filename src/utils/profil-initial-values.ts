@@ -1,6 +1,9 @@
 import { IManegeDetailsFormValues } from '../types/element-types/form-elements-types';
 
-const initialProfileValuesFunc = (profile: IManegeDetailsFormValues) => {
+const initialProfileValuesFunc = (
+  profile: IManegeDetailsFormValues,
+  user: any,
+) => {
   if (profile)
     return {
       userName: profile.userInfo?.defaultUserName,
@@ -11,7 +14,7 @@ const initialProfileValuesFunc = (profile: IManegeDetailsFormValues) => {
       userInfo: { ...profile.userInfo },
     };
   return {
-    userName: '',
+    userName: user.defaultUserName,
     myDetails: '',
     giveNameToButton: '',
     addLinkToYourDetails: '',

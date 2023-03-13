@@ -23,14 +23,16 @@ const UserProfileButtons = (props: {
   );
   return (
     <div id={id} {...rest} className={userProfileButtonClassNames}>
-      <ViewButton
-        href={userUrl}
-        variant="contained"
-        size="small"
-        color="primary"
-      >
-        VIEW MY PROJECTS
-      </ViewButton>
+      {userProjectUrl ? (
+        <ViewButton
+          href={userUrl}
+          variant="contained"
+          size="small"
+          color="primary"
+        >
+          VIEW MY PROJECTS
+        </ViewButton>
+      ) : null}
 
       {cvUrl && (
         <ViewButton
