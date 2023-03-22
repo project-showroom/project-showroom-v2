@@ -21,7 +21,7 @@ const MainFeature = (props: { user: IUserType }) => {
     return (
       <div className="space-y-1 px-2">
         <FormTitleElement className="text-center">
-          Welcome to Project-Showroom!f
+          Welcome to Project-Showroom!
         </FormTitleElement>
         <p>
           Project-Showroom is a web app that allows developers and designers to
