@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 import { ViewButton } from '../../components/button-components';
 import { FormTitleElement } from '../../components/form-elements';
+import { ImageGalleryElement } from '../../components/image-gallery-elements';
 import { BaseTypography } from '../../components/typography-elements';
 import { IUserType } from '../../types/api-types';
 import { urlHomePage } from '../../utils/url-home-page';
@@ -20,7 +21,7 @@ const MainFeature = (props: { user: IUserType }) => {
     return (
       <div className="space-y-1 px-2">
         <FormTitleElement className="text-center">
-          Welcome to Project-Showroom!
+          Welcome to Project-Showroom!f
         </FormTitleElement>
         <p>
           Project-Showroom is a web app that allows developers and designers to
@@ -28,6 +29,11 @@ const MainFeature = (props: { user: IUserType }) => {
           experienced developer, Project-Showroom is the perfect platform to
           showcase your work and share it with the world.
         </p>
+
+        <div className="flex justify-center">
+          <ImageGalleryElement />
+        </div>
+
         <b>Features:</b>
         <ul className="text-gray-700 list-disc list-inside dark:text-gray-400">
           <li>
