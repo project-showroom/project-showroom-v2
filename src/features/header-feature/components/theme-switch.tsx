@@ -16,16 +16,19 @@ const ThemeSwitch = (props: {
   const id = useId() + '-' + COMPONENT_NAME;
   const { className, darkMode, toggleDarkMode, ...rest } = props;
 
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const validTheme = theme === 'system' ? resolvedTheme : theme;
 
   const toggleTheme = () => {
     toggleDarkMode(!darkMode);
   };
 
   useEffect(() => {
-    theme === 'dark' ? toggleDarkMode(true) : toggleDarkMode(false);
-  }, [theme, toggleDarkMode]);
+    validTheme === 'dark' ? toggleDarkMode(true) : toggleDarkMode(false);
+  }, [validTheme, toggleDarkMode]);
 
+  const switchIcon =
+    validTheme === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />;
   return (
     <>
       <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
@@ -34,14 +37,12 @@ const ThemeSwitch = (props: {
             checked={darkMode}
             onChange={toggleTheme}
             onClick={() => {
-              setTheme(theme === 'dark' ? 'light' : 'dark');
+              setTheme(validTheme === 'dark' ? 'light' : 'dark');
             }}
             name="checkedA"
             inputProps={{ 'aria-label': 'secondary checkbox' }}
-            icon={theme === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-            checkedIcon={
-              theme === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />
-            }
+            icon={switchIcon}
+            checkedIcon={switchIcon}
           />
         </Box>
       </div>
