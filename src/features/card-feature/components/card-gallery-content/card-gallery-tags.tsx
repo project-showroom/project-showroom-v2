@@ -2,6 +2,8 @@ import Chip from '@mui/material/Chip';
 import Grid from '@mui/material/Grid';
 import classNames from 'classnames';
 
+import { GenericIconWithText } from '../../../../components/icons-elements/generic-icon-with-text';
+
 const chipClassNames = classNames('p-3');
 const COMPONENT_NAME = 'CardGalleryTags';
 const CardGalleryTags = (props: {
@@ -18,7 +20,7 @@ const CardGalleryTags = (props: {
     >
       {cardTags?.map((chip) => (
         <div key={chip} className={chipClassNames}>
-          <Chip label={chip} size="small" />
+          <Chip label={<GenericIconWithText option={chip} />} size="small" />
         </div>
       ))}
     </Grid>

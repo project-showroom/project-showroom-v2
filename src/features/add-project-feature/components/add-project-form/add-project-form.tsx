@@ -16,7 +16,7 @@ import { AppDispatch } from '../../../../store';
 import { IUserType } from '../../../../types/api-types';
 import { IAddProjectFormValues } from '../../../../types/element-types/form-elements-types';
 import validationSchema from '../../../../utils/add-project-validation-schema';
-import { allTechs } from '../../../../utils/all-techs';
+import allTechs from '../../../../utils/all-techs.json';
 
 const COMPONENT_NAME = 'AddProjectForm';
 const AddProjectForm = (props: { className?: string }) => {

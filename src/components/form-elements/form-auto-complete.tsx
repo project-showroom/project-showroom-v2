@@ -6,6 +6,8 @@ import TextField from '@mui/material/TextField';
 import classNames from 'classnames';
 import { Field, FieldProps } from 'formik';
 
+import { GenericIconWithText } from '../icons-elements/generic-icon-with-text';
+
 const COMPONENT_NAME = 'FormAutoComplete';
 const FormAutoComplete = (props: {
   name: string;
@@ -43,16 +45,18 @@ const FormAutoComplete = (props: {
               }}
               options={allTechs}
               renderTags={(value, getTagProps) =>
-                value.map((option, index) => (
-                  <div key={index}>
-                    <Chip
-                      variant="outlined"
-                      label={option}
-                      size="small"
-                      {...getTagProps({ index })}
-                    />
-                  </div>
-                ))
+                value.map((option, index) => {
+                  return (
+                    <div key={index}>
+                      <Chip
+                        variant="outlined"
+                        label={<GenericIconWithText option={option} />}
+                        size="small"
+                        {...getTagProps({ index })}
+                      />
+                    </div>
+                  );
+                })
               }
               renderInput={(params) => (
                 <TextField
