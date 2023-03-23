@@ -2,24 +2,19 @@ import '../styles/globals.css';
 import { useState } from 'react';
 
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import classNames from 'classnames';
 import { ThemeProvider as NextThemeProvider } from 'next-themes';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Provider } from 'react-redux';
 
-import { FooterFeature } from '../features/footer-feature/footer-feature';
-import { HeaderFeature } from '../features/header-feature/header-feature';
 import store from '../store/index';
 import { lightTheme, darkTheme } from '../utils/theme-mode';
+import { AppContent } from './app-content';
 
-function App({ Component, pageProps }: AppProps) {
+function App(AppProps: AppProps) {
   const [darkMode, setDarkMode] = useState<boolean>(false);
   const Theme = darkMode ? darkTheme : lightTheme;
 
-  const headerClassNames = classNames(
-    'flex fixed w-full h-16 justify-between items-center pl-2 py-3 z-10 font-bold bg-blue-600 text-white shadow-md shadow-gray-300/50 ',
-  );
   return (
     <Provider store={store}>
       <Head>
@@ -29,18 +24,24 @@ function App({ Component, pageProps }: AppProps) {
       <ThemeProvider theme={Theme}>
         <CssBaseline />
         <NextThemeProvider attribute="class">
-          <main>
-            <header className={headerClassNames}>
-              <HeaderFeature
-                darkMode={darkMode}
-                toggleDarkMode={(e: boolean) => setDarkMode(e)}
-              />
-            </header>
+          <AppContent
+            AppProps={AppProps}
+            darkMode={darkMode}
+            setDarkMode={(e: boolean) => setDarkMode(e)}
+          />
+          {/* <LoadingSpinner />
+          <header className={headerClassNames}>
+            <HeaderFeature
+              darkMode={darkMode}
+              toggleDarkMode={(e: boolean) => setDarkMode(e)}
+            />
+          </header>
+          <main className="relative">
             <Component {...pageProps} />
-            <footer className="pt-28">
-              <FooterFeature />
-            </footer>
           </main>
+          <footer className="pt-28">
+            <FooterFeature />
+          </footer> */}
         </NextThemeProvider>
       </ThemeProvider>
     </Provider>

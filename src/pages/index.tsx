@@ -19,9 +19,9 @@ const Home: NextPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={classNames('flex relative justify-center pt-16')}>
+      <div className={classNames('flex relative justify-center pt-16')}>
         <MainFeature user={user} />
-      </main>
+      </div>
     </>
   );
 };
