@@ -7,7 +7,7 @@ import { MainFeature } from '../features/main-feature';
 import { IUserType } from '../types/api-types';
 
 const Home: NextPage = () => {
-  const { user, loading } = useSelector(
+  const { user } = useSelector(
     (state: { user: { loading: boolean; user: IUserType } }) => state.user,
   );
 
@@ -21,7 +21,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={mainClassNames}>
-        {!user && !loading ? null : <MainFeature user={user} />}
+        <MainFeature user={user} />
       </main>
     </>
   );
