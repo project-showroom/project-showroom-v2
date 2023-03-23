@@ -30,6 +30,7 @@ const takeUserSlice = createSlice({
     builder.addCase(
       getUser.fulfilled,
       (state, action: PayloadAction<IUserType[]>) => {
+        state.loading = false;
         state.user = action.payload;
         state.error = '';
       },
