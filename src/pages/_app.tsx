@@ -29,19 +29,6 @@ function App(AppProps: AppProps) {
             darkMode={darkMode}
             setDarkMode={(e: boolean) => setDarkMode(e)}
           />
-          {/* <LoadingSpinner />
-          <header className={headerClassNames}>
-            <HeaderFeature
-              darkMode={darkMode}
-              toggleDarkMode={(e: boolean) => setDarkMode(e)}
-            />
-          </header>
-          <main className="relative">
-            <Component {...pageProps} />
-          </main>
-          <footer className="pt-28">
-            <FooterFeature />
-          </footer> */}
         </NextThemeProvider>
       </ThemeProvider>
     </Provider>
