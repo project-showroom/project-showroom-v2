@@ -22,6 +22,9 @@ const projectSlice = createSlice({
     builder.addCase(createProject.pending, (state) => {
       state.loading = true;
     });
+    builder.addCase(createProject.fulfilled, (state) => {
+      state.loading = false;
+    });
 
     builder.addCase(createProject.rejected, (state, action) => {
       state.loading = false;

@@ -22,7 +22,9 @@ const updateProfileSlice = createSlice({
     builder.addCase(postAndUpdateProfile.pending, (state) => {
       state.loading = true;
     });
-
+    builder.addCase(postAndUpdateProfile.fulfilled, (state) => {
+      state.loading = false;
+    });
     builder.addCase(postAndUpdateProfile.rejected, (state, action) => {
       state.loading = false;
       state.updateProfile = [];
