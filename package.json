@@ -28,6 +28,7 @@
     "mongoose": "^6.8.3",
     "next": "13.0.7",
     "next-themes": "^0.2.1",
+    "nextjs-progressbar": "^0.0.16",
     "passport": "^0.6.0",
     "passport-google-oauth20": "^2.0.0",
     "react": "18.2.0",
