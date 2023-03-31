@@ -15,7 +15,7 @@ const COMPONENT_NAME = 'CardSelf';
 const cardGridClassNames = classNames('h-auto sm:h-[600px]', COMPONENT_NAME);
 const cardContainerGridClassNames = classNames('flex flex-row', COMPONENT_NAME);
 const cardClassNames = classNames(
-  'flex flex-col h-full justify-between',
+  'flex flex-col h-full justify-between bg-gray-50 text-gray-900 dark:bg-slate-800 dark:text-gray-100',
   COMPONENT_NAME,
 );
 const CardSelf = (props: CardSelfProps) => {
