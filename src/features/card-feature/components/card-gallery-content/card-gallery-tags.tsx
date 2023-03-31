@@ -16,7 +16,7 @@ const CardGalleryTags = (props: {
   return (
     <Grid
       container
-      className={classNames('flex justify-between max-h-14 overflow-auto')}
+      className={classNames('flex justify-between h-14 overflow-auto')}
     >
       {cardTags?.map((chip) => (
         <div key={chip} className={chipClassNames}>
