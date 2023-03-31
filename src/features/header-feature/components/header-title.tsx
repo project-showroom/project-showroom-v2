@@ -12,7 +12,7 @@ const HeaderTitle = (props: {
   const id = useId() + '-' + COMPONENT_NAME;
   const { currentUserDisplayName, currentDefaultUserName, ...rest } = props;
 
-  const title = 'PROJECT GALLERY';
+  const title = 'PROJECT GALLERY  <BETA>';
 
   const headerTitleClassNames = classNames('flex');
   const headerTitleLinkClassNames = classNames('text-sm no-underline');

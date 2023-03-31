@@ -21,7 +21,7 @@ const Copyright = (props: { className?: string }) => {
       <div>
         <BaseTypography variant="h6" align="center" gutterBottom>
           <Link href="https://project-showroom.vercel.app/">
-            PROJECT GALLERY | {copyrightWhoHas}
+            PROJECT GALLERY {'<BETA>'} | {copyrightWhoHas}
           </Link>
         </BaseTypography>
         <div />
