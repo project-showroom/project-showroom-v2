@@ -35,7 +35,7 @@ const AppContent = ({
       <LoadingSpinner isLoaded={allLoaded} />
       <header
         className={classNames(
-          'flex fixed w-full h-16 justify-between items-center pl-2 py-3 z-10 font-bold bg-blue-600 text-white shadow-md shadow-gray-300/50 ',
+          'flex fixed w-full h-16 justify-between items-center p-2 z-10 font-bold bg-blue-600 text-white shadow-md shadow-gray-300/50',
         )}
       >
         <HeaderFeature

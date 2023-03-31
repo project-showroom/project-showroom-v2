@@ -1,6 +1,20 @@
 import { createTheme } from '@mui/material';
 
+const componentsOverrides = {
+  // Name of the component
+  MuiSwitch: {
+    styleOverrides: {
+      // Name of the slot
+      switchBase: {
+        // Some CSS
+        paddingTop: '7px',
+      },
+    },
+  },
+};
+
 const lightTheme = createTheme({
+  components: { ...componentsOverrides },
   palette: {
     mode: 'light',
     loginButtonColor: {
@@ -10,6 +24,7 @@ const lightTheme = createTheme({
   },
 });
 const darkTheme = createTheme({
+  components: { ...componentsOverrides },
   palette: {
     mode: 'dark',
     loginButtonColor: {

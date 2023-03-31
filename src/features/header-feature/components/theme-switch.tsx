@@ -1,9 +1,11 @@
 import { useId, useEffect } from 'react';
 
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
+import Brightness6Icon from '@mui/icons-material/Brightness6';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
 import { Switch } from '@mui/material';
 import Box from '@mui/material/Box';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import classNames from 'classnames';
 import { useTheme } from 'next-themes';
 
@@ -27,22 +29,26 @@ const ThemeSwitch = (props: {
     validTheme === 'dark' ? toggleDarkMode(true) : toggleDarkMode(false);
   }, [validTheme, toggleDarkMode]);
 
-  const switchIcon =
-    validTheme === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />;
   return (
     <>
       <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
         <Box>
-          <Switch
-            checked={darkMode}
-            onChange={toggleTheme}
-            onClick={() => {
-              setTheme(validTheme === 'dark' ? 'light' : 'dark');
-            }}
-            name="checkedA"
-            inputProps={{ 'aria-label': 'secondary checkbox' }}
-            icon={switchIcon}
-            checkedIcon={switchIcon}
+          <FormControlLabel
+            control={
+              <Switch
+                checked={darkMode}
+                onChange={toggleTheme}
+                onClick={() => {
+                  setTheme(validTheme === 'dark' ? 'light' : 'dark');
+                }}
+                name="checkedA"
+                inputProps={{ 'aria-label': 'secondary checkbox' }}
+                icon={<LightModeIcon className="light-icon" />}
+                checkedIcon={<DarkModeIcon className="dark-icon" />}
+              />
+            }
+            label="Change Theme"
+            labelPlacement="start"
           />
         </Box>
       </div>
