@@ -1,6 +1,5 @@
 import { useId, useEffect } from 'react';
 
-import Brightness6Icon from '@mui/icons-material/Brightness6';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import { Switch } from '@mui/material';
