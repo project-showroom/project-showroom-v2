@@ -9,6 +9,7 @@ import { ImageGalleryElement } from '../../components/image-gallery-elements';
 import { BaseTypography } from '../../components/typography-elements';
 import { IUserType } from '../../types/api-types';
 import { urlHomePage } from '../../utils/url-home-page';
+import { FeaturesSection } from './features-section';
 
 const COMPONENT_NAME = 'MainFeature';
 const MainFeature = (props: { user: IUserType }) => {
@@ -34,26 +35,8 @@ const MainFeature = (props: { user: IUserType }) => {
           <ImageGalleryElement />
         </div>
 
-        <b>Features:</b>
-        <ul className="text-gray-700 list-disc list-inside dark:text-gray-400">
-          <li>
-            Showcase your portfolio: Project-Showroom allows you to create a
-            portfolio of your work, including images, descriptions, and links to
-            your projects.
-          </li>
-          <li>
-            Discover other portfolios: Explore other developers&apos; and
-            designers&apos; portfolios and get inspired by their work.
-          </li>
-          <li>
-            Easy to use: Project-Showroom is designed with simplicity in mind,
-            making it easy for you to create and manage your portfolio.
-          </li>
-          <li>
-            Customize your profile: Personalize your profile with your own
-            branding and make it stand out from the crowd.
-          </li>
-        </ul>
+        <FeaturesSection />
+
         <b>Getting started:</b>
         <p>
           To get started with Project-Showroom, simply create an account and
