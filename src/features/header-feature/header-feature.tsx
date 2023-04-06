@@ -42,7 +42,7 @@ const HeaderFeature = (props: {
     'flex items-center justify-center',
   );
   const headerRegisterThemeClassNames = classNames(
-    'flex items-center justify-end',
+    'flex items-center justify-end gap-4 mr-4',
   );
   return (
     <header
