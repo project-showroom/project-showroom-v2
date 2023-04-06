@@ -21,19 +21,19 @@ const MainFeature = (props: { user: IUserType }) => {
   if (!user)
     return (
       <div className="space-y-1 px-2">
-        <FormTitleElement className="text-center">
+        <FormTitleElement className="text-center my-8">
           Welcome to Project-Showroom!
         </FormTitleElement>
-        <p>
-          Project-Showroom is a web app that allows developers and designers to
-          showcase their projects in one place. Whether you are a beginner or an
-          experienced developer, Project-Showroom is the perfect platform to
-          showcase your work and share it with the world.
-        </p>
-
-        <div className="flex justify-center">
-          <ImageGalleryElement />
+        <div className="flex justify-center items-center pb-10">
+          <p className="w-96">
+            Project-Showroom is a web app that allows developers and designers
+            to showcase their projects in one place. Whether you are a beginner
+            or an experienced developer, Project-Showroom is the perfect
+            platform to showcase your work and share it with the world.
+          </p>
         </div>
+
+        <ImageGalleryElement />
 
         <FeaturesSection />
 

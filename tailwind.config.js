@@ -7,7 +7,16 @@ module.exports = {
   ],
   darkMode: 'class',
   theme: {
-    extend: {},
+    extend: {
+      height: {
+        128: '32rem',
+        320: '80rem',
+      },
+      width: {
+        128: '32rem',
+        320: '80rem',
+      },
+    },
   },
   variants: {
     extend: {},

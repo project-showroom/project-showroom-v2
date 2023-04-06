@@ -1,5 +1,7 @@
-import { useId } from 'react';
+import { ChangeEvent, useId, useState } from 'react';
 
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 import classNames from 'classnames';
 import Image, { StaticImageData } from 'next/image';
 
@@ -21,26 +23,41 @@ const ImageGalleryElement = ({
 }) => {
   const id = useId() + '-' + COMPONENT_NAME;
 
+  const [page, setPage] = useState(1);
+
+  const handlePageChange = (event: ChangeEvent<unknown>, value: number) => {
+    setPage(value);
+  };
+
   return (
-    <div
-      id={id}
-      {...rest}
-      className={classNames(
-        className,
-        COMPONENT_NAME,
-        'flex max-h-1/4 max-w-4xl	overflow-x-scroll',
-      )}
-    >
-      {images.map((image, index) => {
-        return (
-          <Image
-            key={'image-' + index}
-            className="scale-50 hover:scale-75 ease-in duration-500"
-            alt="Picture of the author"
-            src={image}
-          />
-        );
-      })}
+    <div className="mb-6 pb-6 ease-in duration-500 border-y">
+      <div
+        id={id}
+        {...rest}
+        className={classNames(
+          className,
+          COMPONENT_NAME,
+          'flex items-center justify-center',
+        )}
+        style={{
+          height: '600px',
+        }}
+      >
+        <Image
+          key={'image-' + page}
+          className="scale-110 hover:scale-125 ease-in duration-500 my-16 max-w-4xl"
+          alt="Picture of the author"
+          src={images[page - 1]}
+        />
+      </div>
+      <div className="flex items-center justify-center">
+        <Pagination
+          count={images.length}
+          color="primary"
+          page={page}
+          onChange={handlePageChange}
+        />
+      </div>
     </div>
   );
 };
