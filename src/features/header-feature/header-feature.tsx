@@ -45,15 +45,25 @@ const HeaderFeature = (props: {
     'flex items-center justify-end',
   );
   return (
-    <>
+    <header
+      className={classNames(
+        'flex fixed w-full h-16 justify-between items-center p-2 z-10 font-bold bg-blue-600 text-white shadow-md shadow-gray-300/50',
+      )}
+    >
       <div className={headerTitleMenuClassNames}>
-        {user && <AppBarMenu currentDefaultUserName={currentDefaultUserName} />}
+        {user && (
+          <AppBarMenu
+            currentDefaultUserName={currentDefaultUserName}
+            className={headerTitleMenuClassNames}
+          />
+        )}
       </div>
 
       <div className={headerTitleMenuClassNames}>
         <HeaderTitle
           currentUserDisplayName={currentUserDisplayName}
           currentDefaultUserName={currentDefaultUserName}
+          className={headerTitleMenuClassNames}
         />
       </div>
       <div className={headerRegisterThemeClassNames}>
@@ -63,7 +73,7 @@ const HeaderFeature = (props: {
           darkMode={darkMode}
         />
       </div>
-    </>
+    </header>
   );
 };
 

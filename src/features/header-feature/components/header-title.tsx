@@ -15,7 +15,9 @@ const HeaderTitle = (props: {
   const title = 'PROJECT GALLERY  <BETA>';
 
   const headerTitleClassNames = classNames('flex');
-  const headerTitleLinkClassNames = classNames('text-sm no-underline');
+  const headerTitleLinkClassNames = classNames(
+    'text-xs md:text-sm no-underline',
+  );
   return (
     <div id={id} {...rest} className={headerTitleClassNames}>
       <Link href="/">

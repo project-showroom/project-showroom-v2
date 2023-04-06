@@ -33,16 +33,12 @@ const AppContent = ({
   return (
     <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
       <LoadingSpinner isLoaded={allLoaded} />
-      <header
-        className={classNames(
-          'flex fixed w-full h-16 justify-between items-center p-2 z-10 font-bold bg-blue-600 text-white shadow-md shadow-gray-300/50',
-        )}
-      >
+      <>
         <HeaderFeature
           darkMode={darkMode}
           toggleDarkMode={(e: boolean) => setDarkMode(e)}
         />
-      </header>
+      </>
       <main className="relative">
         <Component {...pageProps} />
       </main>

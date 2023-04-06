@@ -33,6 +33,7 @@ const ThemeSwitch = (props: {
       <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
         <Box>
           <FormControlLabel
+            classes={{ label: 'label text-xs md:text-sm' }}
             control={
               <Switch
                 checked={darkMode}

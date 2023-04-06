@@ -11,7 +11,7 @@ const LoginRegisterButton = (props: { className?: string }) => {
 
   const { ...rest } = props;
 
-  const headerLoginClassNames = classNames('flex text-sm mr-1');
+  const headerLoginClassNames = classNames('flex text-xs md:text-sm mr-1');
   return (
     <div id={id} {...rest} className={headerLoginClassNames}>
       <SingInUpButton
@@ -19,6 +19,7 @@ const LoginRegisterButton = (props: { className?: string }) => {
         variant="contained"
         color="loginButtonColor"
         buttonIcon={<LogInIconElement />}
+        className="text-xs md:text-sm"
       >
         Sign In / Up
       </SingInUpButton>
