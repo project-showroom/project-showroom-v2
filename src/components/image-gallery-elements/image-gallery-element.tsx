@@ -45,7 +45,7 @@ const ImageGalleryElement = ({
       >
         <Image
           key={'image-' + page}
-          className="scale-110 hover:scale-125 ease-in duration-500 my-16 max-w-4xl"
+          className="scale-110 hover:scale-125 ease-in duration-500 my-16 max-w-sm  sm:max-w-xl md:max-w-2xl md:max-w-4xl"
           alt="Picture of the author"
           src={images[page - 1]}
         />

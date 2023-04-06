@@ -1,5 +1,7 @@
 import { useId } from 'react';
 
+import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
+import Card from '@mui/material/Card';
 import classNames from 'classnames';
 import Link from 'next/link';
 
@@ -32,21 +34,29 @@ const MainFeature = (props: { user: IUserType }) => {
             platform to showcase your work and share it with the world.
           </p>
         </div>
-
         <ImageGalleryElement />
-
+        <div className="m-4 h-2" />
+        <Card className="p-4  bg-gray-100 text-gray-900 dark:bg-slate-800 dark:text-gray-100 shadow-lg rounded-2xl">
+          <div className="flex justify-center items-center gap-8">
+            <div className="border-r-2 p-4">
+              <TipsAndUpdatesIcon sx={{ fontSize: '60px' }} />
+            </div>
+            <div>
+              <b>Getting started:</b>
+              <p>
+                To get started with Project-Showroom, simply create an account
+                and start building your portfolio. You can add projects,
+                customize your profile, and explore other portfolios with ease.
+              </p>
+              <p>
+                We hope you enjoy using Project-Showroom and look forward to
+                seeing your amazing projects!
+              </p>
+            </div>
+          </div>
+        </Card>
+        <div className="m-4 h-2" />
         <FeaturesSection />
-
-        <b>Getting started:</b>
-        <p>
-          To get started with Project-Showroom, simply create an account and
-          start building your portfolio. You can add projects, customize your
-          profile, and explore other portfolios with ease.
-        </p>
-        <p>
-          We hope you enjoy using Project-Showroom and look forward to seeing
-          your amazing projects!
-        </p>
       </div>
     );
 
