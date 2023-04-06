@@ -10,7 +10,7 @@ const BaseButton = (props: IButtonType) => {
   const id = useId() + '-' + COMPONENT_NAME;
   const { buttonIcon, ...rest } = props;
 
-  return <Button id={id} endIcon={buttonIcon} {...rest} />;
+  return <Button target="_blank" id={id} endIcon={buttonIcon} {...rest} />;
 };
 
 BaseButton.displayName = COMPONENT_NAME;
