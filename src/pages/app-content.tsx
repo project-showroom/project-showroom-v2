@@ -51,4 +51,4 @@ const AppContent = ({
 
 AppContent.displayName = COMPONENT_NAME;
 
-export { AppContent };
+export default AppContent;
