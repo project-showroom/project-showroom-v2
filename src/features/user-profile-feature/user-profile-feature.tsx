@@ -45,7 +45,7 @@ const UserProfileFeature = (props: {
           currentSearchProfile.myDetails ? (
             <Divider className="dark:bg-white" />
           ) : null}
-          <FavoriteCards />
+          {/* <FavoriteCards /> */}
           <CardFeature projects={projects} />
         </Container>
       </>

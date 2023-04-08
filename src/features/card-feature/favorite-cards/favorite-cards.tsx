@@ -7,6 +7,8 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import classNames from 'classnames';
 
+import { CardItem } from '../components/card-item';
+
 const COMPONENT_NAME = 'FavoriteCards';
 const FavoriteCards = ({ className = '', ...rest }: { className?: string }) => {
   const id = useId() + '-' + COMPONENT_NAME;
@@ -22,10 +24,7 @@ const FavoriteCards = ({ className = '', ...rest }: { className?: string }) => {
           <Typography>Accordion 1</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
+          <CardItem />
         </AccordionDetails>
       </Accordion>
     </div>
