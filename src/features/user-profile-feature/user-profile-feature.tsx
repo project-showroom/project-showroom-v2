@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import { IProfileType } from '../../types/api-types';
 import { IAddProjectFormValues } from '../../types/element-types/form-elements-types';
 import { CardFeature } from '../card-feature';
+import { FavoriteCards } from '../card-feature/favorite-cards';
 import { UserProfileDescription, UserProfileTitle } from './components';
 import { UserProfileButtons } from './components/user-profile-buttons';
 
@@ -41,9 +42,10 @@ const UserProfileFeature = (props: {
             userProjectUrl={currentSearchProfile.userInfo?.defaultUserName}
           />
           {currentSearchProfile.profileTitle ||
-            currentSearchProfile.myDetails ? (
-              <Divider className="dark:bg-white" />
-            ):null}
+          currentSearchProfile.myDetails ? (
+            <Divider className="dark:bg-white" />
+          ) : null}
+          <FavoriteCards />
           <CardFeature projects={projects} />
         </Container>
       </>
