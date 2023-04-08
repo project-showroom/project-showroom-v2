@@ -4,9 +4,9 @@ import classNames from 'classnames';
 import type { AppProps } from 'next/app';
 import { useSelector } from 'react-redux';
 
-import { LoadingSpinner } from '../components/spinners';
-import { FooterFeature } from '../features/footer-feature/footer-feature';
-import { HeaderFeature } from '../features/header-feature/header-feature';
+import { LoadingSpinner } from '../../components/spinners';
+import { FooterFeature } from '../footer-feature/footer-feature';
+import { HeaderFeature } from '../header-feature/header-feature';
 
 const COMPONENT_NAME = 'AppContent';
 const AppContent = ({
@@ -51,4 +51,4 @@ const AppContent = ({
 
 AppContent.displayName = COMPONENT_NAME;
 
-export default AppContent;
+export { AppContent };

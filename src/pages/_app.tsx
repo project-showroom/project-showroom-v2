@@ -8,9 +8,9 @@ import Head from 'next/head';
 import NextNProgress from 'nextjs-progressbar';
 import { Provider } from 'react-redux';
 
+import { AppContent } from '../features/app-feature/app-content';
 import store from '../store/index';
 import { lightTheme, darkTheme } from '../utils/theme-mode';
-import { AppContent } from './app-content';
 
 function App(AppProps: AppProps) {
   const [darkMode, setDarkMode] = useState<boolean>(false);
