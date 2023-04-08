@@ -40,6 +40,7 @@ const UserProfileButtons = (props: {
           variant="contained"
           size="small"
           color="primary"
+          target="_blank"
         >
           {buttonName}
         </ViewButton>

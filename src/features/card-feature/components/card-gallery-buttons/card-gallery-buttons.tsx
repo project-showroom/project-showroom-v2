@@ -18,6 +18,7 @@ const CardGalleryButtons = (props: {
         variant="contained"
         size="small"
         color="primary"
+        target="_blank"
       >
         {leftButtonTitle}
       </ViewButton>
@@ -26,6 +27,7 @@ const CardGalleryButtons = (props: {
         variant="contained"
         size="small"
         color="primary"
+        target="_blank"
       >
         {rightButtonTitle}
       </ViewButton>
