@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 
 import { SubmitButton } from '../../../components/button-components';
 import { FormInputText } from '../../../components/form-elements';
+import { FormTextArea } from '../../../components/form-elements/form-text-area';
 import { SendIconElement } from '../../../components/icons-elements';
 import { postAndUpdateProfile } from '../../../libs/api/profile';
 import { AppDispatch } from '../../../store';
@@ -32,6 +33,7 @@ const MyDetailsForm = (props: { profile: IProfileType; user: IUserType }) => {
   );
   const spaceClassNames = classNames('flex flex-col h-full p-4 mt-2');
   const headerLoginButtonClassNames = classNames('bg-blue-600');
+
   return (
     <div id={id} {...rest} className={classNames(COMPONENT_NAME)}>
       <Formik
@@ -55,7 +57,7 @@ const MyDetailsForm = (props: { profile: IProfileType; user: IUserType }) => {
             disabled
           />
           <div className={spaceClassNames} />
-          <FormInputText
+          <FormTextArea
             id="myDetails"
             name="myDetails"
             label="My Details"
