@@ -7,10 +7,13 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import NextNProgress from 'nextjs-progressbar';
 import { Provider } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 
 import { AppContent } from '../features/app-feature/app-content';
 import store from '../store/index';
 import { lightTheme, darkTheme } from '../utils/theme-mode';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 function App(AppProps: AppProps) {
   const [darkMode, setDarkMode] = useState<boolean>(false);
@@ -25,6 +28,7 @@ function App(AppProps: AppProps) {
 
       <ThemeProvider theme={Theme}>
         <CssBaseline />
+        <ToastContainer />
         <NextThemeProvider attribute="class">
           <AppContent
             AppProps={AppProps}
