@@ -16,7 +16,7 @@ const cardClassNames = classNames(
   COMPONENT_NAME,
 );
 interface ICardItem extends CardSelfProps {
-  cardItem: IAddProjectFormValues | undefined;
+  cardItem?: IAddProjectFormValues;
 }
 const CardItem = ({ className = '', cardItem, ...rest }: ICardItem) => {
   const id = useId() + '-' + COMPONENT_NAME;
