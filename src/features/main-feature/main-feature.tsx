@@ -1,9 +1,10 @@
-import { useId } from 'react';
+import { useId, useEffect } from 'react';
 
 import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
 import Card from '@mui/material/Card';
 import classNames from 'classnames';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import { ViewButton } from '../../components/button-components';
 import { FormTitleElement } from '../../components/form-elements';
@@ -17,8 +18,15 @@ const COMPONENT_NAME = 'MainFeature';
 const MainFeature = (props: { user: IUserType }) => {
   const id = useId() + '-' + COMPONENT_NAME;
   const { user } = props;
+  const { push } = useRouter();
 
   const userUrl = urlHomePage(user?.defaultUserName)?.href;
+
+  useEffect(() => {
+    if (userUrl) {
+      push(userUrl);
+    }
+  }, [push, userUrl]);
 
   if (!user)
     return (
