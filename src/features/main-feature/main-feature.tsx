@@ -23,10 +23,11 @@ const MainFeature = (props: { user: IUserType }) => {
   const userUrl = urlHomePage(user?.defaultUserName)?.href;
 
   useEffect(() => {
-    if (userUrl) {
+    if (user && new URL(userUrl).pathname !== '/undefined') {
+      console.log(userUrl, 'userUrl');
       push(userUrl);
     }
-  }, [push, userUrl]);
+  }, [push, user, userUrl]);
 
   if (!user)
     return (
