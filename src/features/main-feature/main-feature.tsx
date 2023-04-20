@@ -24,7 +24,6 @@ const MainFeature = (props: { user: IUserType }) => {
 
   useEffect(() => {
     if (user && new URL(userUrl).pathname !== '/undefined') {
-      console.log(userUrl, 'userUrl');
       push(userUrl);
     }
   }, [push, user, userUrl]);
