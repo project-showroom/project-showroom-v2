@@ -15,7 +15,12 @@ const CardGalleryTitle = (props: {
 
   return (
     <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
-      <BaseTypography variant="h6" component="h2">
+      <BaseTypography
+        variant="h6"
+        component="h2"
+        className="max-h-12 truncate"
+        title={cardTitle}
+      >
         {cardTitle}
       </BaseTypography>
     </div>
