@@ -7,6 +7,7 @@ import { getUser } from '../../libs/api/user';
 import { AppDispatch } from '../../store';
 import { IUserType } from '../../types/api-types';
 import convertTokenId from '../../utils/convert-token-id';
+import { HowToUse } from './components/help/how-to-use';
 import {
   ThemeSwitch,
   HeaderTitle,
@@ -72,6 +73,9 @@ const HeaderFeature = (props: {
           toggleDarkMode={(e: boolean) => toggleDarkMode(e)}
           darkMode={darkMode}
         />
+      </div>
+      <div id="how-to-use">
+        <HowToUse />
       </div>
     </header>
   );
