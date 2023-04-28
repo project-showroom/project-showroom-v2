@@ -37,28 +37,19 @@ export default async function handler(
           {
             'userInfo.defaultUserName': body.data.userInfo.defaultUserName,
           },
-          body.data,
+          { ...body.data },
         );
 
         if (!updateProfile) {
           body.createdAt = Date.now();
 
           const newProfile = new Profiles({
+            ...body.data,
             userName: body.data.userInfo.defaultUserName,
-            myDetails: body.data.myDetails,
-            giveNameToButton: body.data.giveNameToButton,
-            addLinkToYourDetails: body.data.addLinkToYourDetails,
-            myImageUrl: body.data.myImageUrl,
-            profileTitle: body.data.profileTitle,
-            userInfo: {
-              defaultUserName: body.data.userInfo.defaultUserName,
-              userEmail: body.data.userInfo.userEmail,
-              userId: body.data.userInfo.userId,
-              displayName: body.data.userInfo.displayName,
-            },
           });
           await newProfile.save();
         }
+
         res.status(200).json({
           success: true,
           data: updateProfile,
