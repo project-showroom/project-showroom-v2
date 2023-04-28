@@ -14,6 +14,7 @@ interface IProfile extends Document {
   profileTitle: string;
   userInfo: ProfileInfoType;
   createdAt: Date;
+  myImageUrl: string;
 }
 
 const ProfilesSchema: Schema = new Schema<IProfile>({
@@ -27,6 +28,9 @@ const ProfilesSchema: Schema = new Schema<IProfile>({
     type: String,
   },
   addLinkToYourDetails: {
+    type: String,
+  },
+  myImageUrl: {
     type: String,
   },
   profileTitle: {

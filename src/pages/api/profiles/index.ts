@@ -48,6 +48,7 @@ export default async function handler(
             myDetails: body.data.myDetails,
             giveNameToButton: body.data.giveNameToButton,
             addLinkToYourDetails: body.data.addLinkToYourDetails,
+            myImageUrl: body.data.myImageUrl,
             profileTitle: body.data.profileTitle,
             userInfo: {
               defaultUserName: body.data.userInfo.defaultUserName,

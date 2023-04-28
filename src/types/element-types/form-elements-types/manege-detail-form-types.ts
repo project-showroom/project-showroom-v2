@@ -11,4 +11,5 @@ export interface IManegeDetailsFormValues {
   addLinkToYourDetails?: string | undefined;
   profileTitle?: string | undefined;
   userInfo?: ProfileInfoType;
+  myImageUrl?: string;
 }

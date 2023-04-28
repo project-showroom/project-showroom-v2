@@ -12,6 +12,8 @@ const initialProfileValuesFunc = (
       addLinkToYourDetails: profile.addLinkToYourDetails,
       profileTitle: profile.profileTitle,
       userInfo: { ...profile.userInfo },
+      myImageUrl:
+        profile.myImageUrl || 'https://fakeimg.pl/400x400/?text=No+Image',
     };
   return {
     userName: user.defaultUserName,
@@ -25,6 +27,7 @@ const initialProfileValuesFunc = (
       defaultUserName: '',
       displayName: '',
     },
+    myImageUrl: 'https://fakeimg.pl/400x400/?text=No+Image',
   };
 };
 export default initialProfileValuesFunc;

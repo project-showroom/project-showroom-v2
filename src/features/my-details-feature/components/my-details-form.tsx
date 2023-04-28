@@ -1,8 +1,8 @@
-import { useId } from 'react';
+import { useId, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import classNames from 'classnames';
-import { Formik, Form } from 'formik';
+import { Formik, Form, FormikProps } from 'formik';
 import { useDispatch } from 'react-redux';
 
 import { SubmitButton } from '../../../components/button-components';
@@ -33,6 +33,9 @@ const MyDetailsForm = (props: { profile: IProfileType; user: IUserType }) => {
   );
   const spaceClassNames = classNames('flex flex-col h-full p-4 mt-2');
   const headerLoginButtonClassNames = classNames('bg-blue-600');
+  const [myImageUrl, setMyImageUrlUrl] = useState<string>(
+    'https://fakeimg.pl/400x400/?text=No+Image',
+  );
 
   return (
     <div id={id} {...rest} className={classNames(COMPONENT_NAME)}>
@@ -48,63 +51,86 @@ const MyDetailsForm = (props: { profile: IProfileType; user: IUserType }) => {
           onSubmit(values);
         }}
       >
-        <Form>
-          <FormInputText
-            id="userName"
-            name="userName"
-            label="User Name"
-            placeholder="User Name"
-            disabled
-          />
-          <div className={spaceClassNames} />
-          <FormTextArea
-            id="myDetails"
-            name="myDetails"
-            label="My Details"
-            placeholder="My Details"
-            variant="outlined"
-            type="text"
-          />
+        {(props: FormikProps<IManegeDetailsFormValues>) => {
+          setMyImageUrlUrl(props.values.myImageUrl || '');
 
-          <div className={spaceClassNames} />
-          <FormInputText
-            id="giveNameToButton"
-            name="giveNameToButton"
-            label="Give Name To Button"
-            placeholder="Give Name To Button"
-            type="text"
-          />
-          <div className={spaceClassNames} />
-          <FormInputText
-            id="addLinkToYourDetails"
-            name="addLinkToYourDetails"
-            label="Add Link To Your Details"
-            placeholder="Add Link To Your Details"
-            type="url"
-            multiline
-          />
-          <div className={spaceClassNames} />
-          <FormInputText
-            id="profileTitle"
-            name="profileTitle"
-            label="Change Title"
-            placeholder="Change Title"
-            type="text"
-            multiline
-          />
-          <div className={spaceClassNames} />
-          <Box className={boxClassNames}>
-            <SubmitButton
-              className={headerLoginButtonClassNames}
-              buttonIcon={<SendIconElement />}
-              type="submit"
-              variant="contained"
-              size="large"
-            >
-              {profile === null ? 'Send' : 'Update'}
-            </SubmitButton>
-          </Box>
-        </Form>
+          return (
+            <Form>
+              <FormInputText
+                id="userName"
+                name="userName"
+                label="User Name"
+                placeholder="User Name"
+                disabled
+              />
+              <div className={spaceClassNames} />
+              <FormTextArea
+                id="myDetails"
+                name="myDetails"
+                label="My Details"
+                placeholder="My Details"
+                variant="outlined"
+                type="text"
+              />
+              <div className={spaceClassNames} />
+
+              <div className="flex justify-between items-center gap-1">
+                <FormInputText
+                  id="myImageUrl"
+                  name="myImageUrl"
+                  label="Your Image Url"
+                  placeholder="My Image Url"
+                  type="url"
+                  className="w-5/6"
+                />
+                <img
+                  className="w-14 h-14 sm:w-40 sm:h-40"
+                  alt="Picture of the user"
+                  src={myImageUrl}
+                />
+              </div>
+
+              <div className={spaceClassNames} />
+              <FormInputText
+                id="giveNameToButton"
+                name="giveNameToButton"
+                label="Give Name To Button"
+                placeholder="Give Name To Button"
+                type="text"
+              />
+              <div className={spaceClassNames} />
+              <FormInputText
+                id="addLinkToYourDetails"
+                name="addLinkToYourDetails"
+                label="Add Link To Your Details"
+                placeholder="Add Link To Your Details"
+                type="url"
+                multiline
+              />
+              <div className={spaceClassNames} />
+              <FormInputText
+                id="profileTitle"
+                name="profileTitle"
+                label="Change Title"
+                placeholder="Change Title"
+                type="text"
+                multiline
+              />
+              <div className={spaceClassNames} />
+              <Box className={boxClassNames}>
+                <SubmitButton
+                  className={headerLoginButtonClassNames}
+                  buttonIcon={<SendIconElement />}
+                  type="submit"
+                  variant="contained"
+                  size="large"
+                >
+                  {profile === null ? 'Send' : 'Update'}
+                </SubmitButton>
+              </Box>
+            </Form>
+          );
+        }}
       </Formik>
     </div>
   );

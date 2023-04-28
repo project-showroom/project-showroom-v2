@@ -9,4 +9,5 @@ export interface IProfileType {
   profileTitle?: string;
   userInfo?: UserInfoType;
   createdAt?: Date;
+  myImageUrl?: string;
 }
