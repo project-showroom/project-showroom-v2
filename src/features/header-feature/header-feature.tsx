@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { useIfBiggerThan } from '../../hooks/use-if-bigger-than';
 import { getUser } from '../../libs/api/user';
 import { AppDispatch } from '../../store';
 import { IUserType } from '../../types/api-types';
@@ -31,6 +32,8 @@ const HeaderFeature = (props: {
     (state: { user: { user: IUserType } }) => state.user,
   );
 
+  const matches = useIfBiggerThan({ size: 'md' });
+
   useEffect(() => {
     if (!takenUserId) setUserId('');
     dispatch(getUser(userId));
@@ -45,6 +48,7 @@ const HeaderFeature = (props: {
   const headerRegisterThemeClassNames = classNames(
     'flex items-center justify-end gap-4 mr-4',
   );
+
   return (
     <header
       className={classNames(
@@ -52,7 +56,7 @@ const HeaderFeature = (props: {
       )}
     >
       <div className={headerTitleMenuClassNames}>
-        {user && (
+        {!matches && user && (
           <AppBarMenu
             currentDefaultUserName={currentDefaultUserName}
             className={headerTitleMenuClassNames}

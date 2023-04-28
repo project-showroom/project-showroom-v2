@@ -1,11 +1,14 @@
 import { useId } from 'react';
 
+import Divider from '@mui/material/Divider';
 import classNames from 'classnames';
 import type { AppProps } from 'next/app';
 import { useSelector } from 'react-redux';
 
 import { LoadingSpinner } from '../../components/spinners';
+import { useIfBiggerThan } from '../../hooks/use-if-bigger-than';
 import { FooterFeature } from '../footer-feature/footer-feature';
+import { LeftMenuList } from '../header-feature';
 import { HeaderFeature } from '../header-feature/header-feature';
 
 const COMPONENT_NAME = 'AppContent';
@@ -30,6 +33,8 @@ const AppContent = ({
     return el.loading === false;
   });
 
+  const matches = useIfBiggerThan({ size: 'md' });
+
   return (
     <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
       <LoadingSpinner isLoaded={allLoaded} />
@@ -39,8 +44,16 @@ const AppContent = ({
           toggleDarkMode={(e: boolean) => setDarkMode(e)}
         />
       </>
-      <main className="relative">
-        <Component {...pageProps} />
+      <main className="relative flex">
+        {matches ? (
+          <>
+            <LeftMenuList className="top-16 relative" />
+            <Divider orientation="vertical" flexItem />
+            <Component {...pageProps} />
+          </>
+        ) : (
+          <Component {...pageProps} />
+        )}
       </main>
       <footer className="pt-28">
         <FooterFeature />
