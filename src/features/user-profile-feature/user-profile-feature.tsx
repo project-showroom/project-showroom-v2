@@ -9,6 +9,7 @@ import { IAddProjectFormValues } from '../../types/element-types/form-elements-t
 import { CardFeature } from '../card-feature';
 import { UserProfileDescription, UserProfileTitle } from './components';
 import { UserProfileButtons } from './components/user-profile-buttons';
+import { UserProfileUrl } from './components/user-profile-url';
 
 const COMPONENT_NAME = 'UserProfileFeature';
 const UserProfileFeature = (props: {
@@ -39,9 +40,12 @@ const UserProfileFeature = (props: {
                 src={currentSearchProfile?.myImageUrl}
               />
             )}
-            <UserProfileTitle
-              profileTitle={currentSearchProfile.profileTitle}
-            />
+            <div className="flex flex-col justify-center items-center">
+              <UserProfileTitle
+                profileTitle={currentSearchProfile.profileTitle}
+              />
+              <UserProfileUrl />
+            </div>
           </div>
           <UserProfileDescription
             profileDescription={currentSearchProfile.myDetails}
