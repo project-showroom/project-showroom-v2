@@ -52,15 +52,18 @@ const AppContent = ({
       <main className="relative flex">
         {matches && user ? (
           <>
-            <LeftMenuList
-              className="top-16 relative"
-              currentDefaultUserName={currentDefaultUserName}
-            />
-            <Divider orientation="vertical" flexItem />
-            <Component {...pageProps} />
+            <div className="top-16 relative flex" id="wide-screen-left-menu">
+              <LeftMenuList currentDefaultUserName={currentDefaultUserName} />
+              <Divider orientation="vertical" flexItem />
+            </div>
+            <div className="flex justify-center w-full">
+              <Component {...pageProps} />
+            </div>
           </>
         ) : (
-          <Component {...pageProps} />
+          <div className="flex justify-center w-full">
+            <Component {...pageProps} />
+          </div>
         )}
       </main>
       <footer className="pt-28">
