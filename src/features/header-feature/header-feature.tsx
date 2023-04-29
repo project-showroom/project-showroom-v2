@@ -71,15 +71,17 @@ const HeaderFeature = (props: {
           className={headerTitleMenuClassNames}
         />
       </div>
-      <div className={headerRegisterThemeClassNames}>
-        {!user && <LoginRegisterButton />}
-        <ThemeSwitch
-          toggleDarkMode={(e: boolean) => toggleDarkMode(e)}
-          darkMode={darkMode}
-        />
-      </div>
-      <div id="how-to-use">
-        <HowToUse />
+      <div className="flex gap-2">
+        <div className={headerRegisterThemeClassNames}>
+          {!user && <LoginRegisterButton />}
+          <ThemeSwitch
+            toggleDarkMode={(e: boolean) => toggleDarkMode(e)}
+            darkMode={darkMode}
+          />
+        </div>
+        <div id="how-to-use">
+          <HowToUse />
+        </div>
       </div>
     </header>
   );
