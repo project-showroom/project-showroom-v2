@@ -38,6 +38,7 @@ const AppContent = ({
   });
 
   const matches = useIfBiggerThan({ size: 'md' });
+  const currentDefaultUserName = user?.defaultUserName;
 
   return (
     <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
@@ -51,7 +52,10 @@ const AppContent = ({
       <main className="relative flex">
         {matches && user ? (
           <>
-            <LeftMenuList className="top-16 relative" />
+            <LeftMenuList
+              className="top-16 relative"
+              currentDefaultUserName={currentDefaultUserName}
+            />
             <Divider orientation="vertical" flexItem />
             <Component {...pageProps} />
           </>
