@@ -31,14 +31,18 @@ const UserProfileFeature = (props: {
     <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
       <>
         <Container maxWidth="md">
-          {currentSearchProfile?.myImageUrl && (
-            <img
-              className="w-14 h-14 sm:w-40 sm:h-40"
-              alt="Picture of the project"
-              src={currentSearchProfile?.myImageUrl}
+          <div className="flex items-center justify-between mb-4">
+            {currentSearchProfile?.myImageUrl && (
+              <img
+                className="w-14 h-14 sm:w-40 sm:h-40"
+                alt="Picture of the project"
+                src={currentSearchProfile?.myImageUrl}
+              />
+            )}
+            <UserProfileTitle
+              profileTitle={currentSearchProfile.profileTitle}
             />
-          )}
-          <UserProfileTitle profileTitle={currentSearchProfile.profileTitle} />
+          </div>
           <UserProfileDescription
             profileDescription={currentSearchProfile.myDetails}
           />
