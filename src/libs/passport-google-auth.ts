@@ -7,6 +7,7 @@ import {
   VerifyCallback,
 } from 'passport-google-oauth20';
 
+import Profiles from '../models/Profiles';
 import Users from '../models/Users';
 import { IUserType } from '../types/api-types';
 
@@ -64,6 +65,29 @@ passport.use(
           );
           newUser.tokens = token;
           await newUser.save();
+
+          const newProfile = new Profiles({
+            userInfo: {
+              defaultUserName: newUser.defaultUserName,
+              userId: newUser._id,
+            },
+            displayName: newUser.displayName,
+
+            myImageUrl: newUser.image,
+
+            email: newUser.email,
+            emailVerified: newUser.emailVerified,
+            createdAt: newUser.createdAt,
+            updatedAt: newUser.updatedAt,
+
+            userName: newUser.defaultUserName,
+            myDetails: 'Enter your details here',
+            giveNameToButton: 'Give Name to Button',
+            addLinkToYourDetails: 'Add Link to your details',
+            profileTitle: newUser.firstName + ' ' + newUser.lastName,
+          });
+          await newProfile.save();
+
           done(null, newUser, { message: 'Auth successful', token });
         }
       } catch (err) {
