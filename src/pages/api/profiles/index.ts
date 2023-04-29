@@ -19,15 +19,15 @@ export default async function handler(
   switch (method) {
     case 'GET':
       {
-        const getProfiles = await Profiles.findOne({
+        const getProfile = await Profiles.findOne({
           // 'userInfo.defaultUserName': body.data.userInfo.defaultUserName,
           'userInfo.userId': id,
         });
         res.status(200).json({
           success: true,
-          message: 'Found all Profiles',
+          message: 'Found a Profile',
           loading: false,
-          data: getProfiles,
+          data: getProfile,
         });
       }
       break;
