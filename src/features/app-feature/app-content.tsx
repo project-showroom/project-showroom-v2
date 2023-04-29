@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 
 import { LoadingSpinner } from '../../components/spinners';
 import { useIfBiggerThan } from '../../hooks/use-if-bigger-than';
+import { IUserType } from '../../types/api-types';
 import { FooterFeature } from '../footer-feature/footer-feature';
 import { LeftMenuList } from '../header-feature';
 import { HeaderFeature } from '../header-feature/header-feature';
@@ -28,6 +29,9 @@ const AppContent = ({
   const { Component, pageProps } = AppProps;
 
   const reduxStates = useSelector((state: any) => state);
+  const { user } = useSelector(
+    (state: { user: { user: IUserType } }) => state.user,
+  );
 
   const allLoaded = Object.values(reduxStates).every((el: any) => {
     return el.loading === false;
@@ -45,7 +49,7 @@ const AppContent = ({
         />
       </>
       <main className="relative flex">
-        {matches ? (
+        {matches && user ? (
           <>
             <LeftMenuList className="top-16 relative" />
             <Divider orientation="vertical" flexItem />
