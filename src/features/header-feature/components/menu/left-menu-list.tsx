@@ -27,7 +27,7 @@ const LeftMenuList = (props: {
   };
 
   const themeClassNames = classNames(
-    'flex flex-col justify-between  min-h-screen',
+    'flex flex-col justify-between  min-h-screen h-full',
   );
   return (
     <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
@@ -39,7 +39,7 @@ const LeftMenuList = (props: {
             ListIcon={<MoveToInBoxIconElement />}
             onClick={closeMenu}
           />
-          <Divider variant="middle" />
+          <Divider />
           <ListItemIconButton
             url={secondItem.url}
             text={secondItem.text}

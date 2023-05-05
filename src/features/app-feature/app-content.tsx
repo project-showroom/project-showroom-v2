@@ -66,7 +66,7 @@ const AppContent = ({
           </div>
         )}
       </main>
-      <footer className="pt-28">
+      <footer className="pt-16">
         <FooterFeature />
       </footer>
     </div>

@@ -13,12 +13,14 @@ const copyrightWhoHas = 'Emre MUTLU & ERCAN AKALAR';
 const Copyright = (props: { className?: string }) => {
   const id = useId() + '-' + COMPONENT_NAME;
 
-  const { className, ...rest } = props;
+  const { ...rest } = props;
+
+  const footerClassName = classNames('py-20');
 
   return (
-    <div id={id} {...rest} className={classNames(className, COMPONENT_NAME)}>
+    <div id={id} {...rest} className={classNames(COMPONENT_NAME)}>
       <Divider className="dark:bg-white" />
-      <div>
+      <div className={classNames(footerClassName)}>
         <BaseTypography variant="h6" align="center" gutterBottom>
           <Link href="https://project-showroom.vercel.app/">
             PROJECT GALLERY {'<BETA>'} | {copyrightWhoHas}
